@@ -5,6 +5,8 @@
  */
 package it2c.teves.cfa;
 
+import admins.adminslogin;
+import config.dbconnect;
 import javax.swing.JOptionPane;
 
 /**
@@ -192,7 +194,7 @@ public class loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-      Adminsloginform alfm = new Adminsloginform();
+      adminslogin alfm = new adminslogin();
       alfm.setVisible(true);
       this.dispose();
         // TODO add your handling code here:
@@ -210,9 +212,17 @@ public class loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
-     if(username.getText() .isEmpty() ||password.getText().isEmpty() ){
+    username.getText();
+    password.getText();
+        String un = "SELECT uname FROM users WHERE uname =?"; 
+     dbconnect dbc = new dbconnect();
+     dbc.getString(un, username);
+        String ps = "SELECT uname FROM users WHERE uname =?";
+        dbc.getString(ps, password);
+        
+        if(username.getText() .isEmpty() ||password.getText().isEmpty() ){
      JOptionPane.showMessageDialog(null,"all field are required");
-     }    
+     } 
      else{
      userinterface uin = new userinterface();
      uin.setVisible(true);

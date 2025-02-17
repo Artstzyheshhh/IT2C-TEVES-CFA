@@ -5,6 +5,7 @@
  */
 package it2c.teves.cfa;
 
+import config.dbconnect;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,9 +56,10 @@ public class registeracc extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         sex = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        username1 = new javax.swing.JTextField();
         uname = new javax.swing.JTextField();
         age = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        email = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,7 +150,7 @@ public class registeracc extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Username:");
-        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 120, 25));
+        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 120, 25));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -178,14 +180,14 @@ public class registeracc extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("firstname:");
-        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 120, 25));
-        main.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 310, 25));
-        main.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 310, 25));
+        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 120, 25));
+        main.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 310, 25));
+        main.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 310, 25));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 0, 0));
         jLabel11.setText("lastname:");
-        main.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 120, 25));
+        main.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 120, 25));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 0, 0));
@@ -200,15 +202,14 @@ public class registeracc extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(153, 0, 0));
         jLabel13.setText("Age:");
         main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 40, 25));
-
-        username1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                username1ActionPerformed(evt);
-            }
-        });
-        main.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 140, 25));
-        main.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 310, 25));
+        main.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 310, 25));
         main.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 110, 25));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel15.setText("email:");
+        main.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 120, 25));
+        main.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 310, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,10 +237,6 @@ public class registeracc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_confpassActionPerformed
 
-    private void username1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_username1ActionPerformed
-
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
@@ -247,14 +244,41 @@ public class registeracc extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
-    if(fname.getText() .isEmpty() || lname.getText().isEmpty()
-     ||uname.getText() .isEmpty() || age.getText() .isEmpty()  
+    dbconnect dbc = new dbconnect();
+     
+        if(fname.getText() .isEmpty() || lname.getText().isEmpty()
+     ||uname.getText() .isEmpty() 
+     || age.getText() .isEmpty() 
+     || email.getText() .isEmpty()
      ||password.getText().isEmpty()
-            ||confpass.getText().isEmpty() ){
-     JOptionPane.showMessageDialog(null,"all field are required");
-     }    
-     else{
-      JOptionPane.showMessageDialog(null,"account created successfully, you can now login");  
+     ||confpass.getText().isEmpty() )
+            
+     {JOptionPane.showMessageDialog(null,"all field are required");
+     }
+        else if (!(password.getText().length() >= 8)){
+     JOptionPane.showMessageDialog(null,"password should have 8 characters and above");
+     }
+        else if (!(age.getText().matches("\\d+"))){
+     JOptionPane.showMessageDialog(null, "please input an integer");
+     }  
+        else if(uname.getText().equals(email.getText() )){
+      JOptionPane.showMessageDialog(null, "email must not match username");
+     }
+         else if(!(password.getText().equals(confpass.getText()))){
+      JOptionPane.showMessageDialog(null, "password not match");
+     }
+         
+        else {           
+         int db = dbc.insertData("INSERT INTO users(fname, lname, uname,email, sex, age, password) VALUES ('"
+        + fname.getText() + "', '"
+        + lname.getText() + "', '"
+        + uname.getText() + "', '"
+        + email.getText() + "', '"
+        + sex.getSelectedItem() + "', '"
+        + age.getText() + "', '"
+        + password.getText() + "')");
+      JOptionPane.showMessageDialog(null,"account created successfully."); 
+      
      loginform lfm = new loginform(); 
      lfm.setVisible(true);
      this.dispose();}
@@ -299,6 +323,7 @@ public class registeracc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age;
     private javax.swing.JPasswordField confpass;
+    private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -306,6 +331,7 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,6 +351,5 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JTextField uname;
     private javax.swing.JTextField username;
-    private javax.swing.JTextField username1;
     // End of variables declaration//GEN-END:variables
 }

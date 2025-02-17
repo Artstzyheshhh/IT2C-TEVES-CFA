@@ -16,6 +16,7 @@ public class userinterface extends javax.swing.JFrame {
      */
     public userinterface() {
         initComponents();
+       
     }
 
     /**
@@ -38,6 +39,7 @@ public class userinterface extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        uname = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +127,9 @@ public class userinterface extends javax.swing.JFrame {
         jLabel10.setOpaque(true);
         ui.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, 40));
 
+        uname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ui.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 330, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,5 +200,6 @@ public class userinterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel ui;
+    private javax.swing.JLabel uname;
     // End of variables declaration//GEN-END:variables
 }

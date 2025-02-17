@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it2c.teves.cfa;
+package admins;
 
+import it2c.teves.cfa.loginform;
+import it2c.teves.cfa.userinterface;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author acer
  */
-public class Adminsloginform extends javax.swing.JFrame {
+public class adminslogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form Adminsloginform
+     * Creates new form adminslogin
      */
-    public Adminsloginform() {
+    public adminslogin() {
         initComponents();
     }
 
@@ -160,15 +162,15 @@ public class Adminsloginform extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
-      
-        if(adminpassword.getText().isEmpty() ){  
-     JOptionPane.showMessageDialog(null, "wrong password");
-     }    
-     else{
-     userinterface uin = new userinterface();
-     uin.setVisible(true);
-     this.dispose();
-     }   // TODO add your handling code here:
+
+        if(adminpassword.getText().isEmpty() ){
+            JOptionPane.showMessageDialog(null, "wrong password");
+        }
+        else{
+            userinterface uin = new userinterface();
+            uin.setVisible(true);
+            this.dispose();
+        }   // TODO add your handling code here:
     }//GEN-LAST:event_loginbttnMouseClicked
 
     /**
@@ -188,20 +190,20 @@ public class Adminsloginform extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Adminsloginform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminslogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Adminsloginform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminslogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Adminsloginform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminslogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Adminsloginform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminslogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Adminsloginform().setVisible(true);
+                new adminslogin().setVisible(true);
             }
         });
     }
