@@ -5,8 +5,12 @@
  */
 package it2c.teves.cfa;
 
+import admins.adminslogin;
 import config.dbconnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import users.loginform;
 
 /**
  *
@@ -20,7 +24,36 @@ public class registeracc extends javax.swing.JFrame {
     public registeracc() {
         initComponents();
     }
-
+    public static String uemail,usname;
+    
+    public boolean duplicatecheck(){
+        
+        dbconnect dbc = new dbconnect();
+   try {
+            String query = "SELECT * FROM users WHERE ussername = '"+ uname.getText()+"'OR useremail ='"+emaill.getText() +"'";
+            ResultSet resultSet = dbc.getData(query);
+            if(resultSet.next()){
+                uemail= resultSet.getString("useremail");
+                if(uemail.equals(emaill.getText())){
+                JOptionPane.showMessageDialog(null,"email already existed");
+                emaill.setText("");
+                }
+                 usname= resultSet.getString("ussername");
+                if(usname.equals(uname.getText())){
+                JOptionPane.showMessageDialog(null,"username already existed");
+                uname.setText("");
+                }
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,12 +76,9 @@ public class registeracc extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        loginbttn = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         confpass = new javax.swing.JPasswordField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
@@ -59,7 +89,11 @@ public class registeracc extends javax.swing.JFrame {
         uname = new javax.swing.JTextField();
         age = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        emaill = new javax.swing.JTextField();
+        loginbttn = new javax.swing.JLabel();
+        regadmin = new javax.swing.JCheckBox();
+        jLabel16 = new javax.swing.JLabel();
+        showpass = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,12 +109,12 @@ public class registeracc extends javax.swing.JFrame {
                 passwordActionPerformed(evt);
             }
         });
-        main.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 310, 25));
+        main.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, 310, 25));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Password:");
-        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 120, 25));
+        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 120, 25));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
@@ -131,22 +165,6 @@ public class registeracc extends javax.swing.JFrame {
 
         main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 50));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        loginbttn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        loginbttn.setForeground(new java.awt.Color(255, 255, 255));
-        loginbttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginbttn.setText("Login");
-        loginbttn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginbttnMouseClicked(evt);
-            }
-        });
-        jPanel3.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
-
-        main.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 110, 30));
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Username:");
@@ -170,12 +188,7 @@ public class registeracc extends javax.swing.JFrame {
                 confpassActionPerformed(evt);
             }
         });
-        main.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 310, 25));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel9.setText("Confirm password:");
-        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 120, 25));
+        main.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 310, 25));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
@@ -209,7 +222,47 @@ public class registeracc extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(153, 0, 0));
         jLabel15.setText("email:");
         main.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 120, 25));
-        main.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 310, 25));
+        main.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 310, 25));
+
+        loginbttn.setBackground(new java.awt.Color(204, 0, 0));
+        loginbttn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        loginbttn.setForeground(new java.awt.Color(255, 255, 255));
+        loginbttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loginbttn.setText("Login");
+        loginbttn.setOpaque(true);
+        loginbttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginbttnMouseClicked(evt);
+            }
+        });
+        main.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 110, 30));
+
+        regadmin.setBackground(new java.awt.Color(255, 255, 255));
+        regadmin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        regadmin.setForeground(new java.awt.Color(153, 0, 0));
+        regadmin.setText("Register as admin");
+        regadmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regadminActionPerformed(evt);
+            }
+        });
+        main.add(regadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 160, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel16.setText("Confirm password:");
+        main.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 120, 25));
+
+        showpass.setBackground(new java.awt.Color(255, 255, 255));
+        showpass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        showpass.setForeground(new java.awt.Color(153, 0, 0));
+        showpass.setText("View password");
+        showpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpassActionPerformed(evt);
+            }
+        });
+        main.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 140, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,7 +302,7 @@ public class registeracc extends javax.swing.JFrame {
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
      ||uname.getText() .isEmpty() 
      || age.getText() .isEmpty() 
-     || email.getText() .isEmpty()
+     || emaill.getText() .isEmpty()
      ||password.getText().isEmpty()
      ||confpass.getText().isEmpty() )
             
@@ -261,29 +314,59 @@ public class registeracc extends javax.swing.JFrame {
         else if (!(age.getText().matches("\\d+"))){
      JOptionPane.showMessageDialog(null, "please input an integer");
      }  
-        else if(uname.getText().equals(email.getText() )){
-      JOptionPane.showMessageDialog(null, "email must not match username");
-     }
+        else if(duplicatecheck()){
+        }
          else if(!(password.getText().equals(confpass.getText()))){
       JOptionPane.showMessageDialog(null, "password not match");
      }
          
-        else {           
-         int db = dbc.insertData("INSERT INTO users(fname, lname, uname,email, sex, age, password) VALUES ('"
+        else {   
+                 if(regadmin.isSelected()){
+         int db = dbc.insertData("INSERT INTO admin(fname, lname, admname,admemail, sex, age, password) VALUES ('"
         + fname.getText() + "', '"
         + lname.getText() + "', '"
         + uname.getText() + "', '"
-        + email.getText() + "', '"
+        + emaill.getText() + "', '"
         + sex.getSelectedItem() + "', '"
         + age.getText() + "', '"
         + password.getText() + "')");
-      JOptionPane.showMessageDialog(null,"account created successfully."); 
+      JOptionPane.showMessageDialog(null,"admins account created successfully."); 
+      
+     adminslogin alfm = new adminslogin();
+     alfm.setVisible(true);
+     this.dispose();
+        }
+        else {int db = dbc.insertData("INSERT INTO users(fname, lname, ussername,useremail, sex, age, password,stats) VALUES ('"
+        + fname.getText() + "', '"
+        + lname.getText() + "', '"
+        + uname.getText() + "', '"
+        + emaill.getText() + "', '"
+        + sex.getSelectedItem() + "', '"
+        + age.getText() + "', '"
+        + password.getText() + "','pending')");
+      JOptionPane.showMessageDialog(null,"users account created successfully."); 
       
      loginform lfm = new loginform(); 
      lfm.setVisible(true);
      this.dispose();}
+         }
         // TODO add your handling code here:
     }//GEN-LAST:event_loginbttnMouseClicked
+
+    private void regadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regadminActionPerformed
+        
+   
+    }//GEN-LAST:event_regadminActionPerformed
+
+    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
+        if(showpass.isSelected()){
+            confpass.setEchoChar((char)0);
+            password.setEchoChar((char)0);
+        }  else {
+            confpass.setEchoChar('*');
+            password.setEchoChar('*');
+        }
+    }//GEN-LAST:event_showpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,7 +406,7 @@ public class registeracc extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age;
     private javax.swing.JPasswordField confpass;
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField emaill;
     private javax.swing.JTextField fname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -332,6 +415,7 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -339,16 +423,16 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField lname;
     private javax.swing.JLabel loginbttn;
     public javax.swing.JPanel main;
     private javax.swing.JPasswordField password;
+    private javax.swing.JCheckBox regadmin;
     private javax.swing.JComboBox<String> sex;
+    private javax.swing.JCheckBox showpass;
     private javax.swing.JTextField uname;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

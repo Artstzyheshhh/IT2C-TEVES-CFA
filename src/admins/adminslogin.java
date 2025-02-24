@@ -5,9 +5,14 @@
  */
 package admins;
 
-import it2c.teves.cfa.loginform;
-import it2c.teves.cfa.userinterface;
+import config.dbconnect;
+import users.loginform;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+import users.usersdashboard;
 
 /**
  *
@@ -21,7 +26,17 @@ public class adminslogin extends javax.swing.JFrame {
     public adminslogin() {
         initComponents();
     }
-
+    
+     public static boolean loginAcc(String username, String password){
+        dbconnect dbc = new dbconnect();
+   try {
+            String query = "SELECT * FROM admin WHERE admname = '"+username+"'AND password ='"+ password +"'";
+            ResultSet resultSet = dbc.getData(query);
+            return resultSet.next();
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,8 +58,10 @@ public class adminslogin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         loginbttn = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        admin = new javax.swing.JTextField();
+        showpass = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,18 +77,18 @@ public class adminslogin extends javax.swing.JFrame {
                 adminpasswordActionPerformed(evt);
             }
         });
-        main.add(adminpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 310, 30));
+        main.add(adminpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 310, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Password:");
-        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 80, 30));
+        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 80, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Administrator");
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 310, 30));
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 310, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,21 +133,40 @@ public class adminslogin extends javax.swing.JFrame {
 
         main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 50));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        loginbttn.setBackground(new java.awt.Color(153, 0, 0));
         loginbttn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         loginbttn.setForeground(new java.awt.Color(255, 255, 255));
         loginbttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginbttn.setText("Login");
+        loginbttn.setOpaque(true);
         loginbttn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginbttnMouseClicked(evt);
             }
         });
-        jPanel3.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 30));
+        main.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 110, 30));
 
-        main.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 110, 30));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel6.setText("admin:");
+        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 80, 30));
+
+        admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminActionPerformed(evt);
+            }
+        });
+        main.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 310, 30));
+
+        showpass.setBackground(new java.awt.Color(255, 255, 255));
+        showpass.setForeground(new java.awt.Color(153, 0, 0));
+        showpass.setText("View password");
+        showpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpassActionPerformed(evt);
+            }
+        });
+        main.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 310, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,16 +198,26 @@ public class adminslogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
-
-        if(adminpassword.getText().isEmpty() ){
-            JOptionPane.showMessageDialog(null, "wrong password");
-        }
-        else{
-            userinterface uin = new userinterface();
-            uin.setVisible(true);
-            this.dispose();
-        }   // TODO add your handling code here:
+       if(loginAcc(admin.getText(),adminpassword.getText())){
+        JOptionPane.showMessageDialog(null,"login success!");
+        usersdashboard usrdash = new usersdashboard();
+        usrdash.setVisible(true);
+   this.dispose();
+   } else{JOptionPane.showMessageDialog(null,"login failed!");}
+        
     }//GEN-LAST:event_loginbttnMouseClicked
+
+    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adminActionPerformed
+
+    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
+        if(showpass.isSelected()){
+            adminpassword.setEchoChar((char)0);
+        }  else {
+            adminpassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_showpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +255,7 @@ public class adminslogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField admin;
     private javax.swing.JPasswordField adminpassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -216,12 +263,13 @@ public class adminslogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginbttn;
     public javax.swing.JPanel main;
+    private javax.swing.JCheckBox showpass;
     // End of variables declaration//GEN-END:variables
 }
