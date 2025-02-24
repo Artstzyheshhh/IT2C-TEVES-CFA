@@ -5,8 +5,12 @@
  */
 package admins;
 
+import config.dbconnect;
 import users.loginform;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -19,8 +23,20 @@ public class manageuser extends javax.swing.JFrame {
      */
     public manageuser() {
         initComponents();
+        displayData();
     }
+        public void displayData(){
+        try{
+            dbconnect dbc = new dbconnect();
+            ResultSet rs = dbc.getData("SELECT uid, fname, lname, stats FROM users");
+            userstable.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
+        }catch(SQLException ex){
+            System.out.println("Errors: "+ex.getMessage());
 
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +58,8 @@ public class manageuser extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        userstable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,6 +156,11 @@ public class manageuser extends javax.swing.JFrame {
         jLabel24.setText("CANDIDATES ");
         main.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 160, 40));
 
+        userstable.setGridColor(new java.awt.Color(240, 0, 0));
+        jScrollPane1.setViewportView(userstable);
+
+        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 620, 310));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -218,7 +241,9 @@ public class manageuser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
+    private javax.swing.JTable userstable;
     // End of variables declaration//GEN-END:variables
 }

@@ -200,8 +200,8 @@ public class adminslogin extends javax.swing.JFrame {
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
        if(loginAcc(admin.getText(),adminpassword.getText())){
         JOptionPane.showMessageDialog(null,"login success!");
-        usersdashboard usrdash = new usersdashboard();
-        usrdash.setVisible(true);
+        adminsdashboard adm = new adminsdashboard();
+        adm.setVisible(true);
    this.dispose();
    } else{JOptionPane.showMessageDialog(null,"login failed!");}
         
