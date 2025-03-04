@@ -5,7 +5,8 @@
  */
 package users;
 
-import users.loginform;
+
+import it2c.teves.cfa.loginform;
 import java.awt.Color;
 
 /**
@@ -19,8 +20,9 @@ public class usersdashboard extends javax.swing.JFrame {
      */
     public usersdashboard() {
         initComponents();
+        
     }
-
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,16 +34,15 @@ public class usersdashboard extends javax.swing.JFrame {
 
         main = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        logout = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        sidebar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        logout = new javax.swing.JLabel();
+        username2 = new javax.swing.JLabel();
+        username1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,125 +53,62 @@ public class usersdashboard extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
 
-        jLabel19.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("POSITIONS");
-        main.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 160, 40));
-
-        jLabel20.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("MY ACCOUNT");
-        jLabel20.setOpaque(true);
-        main.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 30));
-
-        jPanel6.setPreferredSize(new java.awt.Dimension(5, 430));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
-        main.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 10, 430));
-
-        logout.setBackground(new java.awt.Color(255, 255, 255));
-        logout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        logout.setForeground(new java.awt.Color(204, 0, 0));
-        logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logout.setText("LOG OUT");
-        logout.setOpaque(true);
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutMouseExited(evt);
-            }
-        });
-        main.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 160, 40));
-
-        jLabel22.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("PARTY LIST");
-        main.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 160, 40));
+        sidebar.setBackground(new java.awt.Color(255, 255, 255));
+        sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sidebar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 41, -1, -1));
 
         jLabel23.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("CANDIDATES ");
-        main.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 160, 40));
+        jLabel23.setText("  Candidates ");
+        sidebar.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, 40));
 
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Iconn.jpg"))); // NOI18N
-        main.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 60));
+        jLabel20.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("  My account");
+        jLabel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 2, true));
+        jLabel20.setOpaque(true);
+        sidebar.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 160, 30));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("FILING APPLICATION");
-        jLabel18.setPreferredSize(new java.awt.Dimension(163, 17));
-        main.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, -1, -1));
+        jLabel22.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel22.setText("  Partylist");
+        sidebar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 160, 40));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("COMELEC ");
-        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 170, -1));
+        jLabel19.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel19.setText("  positions");
+        sidebar.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 160, 40));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("     USERS DASHBOARD");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 660, 70));
+        logout.setBackground(new java.awt.Color(255, 255, 255));
+        logout.setForeground(new java.awt.Color(204, 0, 0));
+        logout.setText("  Log out");
+        logout.setOpaque(true);
+        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, 40));
+
+        username2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
+        sidebar.add(username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 130, -1));
+
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 490));
+
+        username1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
+        main.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(new java.awt.Color(204, 0, 0));
-        logout.setForeground(Color.white);
-    }//GEN-LAST:event_logoutMouseEntered
-
-    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(Color.white);
-        logout.setForeground(new java.awt.Color(204, 0, 0));
-    }//GEN-LAST:event_logoutMouseExited
 
     /**
      * @param args the command line arguments
@@ -208,17 +146,16 @@ public class usersdashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel icon;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
+    private javax.swing.JPanel sidebar;
+    private javax.swing.JLabel username1;
+    private javax.swing.JLabel username2;
     // End of variables declaration//GEN-END:variables
 }

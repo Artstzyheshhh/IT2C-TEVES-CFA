@@ -5,11 +5,14 @@
  */
 package admins;
 
+import config.Session;
 import config.dbconnect;
-import users.loginform;
+import it2c.teves.cfa.loginform;
+
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -48,20 +51,26 @@ public class manageuser extends javax.swing.JFrame {
 
         main = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        icon = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
+        sidebar = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        myaccount = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        logout = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        accname = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,40 +79,52 @@ public class manageuser extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("COMELEC ");
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 170, -1));
+        userstable.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(userstable);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("FILING APPLICATION");
-        jLabel18.setPreferredSize(new java.awt.Dimension(163, 17));
-        main.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, -1, -1));
+        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 660, 330));
 
-        jLabel19.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("POSITIONS");
-        main.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 160, 40));
+        sidebar.setBackground(new java.awt.Color(255, 255, 255));
+        sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+        sidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        sidebar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 41, -1, -1));
+
+        myaccount.setBackground(new java.awt.Color(204, 0, 0));
+        myaccount.setForeground(new java.awt.Color(204, 0, 0));
+        myaccount.setText("   My account");
+        myaccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                myaccountMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                myaccountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                myaccountMouseExited(evt);
+            }
+        });
+        sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 40));
 
         jLabel20.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("USERS");
+        jLabel20.setText("  users");
+        jLabel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 2, true));
         jLabel20.setOpaque(true);
-        main.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 160, 40));
+        sidebar.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 30));
+
+        jLabel22.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel22.setText("  Partylist");
+        sidebar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 160, 40));
+
+        jLabel19.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel19.setText("  positions");
+        sidebar.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
-        logout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         logout.setForeground(new java.awt.Color(204, 0, 0));
-        logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logout.setText("LOG OUT");
-        logout.setOpaque(true);
+        logout.setText("  Log out");
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoutMouseClicked(evt);
@@ -115,64 +136,55 @@ public class manageuser extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        main.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 160, 40));
+        sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 160, 40));
 
-        jLabel22.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("PARTY LIST");
-        main.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 160, 40));
+        jLabel21.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel21.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel21.setText("  Pendings");
+        sidebar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, 40));
 
-        jPanel6.setPreferredSize(new java.awt.Dimension(5, 430));
+        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
+        sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, -1));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 490));
+
+        jLabel3.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("     ADMINISTRATORS DASHBOARD");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jLabel3.setOpaque(true);
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 690, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 3));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 714, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        main.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 10, 430));
-
-        jLabel23.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("MY ACCOUNT");
-        main.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 160, 40));
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Iconn.jpg"))); // NOI18N
-        main.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 60));
-
-        jLabel24.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("CANDIDATES ");
-        main.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 160, 40));
-
-        userstable.setGridColor(new java.awt.Color(240, 0, 0));
-        jScrollPane1.setViewportView(userstable);
-
-        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 620, 310));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 720, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -180,20 +192,52 @@ public class manageuser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        loginform lfm = new loginform();
+         loginform lfm = new loginform();
         lfm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setBackground(new java.awt.Color(204, 0, 0));
+        logout.setOpaque(true);
+        logout.setBackground(new java.awt.Color(221,21,21));
         logout.setForeground(Color.white);
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(Color.white);
-        logout.setForeground(new java.awt.Color(204, 0, 0));
+         logout.setBackground(Color.white);
+        logout.setForeground(new java.awt.Color(221,21,21));
+        logout.setOpaque(false);
     }//GEN-LAST:event_logoutMouseExited
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+         Session sess = Session.getInstance();
+        if(sess.getId() == 0){
+        JOptionPane.showMessageDialog(null,"No account found, login first!");
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+        }else{
+        accname.setText(""+sess.getUsername());
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
+       myaccount.setOpaque(true);
+       myaccount.setBackground(new java.awt.Color(221,21,21));
+       myaccount.setForeground(Color.white);
+    }//GEN-LAST:event_myaccountMouseEntered
+
+    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
+        myaccount.setBackground(Color.white);
+        myaccount.setForeground(new java.awt.Color(221,21,21));
+        myaccount.setOpaque(false);
+    }//GEN-LAST:event_myaccountMouseExited
+
+    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
+        adminsdashboard adm = new adminsdashboard();
+        adm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_myaccountMouseClicked
 
     /**
      * @param args the command line arguments
@@ -231,19 +275,20 @@ public class manageuser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel icon;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel accname;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
+    private javax.swing.JLabel myaccount;
+    private javax.swing.JPanel sidebar;
     private javax.swing.JTable userstable;
     // End of variables declaration//GEN-END:variables
 }
