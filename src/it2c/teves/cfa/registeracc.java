@@ -73,7 +73,7 @@ public class registeracc extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        goback = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         confpass = new javax.swing.JPasswordField();
@@ -125,7 +125,7 @@ public class registeracc extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("COMELEC ");
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 170, -1));
+        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
@@ -140,22 +140,21 @@ public class registeracc extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("COMELEC ");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 50));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
 
-        jLabel14.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Go back");
-        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        goback.setBackground(new java.awt.Color(204, 0, 0));
+        goback.setForeground(new java.awt.Color(255, 255, 255));
+        goback.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        goback.setText("Go back");
+        goback.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        goback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                gobackMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 110, 30));
+        jPanel2.add(goback, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 90, 25));
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 50));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 40));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
@@ -264,13 +263,13 @@ public class registeracc extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -286,15 +285,9 @@ public class registeracc extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_confpassActionPerformed
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        loginform lfm = new loginform();
-        lfm.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel14MouseClicked
-
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
     dbconnect dbc = new dbconnect();
-     
+     String birthdateText = birthdate.getText();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
      ||uname.getText() .isEmpty() 
      || birthdate.getText() .isEmpty() 
@@ -302,20 +295,41 @@ public class registeracc extends javax.swing.JFrame {
      ||password.getText().isEmpty()
      ||confpass.getText().isEmpty() )
             
-     {JOptionPane.showMessageDialog(null,"all field are required");
-     }  else if(duplicatecheck()){
+     {JOptionPane.showMessageDialog(null,"all field are required");     
+     }
+     else if (!birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
+            JOptionPane.showMessageDialog(null,"wrong birthdate format(yyyy/mm/dd)");        
+     }
+     
+     else if (birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
+            int year = Integer.parseInt(birthdateText.substring(0, 4)); 
+            int month = Integer.parseInt(birthdateText.substring(5, 7));
+            int day = Integer.parseInt(birthdateText.substring(8, 10));  
+            
+            if (!(month >= 1 && month <= 12)) {
+             JOptionPane.showMessageDialog(null, "Invalid month! Must not exceed 12.");  
+            }else if (day < 1 || day > 31) {
+            JOptionPane.showMessageDialog(null, "Invalid day! must not exceed 31");
+            }else if (year < 1966 ) {
+            JOptionPane.showMessageDialog(null, "Invalid year! too old.");
+            } else if (year < 2006 ) {
+            JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
+            }       
+     }
+        
+     else if(duplicatecheck()){
             System.out.println("duplicate exist");
      
      }
-        else if (!(password.getText().length() >= 8)){
+      else if (!(password.getText().length() >= 8)){ 
      JOptionPane.showMessageDialog(null,"password should have 8 characters and above");
      }
-        else if (!uname.getText().equals(emaill.getText())){
+      else if (uname.getText().equals(emaill.getText())){
      JOptionPane.showMessageDialog(null, "username and email should not match");
      }  
-        else if(duplicatecheck()){
+     else if(duplicatecheck()){
         }
-         else if(!(password.getText().equals(confpass.getText()))){
+     else if(!(password.getText().equals(confpass.getText()))){
       JOptionPane.showMessageDialog(null, "password not match");
      }
          
@@ -351,6 +365,12 @@ public class registeracc extends javax.swing.JFrame {
     private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_typeActionPerformed
+
+    private void gobackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseClicked
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gobackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -392,12 +412,12 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JPasswordField confpass;
     private javax.swing.JTextField emaill;
     private javax.swing.JTextField fname;
+    private javax.swing.JLabel goback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

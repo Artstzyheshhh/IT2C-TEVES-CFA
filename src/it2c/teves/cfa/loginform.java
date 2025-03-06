@@ -28,14 +28,15 @@ public class loginform extends javax.swing.JFrame {
         initComponents();
     }
          
-         static String upss,usname,status,typee;
     
+    
+    static String upss,usname,status,typee;    
     public boolean loginAcc(){
-        
-        dbconnect dbc = new dbconnect();
-   try {
-            String query = "SELECT * FROM users WHERE ussername = '"+ usern.getText()+"'OR password ='"+upass.getText() +"'";
-            ResultSet resultSet = dbc.getData(query);
+    dbconnect dbc = new dbconnect();
+    
+        try {
+                String query = "SELECT * FROM users WHERE ussername = '"+ usern.getText()+"'OR password ='"+upass.getText() +"'";
+                ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
                     upss= resultSet.getString("password");              
                     usname= resultSet.getString("ussername");                 
@@ -47,20 +48,22 @@ public class loginform extends javax.swing.JFrame {
                     sess.setLname(resultSet.getString("lname"));
                     sess.setEmail(resultSet.getString("useremail"));
                     sess.setUsername(resultSet.getString("ussername"));
+                    sess.setSex(resultSet.getString("sex"));
                     sess.setType(resultSet.getString("utype"));
                     sess.setStatus(resultSet.getString("stats"));
+                    //sess.setBirthdate(resultSet.getDate("birthdate"));
                      return true;
-            } 
-            
-            else{
-                return false;
+            }else{
+                    return false;
+            }            
+            }catch (SQLException ex) {
+                    System.out.println(""+ex);
+                    return false;
             }
+            }
+    
+    
             
-        } catch (SQLException ex) {
-            System.out.println(""+ex);
-            return false;
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,9 +163,9 @@ public class loginform extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 70, 25));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 70, 25));
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 40));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 40));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -222,11 +225,11 @@ public class loginform extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         main.getAccessibleContext().setAccessibleName("");
@@ -245,7 +248,7 @@ public class loginform extends javax.swing.JFrame {
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
 
-            if(loginAcc()){
+        if(loginAcc()){
             if(!upss.equals(upass.getText())){
                      warningpass.setText("incorrect password");
                      upass.setText("");
@@ -256,7 +259,7 @@ public class loginform extends javax.swing.JFrame {
                 }
             else if(!status.equals("active")){
                 JOptionPane.showMessageDialog(null,"account in-active, contact the admin!");
-            }
+                }
             else{JOptionPane.showMessageDialog(null,"login success!");
             
             if(typee.equals("Admin")){
@@ -272,7 +275,7 @@ public class loginform extends javax.swing.JFrame {
             }
             }
 
-        } else{JOptionPane.showMessageDialog(null,"login failed!");}
+        }else{JOptionPane.showMessageDialog(null,"login failed!");}
     }//GEN-LAST:event_loginbttnMouseClicked
 
     private void loginbttnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseEntered
