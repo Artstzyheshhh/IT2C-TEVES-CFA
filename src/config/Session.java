@@ -1,12 +1,6 @@
 
 package config;
 
-import java.util.Date;
-
-
-
-
-
 public class Session {
    private static Session instance;
    private int id;
@@ -15,10 +9,10 @@ public class Session {
    private String email;
    private String sex;
    private String username;
-   private Date birthdate;
+   private String birthdate;
    private String type;
    private String status;
-   
+   private String password;
    private Session(){
    
    }
@@ -58,11 +52,11 @@ public class Session {
         this.lname = lname;
     }
     
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate ;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -92,6 +86,14 @@ public class Session {
 
     public String getType() {
         return type;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setType(String type) {

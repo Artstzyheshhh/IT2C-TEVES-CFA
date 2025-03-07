@@ -51,7 +51,8 @@ public class loginform extends javax.swing.JFrame {
                     sess.setSex(resultSet.getString("sex"));
                     sess.setType(resultSet.getString("utype"));
                     sess.setStatus(resultSet.getString("stats"));
-                    //sess.setBirthdate(resultSet.getDate("birthdate"));
+                    sess.setBirthdate(resultSet.getString("birthdate"));
+                    sess.setPassword(resultSet.getString("password"));
                      return true;
             }else{
                     return false;
@@ -257,7 +258,7 @@ public class loginform extends javax.swing.JFrame {
                      warningusername.setText("Incorrect username");
                      usern.setText("");
                 }
-            else if(!status.equals("active")){
+            else if(!status.equalsIgnoreCase("active")){
                 JOptionPane.showMessageDialog(null,"account in-active, contact the admin!");
                 }
             else{JOptionPane.showMessageDialog(null,"login success!");

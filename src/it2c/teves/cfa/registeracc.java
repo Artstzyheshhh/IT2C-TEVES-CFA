@@ -297,25 +297,7 @@ public class registeracc extends javax.swing.JFrame {
             
      {JOptionPane.showMessageDialog(null,"all field are required");     
      }
-     else if (!birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
-            JOptionPane.showMessageDialog(null,"wrong birthdate format(yyyy/mm/dd)");        
-     }
-     
-     else if (birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
-            int year = Integer.parseInt(birthdateText.substring(0, 4)); 
-            int month = Integer.parseInt(birthdateText.substring(5, 7));
-            int day = Integer.parseInt(birthdateText.substring(8, 10));  
-            
-            if (!(month >= 1 && month <= 12)) {
-             JOptionPane.showMessageDialog(null, "Invalid month! Must not exceed 12.");  
-            }else if (day < 1 || day > 31) {
-            JOptionPane.showMessageDialog(null, "Invalid day! must not exceed 31");
-            }else if (year < 1966 ) {
-            JOptionPane.showMessageDialog(null, "Invalid year! too old.");
-            } else if (year < 2006 ) {
-            JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
-            }       
-     }
+    
         
      else if(duplicatecheck()){
             System.out.println("duplicate exist");
@@ -332,8 +314,24 @@ public class registeracc extends javax.swing.JFrame {
      else if(!(password.getText().equals(confpass.getText()))){
       JOptionPane.showMessageDialog(null, "password not match");
      }
-         
-        else {   
+          else if (!birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
+            JOptionPane.showMessageDialog(null,"wrong birthdate format(yyyy/mm/dd)");        
+     }
+     
+     else if (birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
+            int year = Integer.parseInt(birthdateText.substring(0, 4)); 
+            int month = Integer.parseInt(birthdateText.substring(5, 7));
+            int day = Integer.parseInt(birthdateText.substring(8, 10));  
+            
+            if (!(month >= 1 && month <= 12)) {
+             JOptionPane.showMessageDialog(null, "Invalid month! Must not exceed 12.");  
+            } else if (!(day > 1 || day < 31)) {
+            JOptionPane.showMessageDialog(null, "Invalid day! must not exceed 31");
+            }else if (!(year > 1966 )) {
+            JOptionPane.showMessageDialog(null, "Invalid year! too old.");
+            }else if (!(year < 2006 )) {
+            JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
+            }else {   
                 int db = dbc.insertData("INSERT INTO users(fname, lname, ussername,useremail, sex,utype, birthdate, password,stats) VALUES ('"
         + fname.getText() + "', '"
         + lname.getText() + "', '"
@@ -348,6 +346,9 @@ public class registeracc extends javax.swing.JFrame {
      loginform lfm = new loginform(); 
      lfm.setVisible(true);
      this.dispose();}
+            
+     }
+        
          
         // TODO add your handling code here:
     }//GEN-LAST:event_loginbttnMouseClicked

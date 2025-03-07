@@ -48,26 +48,26 @@ public class adminsdashboard extends javax.swing.JFrame {
         candidates = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         fullname = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
-        lname = new javax.swing.JLabel();
-        fname = new javax.swing.JLabel();
-        username = new javax.swing.JLabel();
         accountid = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        fname = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lname = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        sexx = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        usertype = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        birthdate = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
-        birthdate = new javax.swing.JLabel();
-        usertype = new javax.swing.JLabel();
-        sexx = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -190,109 +190,109 @@ public class adminsdashboard extends javax.swing.JFrame {
         fullname.setForeground(new java.awt.Color(255, 255, 255));
         fullname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconnn.jpg"))); // NOI18N
         fullname.setText("   firstname, lastname ");
-        jPanel2.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 650, 90));
+        jPanel2.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 650, 90));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Firstname:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 100, 30));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Account ID:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 100, 30));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Email:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 100, 30));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Lastname:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 100, 30));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Username:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 100, 30));
-
-        email.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        email.setForeground(new java.awt.Color(255, 255, 255));
-        email.setText("Email");
-        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 240, 30));
-
-        lname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lname.setForeground(new java.awt.Color(255, 255, 255));
-        lname.setText("Lname");
-        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 240, 30));
-
-        fname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fname.setForeground(new java.awt.Color(255, 255, 255));
-        fname.setText("Fname");
-        jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 240, 30));
-
-        username.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        username.setForeground(new java.awt.Color(255, 255, 255));
-        username.setText("username");
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 240, 30));
-
-        accountid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        accountid.setForeground(new java.awt.Color(255, 255, 255));
-        accountid.setText("Account ID:");
-        jPanel2.add(accountid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 240, 30));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Sex:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 100, 30));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("User type:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 100, 30));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("birthdate:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 100, 30));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("status:");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 100, 30));
-
-        status.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        status.setForeground(new java.awt.Color(255, 255, 255));
-        status.setText("status");
-        jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 130, 30));
-
-        birthdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        birthdate.setForeground(new java.awt.Color(255, 255, 255));
-        birthdate.setText("birthdate");
-        jPanel2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 130, 30));
-
-        usertype.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        usertype.setForeground(new java.awt.Color(255, 255, 255));
-        usertype.setText("User type");
-        jPanel2.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 130, 30));
-
-        sexx.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        sexx.setForeground(new java.awt.Color(255, 255, 255));
-        sexx.setText("Sex");
-        jPanel2.add(sexx, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 130, 30));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Edit account info");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, -1, 20));
-
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 670, 390));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 670, 110));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("  Account information:");
         main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 670, 50));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("Account ID:");
+        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 100, 30));
+
+        accountid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        accountid.setForeground(new java.awt.Color(204, 0, 0));
+        accountid.setText("Account ID:");
+        main.add(accountid, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 240, 30));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel8.setText("Username:");
+        main.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 100, 30));
+
+        username.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        username.setForeground(new java.awt.Color(204, 0, 0));
+        username.setText("username");
+        main.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 240, 30));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("Firstname:");
+        main.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 100, 30));
+
+        fname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fname.setForeground(new java.awt.Color(204, 0, 0));
+        fname.setText("Fname");
+        main.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 240, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel7.setText("Lastname:");
+        main.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, 30));
+
+        lname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lname.setForeground(new java.awt.Color(204, 0, 0));
+        lname.setText("Lname");
+        main.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 240, 30));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setText("Email:");
+        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 100, 30));
+
+        email.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        email.setForeground(new java.awt.Color(204, 0, 0));
+        email.setText("Email");
+        main.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 240, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel9.setText("Sex:");
+        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 100, 30));
+
+        sexx.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        sexx.setForeground(new java.awt.Color(204, 0, 0));
+        sexx.setText("Sex");
+        main.add(sexx, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 130, 30));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel10.setText("User type:");
+        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 100, 30));
+
+        usertype.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        usertype.setForeground(new java.awt.Color(204, 0, 0));
+        usertype.setText("User type");
+        main.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 130, 30));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel11.setText("birthdate:");
+        main.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, 100, 30));
+
+        birthdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        birthdate.setForeground(new java.awt.Color(204, 0, 0));
+        birthdate.setText("birthdate");
+        main.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 130, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel13.setText("status:");
+        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 100, 30));
+
+        status.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        status.setForeground(new java.awt.Color(204, 0, 0));
+        status.setText("status");
+        main.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 130, 30));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel12.setText("Edit account info");
+        main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
