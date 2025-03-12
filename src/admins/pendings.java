@@ -103,7 +103,7 @@ public class pendings extends javax.swing.JFrame {
         pendingstable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(pendingstable);
 
-        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 700, 260));
+        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 760, 260));
 
         sidebar.setBackground(new java.awt.Color(255, 255, 255));
         sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -194,7 +194,7 @@ public class pendings extends javax.swing.JFrame {
         });
         sidebar.add(candidates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 520));
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
 
         jLabel3.setBackground(new java.awt.Color(204, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -203,7 +203,7 @@ public class pendings extends javax.swing.JFrame {
         jLabel3.setText("     ADMINISTRATORS DASHBOARD");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel3.setOpaque(true);
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 740, 40));
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 40));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 3));
@@ -214,7 +214,7 @@ public class pendings extends javax.swing.JFrame {
         jLabel1.setText("Pending List");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 250, 30));
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 760, 100));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 830, 100));
 
         editt.setBackground(new java.awt.Color(204, 0, 0));
         editt.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,11 +226,11 @@ public class pendings extends javax.swing.JFrame {
                 edittMouseClicked(evt);
             }
         });
-        main.add(editt, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 110, 20));
+        main.add(editt, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 110, 20));
 
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("ID:");
-        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 80, 20));
+        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 80, 20));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.addActionListener(new java.awt.event.ActionListener() {
@@ -238,11 +238,11 @@ public class pendings extends javax.swing.JFrame {
                 statusActionPerformed(evt);
             }
         });
-        main.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 220, -1));
+        main.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 220, -1));
 
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("Status:");
-        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 80, 20));
+        main.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 80, 20));
 
         lastname.setEnabled(false);
         lastname.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +250,7 @@ public class pendings extends javax.swing.JFrame {
                 lastnameActionPerformed(evt);
             }
         });
-        main.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 220, -1));
+        main.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 220, -1));
 
         idd.setEnabled(false);
         idd.addActionListener(new java.awt.event.ActionListener() {
@@ -258,11 +258,11 @@ public class pendings extends javax.swing.JFrame {
                 iddActionPerformed(evt);
             }
         });
-        main.add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 220, -1));
+        main.add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 220, -1));
 
         jLabel7.setForeground(new java.awt.Color(204, 0, 0));
         jLabel7.setText("Username:");
-        main.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 80, 20));
+        main.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 80, 20));
 
         jLabel8.setBackground(new java.awt.Color(204, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -274,20 +274,20 @@ public class pendings extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
-        main.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, 110, 20));
+        main.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 110, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

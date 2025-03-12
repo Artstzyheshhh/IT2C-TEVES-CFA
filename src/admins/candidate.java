@@ -217,7 +217,7 @@ public class candidate extends javax.swing.JFrame {
         });
         sidebar.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 540));
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
 
         jLabel3.setBackground(new java.awt.Color(204, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -226,7 +226,7 @@ public class candidate extends javax.swing.JFrame {
         jLabel3.setText("     ADMINISTRATORS DASHBOARD");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel3.setOpaque(true);
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 730, 40));
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 810, 40));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -283,7 +283,7 @@ public class candidate extends javax.swing.JFrame {
         });
         topbar.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 110, 20));
 
-        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 740, 90));
+        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 820, 90));
 
         jPanel4.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -311,7 +311,7 @@ public class candidate extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 770, 80));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 810, 80));
 
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Firstname:");
@@ -466,13 +466,13 @@ public class candidate extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

@@ -90,7 +90,7 @@ public class adminsdashboard extends javax.swing.JFrame {
         jLabel1.setText("     ADMINISTRATORS DASHBOARD");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel1.setOpaque(true);
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 730, 40));
+        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 40));
 
         sidebar.setBackground(new java.awt.Color(255, 255, 255));
         sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -181,7 +181,7 @@ public class adminsdashboard extends javax.swing.JFrame {
         });
         sidebar.add(candidates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 550));
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
 
         jPanel2.setBackground(new java.awt.Color(255, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -285,9 +285,9 @@ public class adminsdashboard extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Edit account info");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, -1, 20));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, -1, 20));
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 670, 390));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 760, 430));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
@@ -298,12 +298,12 @@ public class adminsdashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

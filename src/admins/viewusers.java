@@ -119,7 +119,7 @@ public class viewusers extends javax.swing.JFrame {
         userstable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(userstable);
 
-        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 370, 370));
+        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 420, 370));
 
         sidebar.setBackground(new java.awt.Color(255, 255, 255));
         sidebar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -210,7 +210,7 @@ public class viewusers extends javax.swing.JFrame {
         });
         sidebar.add(candidates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 530));
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
 
         jLabel3.setBackground(new java.awt.Color(204, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -219,7 +219,7 @@ public class viewusers extends javax.swing.JFrame {
         jLabel3.setText("     ADMINISTRATORS DASHBOARD");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel3.setOpaque(true);
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 740, 40));
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 40));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -279,7 +279,7 @@ public class viewusers extends javax.swing.JFrame {
         });
         topbar.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 110, 20));
 
-        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 750, 90));
+        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 830, 90));
 
         jPanel4.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -287,7 +287,7 @@ public class viewusers extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 108, Short.MAX_VALUE)
+            .addGap(0, 110, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,9 +299,9 @@ public class viewusers extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(351, Short.MAX_VALUE)
+                .addContainerGap(350, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291))
+                .addGap(350, 350, 350))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,7 +310,7 @@ public class viewusers extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 55, 750, 30));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 55, 810, 30));
 
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
         jTextField1.setText("  search");
@@ -414,7 +414,7 @@ public class viewusers extends javax.swing.JFrame {
         status.setText("status");
         infopanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 170, 20));
 
-        main.add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 310, 350));
+        main.add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 310, 370));
 
         viewdetails.setBackground(new java.awt.Color(204, 0, 0));
         viewdetails.setForeground(new java.awt.Color(255, 255, 255));
@@ -433,13 +433,13 @@ public class viewusers extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

@@ -234,7 +234,7 @@ public class edituser extends javax.swing.JFrame {
         });
         sidebar.add(candidates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 540));
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
 
         jLabel3.setBackground(new java.awt.Color(204, 0, 0));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -243,7 +243,7 @@ public class edituser extends javax.swing.JFrame {
         jLabel3.setText("     ADMINISTRATORS DASHBOARD");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel3.setOpaque(true);
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 730, 40));
+        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 820, 40));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -314,7 +314,7 @@ public class edituser extends javax.swing.JFrame {
         });
         topbar.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 110, 20));
 
-        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 740, 90));
+        main.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 820, 90));
 
         jPanel4.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -342,7 +342,7 @@ public class edituser extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 770, 80));
+        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 810, 80));
 
         editpanel.setBackground(new java.awt.Color(255, 102, 102));
         editpanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -429,7 +429,7 @@ public class edituser extends javax.swing.JFrame {
         });
         editpanel.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 140, 20));
 
-        main.add(editpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 440, 370));
+        main.add(editpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 440, 370));
 
         userstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -442,7 +442,7 @@ public class edituser extends javax.swing.JFrame {
         userstable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(userstable);
 
-        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 280, 370));
+        main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 310, 370));
 
         savebttn.setBackground(new java.awt.Color(204, 0, 0));
         savebttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -489,13 +489,13 @@ public class edituser extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

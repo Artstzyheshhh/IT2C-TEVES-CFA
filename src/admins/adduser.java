@@ -68,7 +68,7 @@ public class adduser extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         sidebar2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        myaccount2 = new javax.swing.JLabel();
+        myaccount = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
@@ -133,21 +133,21 @@ public class adduser extends javax.swing.JFrame {
         sidebar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         sidebar2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 41, -1, -1));
 
-        myaccount2.setBackground(new java.awt.Color(204, 0, 0));
-        myaccount2.setForeground(new java.awt.Color(204, 0, 0));
-        myaccount2.setText("   My account");
-        myaccount2.addMouseListener(new java.awt.event.MouseAdapter() {
+        myaccount.setBackground(new java.awt.Color(204, 0, 0));
+        myaccount.setForeground(new java.awt.Color(204, 0, 0));
+        myaccount.setText("   My account");
+        myaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                myaccount2MouseClicked(evt);
+                myaccountMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                myaccount2MouseEntered(evt);
+                myaccountMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                myaccount2MouseExited(evt);
+                myaccountMouseExited(evt);
             }
         });
-        sidebar2.add(myaccount2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 40));
+        sidebar2.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 40));
 
         jLabel22.setBackground(new java.awt.Color(204, 0, 0));
         jLabel22.setForeground(new java.awt.Color(204, 0, 0));
@@ -225,7 +225,7 @@ public class adduser extends javax.swing.JFrame {
         });
         sidebar2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 160, 40));
 
-        main2.add(sidebar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 540));
+        main2.add(sidebar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 550));
 
         jLabel5.setBackground(new java.awt.Color(204, 0, 0));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -234,7 +234,7 @@ public class adduser extends javax.swing.JFrame {
         jLabel5.setText("     ADMINISTRATORS DASHBOARD");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel5.setOpaque(true);
-        main2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 730, 40));
+        main2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 800, 40));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -294,7 +294,7 @@ public class adduser extends javax.swing.JFrame {
         });
         topbar.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 110, 20));
 
-        main2.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 740, 90));
+        main2.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 810, 90));
 
         jPanel4.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -322,66 +322,66 @@ public class adduser extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        main2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 770, 80));
+        main2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 5, 800, 80));
 
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Firstname:");
-        main2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 110, 20));
-        main2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 270, 20));
+        main2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 110, 20));
+        main2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 270, 20));
 
         jLabel11.setForeground(new java.awt.Color(153, 0, 0));
         jLabel11.setText("Lastname:");
-        main2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, 20));
-        main2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 270, -1));
+        main2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, 20));
+        main2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 270, -1));
 
         jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setText("Username:");
-        main2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 110, 20));
-        main2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 270, 20));
+        main2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 110, 20));
+        main2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 270, 20));
 
         jLabel15.setForeground(new java.awt.Color(153, 0, 0));
         jLabel15.setText("Email:");
-        main2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 110, 20));
-        main2.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 270, 20));
+        main2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 110, 20));
+        main2.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 270, 20));
 
         jLabel12.setForeground(new java.awt.Color(153, 0, 0));
         jLabel12.setText("Sex:");
-        main2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 110, 20));
+        main2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 110, 20));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        main2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 70, 20));
+        main2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 70, 20));
 
         jLabel13.setForeground(new java.awt.Color(153, 0, 0));
         jLabel13.setText("Birthdate:");
-        main2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 60, 20));
-        main2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 120, 20));
+        main2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 60, 20));
+        main2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 120, 20));
 
         jLabel14.setForeground(new java.awt.Color(153, 0, 0));
         jLabel14.setText("Password:");
-        main2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, 20));
+        main2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 110, 20));
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        main2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 270, 20));
+        main2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 270, 20));
 
         jLabel17.setForeground(new java.awt.Color(153, 0, 0));
         jLabel17.setText("Confirm password:");
-        main2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 110, 20));
+        main2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 110, 20));
 
         confpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confpassActionPerformed(evt);
             }
         });
-        main2.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 270, 20));
+        main2.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 270, 20));
 
         jLabel16.setForeground(new java.awt.Color(153, 0, 0));
         jLabel16.setText("User status:");
-        main2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 110, 20));
+        main2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 110, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -390,7 +390,7 @@ public class adduser extends javax.swing.JFrame {
                 typeActionPerformed(evt);
             }
         });
-        main2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 110, 20));
+        main2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 110, 20));
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setForeground(new java.awt.Color(153, 0, 0));
@@ -400,7 +400,7 @@ public class adduser extends javax.swing.JFrame {
                 showpassActionPerformed(evt);
             }
         });
-        main2.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 140, 20));
+        main2.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 140, 20));
 
         savebttn.setBackground(new java.awt.Color(204, 0, 0));
         savebttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -419,7 +419,7 @@ public class adduser extends javax.swing.JFrame {
                 savebttnMouseExited(evt);
             }
         });
-        main2.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 90, 20));
+        main2.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 90, 20));
 
         jLabel8.setBackground(new java.awt.Color(204, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -427,38 +427,38 @@ public class adduser extends javax.swing.JFrame {
         jLabel8.setText("Clear");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        main2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, 20));
+        main2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 90, 20));
 
         jLabel1.setBackground(new java.awt.Color(204, 0, 0));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cancel");
         jLabel1.setOpaque(true);
-        main2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 90, 20));
+        main2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 90, 20));
 
         jLabel18.setBackground(new java.awt.Color(204, 0, 0));
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Cancel");
         jLabel18.setOpaque(true);
-        main2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 90, 20));
+        main2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 90, 20));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(204, 0, 0));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("FILING APPLICATION");
-        main2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 140, 30));
+        main2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 140, 30));
 
         fname1.setEnabled(false);
-        main2.add(fname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 80, 20));
+        main2.add(fname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 80, 20));
 
         jLabel24.setForeground(new java.awt.Color(153, 0, 0));
         jLabel24.setText("User ID:");
-        main2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, 20));
+        main2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 110, 20));
 
         jLabel25.setForeground(new java.awt.Color(153, 0, 0));
         jLabel25.setText("User-type:");
-        main2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 70, 20));
+        main2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 70, 20));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -467,25 +467,23 @@ public class adduser extends javax.swing.JFrame {
                 statusActionPerformed(evt);
             }
         });
-        main2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 110, 20));
+        main2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 110, 20));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(204, 0, 0));
         jLabel26.setText("COMELEC");
-        main2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, -1, 50));
+        main2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main2, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(main2, javax.swing.GroupLayout.PREFERRED_SIZE, 964, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main2, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(main2, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -493,23 +491,23 @@ public class adduser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void myaccount2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccount2MouseClicked
+    private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
         adminsdashboard adm = new adminsdashboard();
         adm.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_myaccount2MouseClicked
+    }//GEN-LAST:event_myaccountMouseClicked
 
-    private void myaccount2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccount2MouseEntered
+    private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
         myaccount.setOpaque(true);
         myaccount.setBackground(new java.awt.Color(221,21,21));
         myaccount.setForeground(Color.white);
-    }//GEN-LAST:event_myaccount2MouseEntered
+    }//GEN-LAST:event_myaccountMouseEntered
 
-    private void myaccount2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccount2MouseExited
+    private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
         myaccount.setBackground(Color.white);
         myaccount.setForeground(new java.awt.Color(221,21,21));
         myaccount.setOpaque(false);
-    }//GEN-LAST:event_myaccount2MouseExited
+    }//GEN-LAST:event_myaccountMouseExited
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
@@ -777,39 +775,29 @@ public class adduser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField lname;
     private javax.swing.JLabel logout;
-    private javax.swing.JPanel main;
-    private javax.swing.JPanel main1;
     public javax.swing.JPanel main2;
     private javax.swing.JLabel myaccount;
-    private javax.swing.JLabel myaccount1;
-    private javax.swing.JLabel myaccount2;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel pendings;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JCheckBox showpass;
-    private javax.swing.JPanel sidebar;
-    private javax.swing.JPanel sidebar1;
     private javax.swing.JPanel sidebar2;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JPanel topbar;
