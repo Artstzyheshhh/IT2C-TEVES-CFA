@@ -139,6 +139,7 @@ public class edituser extends javax.swing.JFrame {
         });
 
         main.setBackground(new java.awt.Color(255, 255, 255));
+        main.setPreferredSize(new java.awt.Dimension(970, 540));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
@@ -676,7 +677,7 @@ public class edituser extends javax.swing.JFrame {
             sex.setSelectedItem(""+rs.getString("sex"));
             status.setSelectedItem(""+rs.getString("stats"));
             type.setSelectedItem(""+rs.getString("utype"));
-             
+            birthdate.setText(""+rs.getString("birthdate"));
              
             }
 

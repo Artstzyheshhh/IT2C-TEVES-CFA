@@ -556,6 +556,7 @@ public class viewusers extends javax.swing.JFrame {
         this.dispose();
         }else{
         accname.setText(""+sess.getUsername());
+        
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -608,7 +609,7 @@ public class viewusers extends javax.swing.JFrame {
             usertype.setText(""+rs.getString("utype"));
             status.setText(""+rs.getString("stats"));
             username.setText(""+rs.getString("ussername"));
-             birthdate.setText(""+rs.getDate("birthdate"));   
+             birthdate.setText(""+rs.getString("birthdate"));   
             }
 
         } catch (SQLException ex) {
