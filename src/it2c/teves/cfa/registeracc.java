@@ -7,6 +7,8 @@ package it2c.teves.cfa;
 
 
 import config.dbconnect;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -327,6 +329,9 @@ public class registeracc extends javax.swing.JFrame {
             }else if (!(year < 2006 )) {
             JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
             }else {   
+                
+                try{
+                String pass = passwordHasher.hashPassword(password.getText());
                 int db = dbc.insertData("INSERT INTO users(fname, lname, ussername,useremail, sex,utype, birthdate, password,stats) VALUES ('"
         + fname.getText() + "', '"
         + lname.getText() + "', '"
@@ -335,9 +340,10 @@ public class registeracc extends javax.swing.JFrame {
         + sex.getSelectedItem()+ "', '"
         + type.getSelectedItem() + "', '"
         + birthdate.getText() + "', '"
-        + password.getText() + "','pending')");
+        + pass + "','pending')");
       JOptionPane.showMessageDialog(null,"users account created successfully."); 
-      
+                }catch(NoSuchAlgorithmException ex){
+                    System.out.println(""+ex);}
      loginform lfm = new loginform(); 
      lfm.setVisible(true);
      this.dispose();}

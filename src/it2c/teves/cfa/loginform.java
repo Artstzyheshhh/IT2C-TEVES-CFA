@@ -8,10 +8,14 @@ package it2c.teves.cfa;
 import admins.adminsdashboard;
 import config.Session;
 import config.dbconnect;
+import config.passwordHasher;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+
 import users.usersdashboard;
 
 
@@ -30,17 +34,21 @@ public class loginform extends javax.swing.JFrame {
          
     
     
-    static String upss,usname,status,typee;    
-    public boolean loginAcc(){
+    static String hashedpassword, rehashedpassword, usname,status,typee;    
+    public boolean loginAcc(String username, String password){
     dbconnect dbc = new dbconnect();
     
         try {
-                String query = "SELECT * FROM users WHERE ussername = '"+ usern.getText()+"'OR password ='"+upass.getText() +"'";
+                String query = "SELECT * FROM users WHERE ussername = '"+username+"'";
                 ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
-                    upss= resultSet.getString("password");              
-                    usname= resultSet.getString("ussername");                 
-                    status= resultSet.getString("stats");
+                   hashedpassword = resultSet.getString("password");
+                   rehashedpassword = passwordHasher.hashPassword(password);
+                    
+                   System.out.println(""+rehashedpassword);
+                   System.out.println(""+hashedpassword);
+                   usname = resultSet.getString("ussername");
+                   status= resultSet.getString("stats");
                     typee = resultSet.getString("utype");
                     Session sess = Session.getInstance();
                     sess.setId(resultSet.getInt("uid"));
@@ -53,11 +61,14 @@ public class loginform extends javax.swing.JFrame {
                     sess.setStatus(resultSet.getString("stats"));
                     sess.setBirthdate(resultSet.getString("birthdate"));
                     sess.setPassword(resultSet.getString("password"));
+                                
+                                    
+                   
                      return true;
             }else{
                     return false;
             }            
-            }catch (SQLException ex) {
+            }catch (SQLException | NoSuchAlgorithmException ex) {
                     System.out.println(""+ex);
                     return false;
             }
@@ -74,7 +85,7 @@ public class loginform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        main = new javax.swing.JPanel();
+        loginmain = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         upass = new javax.swing.JPasswordField();
         warningpass = new javax.swing.JLabel();
@@ -86,50 +97,50 @@ public class loginform extends javax.swing.JFrame {
         showpass = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         warningusername = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        signup = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        main.setBackground(new java.awt.Color(255, 255, 255));
-        main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        loginmain.setBackground(new java.awt.Color(255, 255, 255));
+        loginmain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
+        loginmain.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
 
         upass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 upassActionPerformed(evt);
             }
         });
-        main.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 310, 30));
+        loginmain.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 310, 30));
 
         warningpass.setBackground(new java.awt.Color(255, 255, 255));
         warningpass.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningpass.setForeground(new java.awt.Color(153, 0, 0));
         warningpass.setOpaque(true);
-        main.add(warningpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 310, 20));
+        loginmain.add(warningpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 310, 20));
 
         usern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernActionPerformed(evt);
             }
         });
-        main.add(usern, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 310, 30));
+        loginmain.add(usern, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 310, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Password:");
-        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 80, 30));
+        loginmain.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 80, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login form");
-        main.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 310, 30));
+        loginmain.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 310, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -142,7 +153,7 @@ public class loginform extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        main.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 20));
+        loginmain.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 20));
 
         loginbttn.setBackground(new java.awt.Color(204, 0, 0));
         loginbttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +172,7 @@ public class loginform extends javax.swing.JFrame {
                 loginbttnMouseExited(evt);
             }
         });
-        main.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 140, 30));
+        loginmain.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 140, 30));
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setForeground(new java.awt.Color(153, 0, 0));
@@ -171,30 +182,30 @@ public class loginform extends javax.swing.JFrame {
                 showpassActionPerformed(evt);
             }
         });
-        main.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 310, 20));
+        loginmain.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 310, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Username:");
-        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 80, 30));
+        loginmain.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 80, 30));
 
         warningusername.setBackground(new java.awt.Color(255, 255, 255));
         warningusername.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningusername.setForeground(new java.awt.Color(153, 0, 0));
         warningusername.setOpaque(true);
-        main.add(warningusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 310, 20));
+        loginmain.add(warningusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 310, 20));
 
-        jLabel9.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Sign up");
-        jLabel9.setOpaque(true);
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        signup.setBackground(new java.awt.Color(204, 0, 0));
+        signup.setForeground(new java.awt.Color(255, 255, 255));
+        signup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        signup.setText("Sign up");
+        signup.setOpaque(true);
+        signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                signupMouseClicked(evt);
             }
         });
-        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 140, 30));
+        loginmain.add(signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 140, 30));
 
         jPanel3.setBackground(new java.awt.Color(204, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,20 +223,23 @@ public class loginform extends javax.swing.JFrame {
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
-        main.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
+        loginmain.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(loginmain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(loginmain, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        main.getAccessibleContext().setAccessibleName("");
+        loginmain.getAccessibleContext().setAccessibleName("");
 
         pack();
         setLocationRelativeTo(null);
@@ -241,8 +255,8 @@ public class loginform extends javax.swing.JFrame {
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
 
-        if(loginAcc()){
-            if(!upss.equals(upass.getText())){
+        if(loginAcc(usern.getText(),upass.getText())){
+            if(! hashedpassword.equals(rehashedpassword)){
                      warningpass.setText("incorrect password");
                      upass.setText("");
                 } 
@@ -289,13 +303,13 @@ public class loginform extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_showpassActionPerformed
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        this.dispose();
+    private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
+       this.dispose();
         registeracc racc = new registeracc();
         racc.setVisible(true);
         
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_signupMouseClicked
 
     /**
      * @param args the command line arguments
@@ -338,13 +352,13 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel loginbttn;
-    public javax.swing.JPanel main;
+    public javax.swing.JPanel loginmain;
     private javax.swing.JCheckBox showpass;
+    private javax.swing.JLabel signup;
     private javax.swing.JPasswordField upass;
     private javax.swing.JTextField usern;
     private javax.swing.JLabel warningpass;
