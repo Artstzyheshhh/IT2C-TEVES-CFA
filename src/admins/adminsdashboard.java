@@ -295,6 +295,11 @@ public class adminsdashboard extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("Edit account info");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 500, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -407,6 +412,12 @@ public class adminsdashboard extends javax.swing.JFrame {
         candidates.setForeground(new java.awt.Color(221,21,21));
         candidates.setOpaque(false);
     }//GEN-LAST:event_candidatesMouseExited
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+       editoption eo = new editoption();
+       eo.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     /**
      * @param args the command line arguments

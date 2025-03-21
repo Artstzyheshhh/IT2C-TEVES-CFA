@@ -82,13 +82,8 @@ public class editmyacc extends javax.swing.JFrame {
         sex = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         birthdate = new javax.swing.JFormattedTextField();
-        jLabel14 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
-        jLabel17 = new javax.swing.JLabel();
-        confpass = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
-        showpass = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -167,22 +162,6 @@ public class editmyacc extends javax.swing.JFrame {
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 110, 20));
         jPanel2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 130, 20));
 
-        jLabel14.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel14.setText("Password:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 110, 20));
-
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 230, 20));
-
-        jLabel17.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel17.setText("Confirm password:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 110, 20));
-        jPanel2.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 230, 20));
-
         jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("User status:");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 110, 20));
@@ -190,22 +169,6 @@ public class editmyacc extends javax.swing.JFrame {
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
         jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 130, 20));
-
-        showpass.setBackground(new java.awt.Color(255, 255, 255));
-        showpass.setForeground(new java.awt.Color(204, 0, 0));
-        showpass.setText("View password");
-        showpass.setOpaque(false);
-        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showpassMouseClicked(evt);
-            }
-        });
-        showpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showpassActionPerformed(evt);
-            }
-        });
-        jPanel2.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 140, 20));
 
         jLabel3.setBackground(new java.awt.Color(204, 0, 0));
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,7 +232,7 @@ public class editmyacc extends javax.swing.JFrame {
             lname.setText(""+sess.getLname());
             uname.setText(""+sess.getUsername());
             emaill.setText(""+sess.getEmail());                        
-            password.setText(""+sess.getPassword());
+           
             sex.setSelectedItem(""+sess.getSex());
             status.setSelectedItem(""+sess.getStatus());
             type.setSelectedItem(""+sess.getType());
@@ -284,28 +247,23 @@ public class editmyacc extends javax.swing.JFrame {
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
             || emaill.getText() .isEmpty()
-            ||password.getText().isEmpty()
-            ||confpass.getText().isEmpty() )
+             )
 
         {JOptionPane.showMessageDialog(null,"all field are required");
         }  else if(updatecheck()){
             System.out.println("duplicate exist");
 
         }
-        else if (!(password.getText().length() >= 8)){
-            JOptionPane.showMessageDialog(null,"password should have 8 characters and above");
-        }
+       
         else if (uname.getText().equals(emaill.getText())){
             JOptionPane.showMessageDialog(null, "username and email should not match");
         }
 
-        else if(!(password.getText().equals(confpass.getText()))){
-            JOptionPane.showMessageDialog(null, "password not match");
-        } else{
+        else{
             dbc.insertData("UPDATE users SET fname ='"+fname.getText()+"',lname ='"+lname.getText()+"',"
                 + "ussername ='"+uname.getText()+"',useremail ='"+emaill.getText()+"',"
                 + "sex ='"+sex.getSelectedItem()+"',utype ='"+type.getSelectedItem()+"',"
-                + "password ='"+password.getText()+"',stats ='"+status.getSelectedItem()+"',"
+                + "stats ='"+status.getSelectedItem()+"',"
                 + "birthdate ='"+birthdate.getText()+"' WHERE uid ='"+id.getText()+"'");
             JOptionPane.showMessageDialog(null,"account updated successfully.");
             adminsdashboard adm = new adminsdashboard();
@@ -319,26 +277,6 @@ public class editmyacc extends javax.swing.JFrame {
         adm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
-        confpass.setEchoChar('*');
-        password.setEchoChar('*');
-        if(showpass.isSelected()){
-            confpass.setEchoChar((char)0);
-            password.setEchoChar((char)0);
-        }  else {
-            confpass.setEchoChar('*');
-            password.setEchoChar('*');
-        }
-    }//GEN-LAST:event_showpassActionPerformed
-
-    private void showpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpassMouseClicked
-
-    }//GEN-LAST:event_showpassMouseClicked
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,7 +315,6 @@ public class editmyacc extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField birthdate;
-    private javax.swing.JPasswordField confpass;
     private javax.swing.JTextField emaill;
     private javax.swing.JTextField fname;
     private javax.swing.JTextField id;
@@ -386,10 +323,8 @@ public class editmyacc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -399,10 +334,8 @@ public class editmyacc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lname;
     public javax.swing.JPanel main;
-    private javax.swing.JPasswordField password;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;
-    private javax.swing.JCheckBox showpass;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JComboBox<String> type;
     private javax.swing.JTextField uname;

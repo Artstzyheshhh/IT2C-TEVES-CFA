@@ -17,6 +17,8 @@ public class IT2CTEVESCFA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+       
       loginform lfm = new loginform();
       lfm.setVisible(true);   // TODO code application logic here
     }

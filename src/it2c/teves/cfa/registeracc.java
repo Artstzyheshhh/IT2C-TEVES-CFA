@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
+
 /**
  *
  * @author acer
@@ -98,34 +99,39 @@ public class registeracc extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mainlgf.setBackground(new java.awt.Color(255, 255, 255));
-        mainlgf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mainlgf.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        mainlgf.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
+        mainlgf.add(jPanel1);
+        jPanel1.setBounds(90, 260, 170, 0);
 
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        mainlgf.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 310, 25));
+        mainlgf.add(password);
+        password.setBounds(610, 290, 310, 25);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Password:");
-        mainlgf.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 120, 25));
+        mainlgf.add(jLabel2);
+        jLabel2.setBounds(490, 290, 120, 25);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Create an account");
-        mainlgf.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 310, 30));
+        mainlgf.add(jLabel3);
+        jLabel3.setBounds(600, 100, 310, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Username:");
-        mainlgf.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 120, 25));
+        mainlgf.add(jLabel6);
+        jLabel6.setBounds(490, 200, 120, 25);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -138,31 +144,38 @@ public class registeracc extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        mainlgf.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 20));
+        mainlgf.add(jPanel4);
+        jPanel4.setBounds(450, 10, 0, 20);
 
         confpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confpassActionPerformed(evt);
             }
         });
-        mainlgf.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 310, 25));
+        mainlgf.add(confpass);
+        confpass.setBounds(610, 320, 310, 25);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Firstname:");
-        mainlgf.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 120, 25));
-        mainlgf.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 310, 25));
-        mainlgf.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 310, 25));
+        mainlgf.add(jLabel10);
+        jLabel10.setBounds(490, 140, 120, 25);
+        mainlgf.add(fname);
+        fname.setBounds(610, 140, 310, 25);
+        mainlgf.add(lname);
+        lname.setBounds(610, 170, 310, 25);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(153, 0, 0));
         jLabel11.setText("Lastname:");
-        mainlgf.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 120, 25));
+        mainlgf.add(jLabel11);
+        jLabel11.setBounds(490, 170, 120, 25);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 0, 0));
         jLabel12.setText("Sex:");
-        mainlgf.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 80, 25));
+        mainlgf.add(jLabel12);
+        jLabel12.setBounds(490, 260, 80, 25);
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -171,19 +184,24 @@ public class registeracc extends javax.swing.JFrame {
                 typeActionPerformed(evt);
             }
         });
-        mainlgf.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 100, -1));
+        mainlgf.add(type);
+        type.setBounds(610, 350, 100, 25);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 0, 0));
         jLabel13.setText("Birthdate:");
-        mainlgf.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, 80, 25));
-        mainlgf.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 310, 25));
+        mainlgf.add(jLabel13);
+        jLabel13.setBounds(730, 260, 80, 25);
+        mainlgf.add(uname);
+        uname.setBounds(610, 200, 310, 25);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 0, 0));
         jLabel15.setText("Email:");
-        mainlgf.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 120, 25));
-        mainlgf.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 310, 25));
+        mainlgf.add(jLabel15);
+        jLabel15.setBounds(490, 230, 120, 25);
+        mainlgf.add(emaill);
+        emaill.setBounds(610, 230, 310, 25);
 
         loginbttn.setBackground(new java.awt.Color(204, 0, 0));
         loginbttn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -196,12 +214,14 @@ public class registeracc extends javax.swing.JFrame {
                 loginbttnMouseClicked(evt);
             }
         });
-        mainlgf.add(loginbttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 390, 140, 30));
+        mainlgf.add(loginbttn);
+        loginbttn.setBounds(780, 390, 140, 30);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 0, 0));
         jLabel16.setText("User-type:");
-        mainlgf.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 120, 25));
+        mainlgf.add(jLabel16);
+        jLabel16.setBounds(490, 350, 120, 25);
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -212,17 +232,21 @@ public class registeracc extends javax.swing.JFrame {
                 showpassActionPerformed(evt);
             }
         });
-        mainlgf.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 140, -1));
+        mainlgf.add(showpass);
+        showpass.setBounds(780, 350, 140, 23);
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        mainlgf.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 100, -1));
-        mainlgf.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 260, 120, 25));
+        mainlgf.add(sex);
+        sex.setBounds(610, 260, 100, 25);
+        mainlgf.add(birthdate);
+        birthdate.setBounds(800, 260, 120, 25);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(153, 0, 0));
         jLabel17.setText("Confirm password:");
-        mainlgf.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 120, 25));
+        mainlgf.add(jLabel17);
+        jLabel17.setBounds(490, 320, 120, 25);
 
         goback.setBackground(new java.awt.Color(204, 0, 0));
         goback.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -235,7 +259,8 @@ public class registeracc extends javax.swing.JFrame {
                 gobackMouseClicked(evt);
             }
         });
-        mainlgf.add(goback, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 140, 30));
+        mainlgf.add(goback);
+        goback.setBounds(610, 390, 140, 30);
 
         jPanel3.setBackground(new java.awt.Color(204, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,7 +278,8 @@ public class registeracc extends javax.swing.JFrame {
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
-        mainlgf.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 540));
+        mainlgf.add(jPanel3);
+        jPanel3.setBounds(0, 0, 460, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -371,9 +397,10 @@ public class registeracc extends javax.swing.JFrame {
     }//GEN-LAST:event_typeActionPerformed
 
     private void gobackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseClicked
-        this.dispose();
+         this.setVisible(false);
         loginform lfm = new loginform();
         lfm.setVisible(true);
+        this.dispose();
        
     }//GEN-LAST:event_gobackMouseClicked
 
