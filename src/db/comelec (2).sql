@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2025 at 06:48 AM
+-- Generation Time: Mar 21, 2025 at 08:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,8 +48,8 @@ CREATE TABLE `users` (
   `useremail` varchar(255) NOT NULL,
   `sex` varchar(255) NOT NULL,
   `utype` varchar(50) NOT NULL,
-  `birthdate` date NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `birthdate` varchar(50) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `stats` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,7 +65,8 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (11, 'test', 'try', 'try', 'try', 'male', 'User', '2004-12-04', '1111111111', 'pending'),
 (12, 'testtt', 'testtt', 'tesstttt', 'tesstttts', 'male', 'User', '1987-12-12', 'testtest', 'pending'),
 (13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'hokagi123', 'pending'),
-(14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', '12345678', 'Active');
+(14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', '12345678', 'Active'),
+(15, 'anthony', 'teves', 'artstzy', 'qwertyuio', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +98,7 @@ ALTER TABLE `candidates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
