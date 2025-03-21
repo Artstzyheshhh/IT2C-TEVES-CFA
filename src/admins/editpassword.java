@@ -5,6 +5,13 @@
  */
 package admins;
 
+import config.Session;
+import config.dbconnect;
+import config.passwordHasher;
+import it2c.teves.cfa.loginform;
+import java.security.NoSuchAlgorithmException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author acer
@@ -36,15 +43,22 @@ public class editpassword extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         conpassword = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        oldpass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         showpass = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,6 +70,11 @@ public class editpassword extends javax.swing.JFrame {
         jLabel5.setText("Back");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jLabel5.setOpaque(true);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 80, 20));
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
@@ -96,15 +115,15 @@ public class editpassword extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel3.setText("Old Password:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 25));
+        jLabel3.setText("id");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 25));
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        oldpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                oldpassActionPerformed(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 260, 25));
+        jPanel2.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 260, 25));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 0, 0));
@@ -125,7 +144,7 @@ public class editpassword extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("EDIT PASSWORD");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(204, 0, 0));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -133,7 +152,25 @@ public class editpassword extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Save");
         jLabel7.setOpaque(true);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 100, 30));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel8.setText("Old Password:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 25));
+
+        id.setEnabled(false);
+        id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idActionPerformed(evt);
+            }
+        });
+        jPanel2.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, 25));
 
         main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 430, 320));
 
@@ -162,6 +199,7 @@ public class editpassword extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -172,21 +210,68 @@ public class editpassword extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_conpasswordActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void oldpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldpassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_oldpassActionPerformed
 
     private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
-        confpass.setEchoChar('*');
+        conpassword.setEchoChar('*');
         password.setEchoChar('*');
         if(showpass.isSelected()){
-            confpass.setEchoChar((char)0);
+           conpassword.setEchoChar((char)0);
             password.setEchoChar((char)0);
         }  else {
-            confpass.setEchoChar('*');
+            conpassword.setEchoChar('*');
             password.setEchoChar('*');
         }
     }//GEN-LAST:event_showpassActionPerformed
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        dbconnect dbc = new dbconnect();
+        
+        if(password.getText().isEmpty()    
+          ||conpassword.getText().isEmpty() ){
+         JOptionPane.showMessageDialog(null, "empty field");
+         }else if(!(password.getText().equals(conpassword.getText()))){
+      JOptionPane.showMessageDialog(null, "password not match");
+     }  else{
+             
+             try{
+                 String pass = passwordHasher.hashPassword(password.getText());
+            dbc.insertData("UPDATE users SET password ='"+pass+"' WHERE uid ='"+id.getText()+"'");
+            JOptionPane.showMessageDialog(null,"password updated successfully.");
+              }catch(NoSuchAlgorithmException ex){
+                    System.out.println(""+ex);}
+            loginform lf = new loginform();
+            lf.setVisible(true);
+            this.dispose();
+        }       
+     
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Session sess = Session.getInstance();
+        if(sess.getId() == 0){
+        JOptionPane.showMessageDialog(null,"No account found, login first!");
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+        }else{
+            id.setText(""+sess.getId());
+            
+     
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        editoption eo = new editoption();
+        eo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,6 +310,7 @@ public class editpassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField conpassword;
+    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -234,10 +320,11 @@ public class editpassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     public javax.swing.JPanel main;
+    private javax.swing.JPasswordField oldpass;
     private javax.swing.JPasswordField password;
     private javax.swing.JCheckBox showpass;
     // End of variables declaration//GEN-END:variables

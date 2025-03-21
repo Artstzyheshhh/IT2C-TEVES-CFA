@@ -231,8 +231,7 @@ public class editmyacc extends javax.swing.JFrame {
             fname.setText(""+sess.getFname());
             lname.setText(""+sess.getLname());
             uname.setText(""+sess.getUsername());
-            emaill.setText(""+sess.getEmail());                        
-           
+            emaill.setText(""+sess.getEmail());                               
             sex.setSelectedItem(""+sess.getSex());
             status.setSelectedItem(""+sess.getStatus());
             type.setSelectedItem(""+sess.getType());

@@ -117,13 +117,8 @@ public class edituser extends javax.swing.JFrame {
         sex = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         birthdate = new javax.swing.JFormattedTextField();
-        jLabel14 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
-        jLabel17 = new javax.swing.JLabel();
-        confpass = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
-        showpass = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
         savebttn = new javax.swing.JLabel();
@@ -350,85 +345,59 @@ public class edituser extends javax.swing.JFrame {
 
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("User ID:");
-        editpanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 110, 20));
+        editpanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 110, 20));
 
         id.setEnabled(false);
-        editpanel.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 80, -1));
+        editpanel.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 80, -1));
 
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("User-type:");
-        editpanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 70, 20));
+        editpanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 70, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
-        editpanel.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 110, 20));
+        editpanel.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 110, 20));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Firstname:");
-        editpanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 110, 20));
-        editpanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 270, 20));
+        editpanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 110, 20));
+        editpanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 270, 20));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Lastname:");
-        editpanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 20));
-        editpanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 270, -1));
+        editpanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 110, 20));
+        editpanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 270, -1));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Username:");
-        editpanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 110, 20));
-        editpanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 270, 20));
+        editpanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, 20));
+        editpanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 270, 20));
 
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Email:");
-        editpanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 110, 20));
-        editpanel.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 270, 20));
+        editpanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, 20));
+        editpanel.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 270, 20));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Sex:");
-        editpanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 110, 20));
+        editpanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 110, 20));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        editpanel.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, 20));
+        editpanel.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 70, 20));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Birthdate:");
-        editpanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 60, 20));
-        editpanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 120, 20));
-
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Password:");
-        editpanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 110, 20));
-        editpanel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 270, 20));
-
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Confirm password:");
-        editpanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 110, 20));
-        editpanel.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 270, 20));
+        editpanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 60, 20));
+        editpanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 120, 20));
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("User status:");
-        editpanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 110, 20));
+        editpanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 110, 20));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
-        editpanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 110, 20));
-
-        showpass.setBackground(new java.awt.Color(255, 255, 255));
-        showpass.setForeground(new java.awt.Color(255, 255, 255));
-        showpass.setText("View password");
-        showpass.setOpaque(false);
-        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showpassMouseClicked(evt);
-            }
-        });
-        showpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showpassActionPerformed(evt);
-            }
-        });
-        editpanel.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 140, 20));
+        editpanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 110, 20));
 
         main.add(editpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 440, 370));
 
@@ -673,7 +642,7 @@ public class edituser extends javax.swing.JFrame {
             lname.setText(""+rs.getString("lname"));
             uname.setText(""+rs.getString("ussername"));
             emaill.setText(""+rs.getString("useremail"));                        
-            password.setText(""+rs.getString("password"));
+           
             sex.setSelectedItem(""+rs.getString("sex"));
             status.setSelectedItem(""+rs.getString("stats"));
             type.setSelectedItem(""+rs.getString("utype"));
@@ -694,28 +663,23 @@ public class edituser extends javax.swing.JFrame {
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
             || emaill.getText() .isEmpty()
-            ||password.getText().isEmpty()
-            ||confpass.getText().isEmpty() )
+            )
 
         {JOptionPane.showMessageDialog(null,"all field are required");
         }  else if(updatecheck()){
             System.out.println("duplicate exist");
 
         }
-        else if (!(password.getText().length() >= 8)){
-            JOptionPane.showMessageDialog(null,"password should have 8 characters and above");
-        }
+       
         else if (uname.getText().equals(emaill.getText())){
             JOptionPane.showMessageDialog(null, "username and email should not match");
         }
        
-        else if(!(password.getText().equals(confpass.getText()))){
-            JOptionPane.showMessageDialog(null, "password not match");
-        } else{
+        else{
         dbc.insertData("UPDATE users SET fname ='"+fname.getText()+"',lname ='"+lname.getText()+"',"
                 + "ussername ='"+uname.getText()+"',useremail ='"+emaill.getText()+"',"
                 + "sex ='"+sex.getSelectedItem()+"',utype ='"+type.getSelectedItem()+"',"
-                + "password ='"+password.getText()+"',stats ='"+status.getSelectedItem()+"',"
+                + "stats ='"+status.getSelectedItem()+"',"
                 + "birthdate ='"+birthdate.getText()+"' WHERE uid ='"+id.getText()+"'");
             JOptionPane.showMessageDialog(null,"account updated successfully.");
             edituser edt = new edituser();
@@ -723,22 +687,6 @@ public class edituser extends javax.swing.JFrame {
            
         }
     }//GEN-LAST:event_savebttnMouseClicked
-
-    private void showpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpassMouseClicked
-       
-    }//GEN-LAST:event_showpassMouseClicked
-
-    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
-            confpass.setEchoChar('*');
-            password.setEchoChar('*');
-        if(showpass.isSelected()){
-            confpass.setEchoChar((char)0);
-            password.setEchoChar((char)0);
-        }  else {
-            confpass.setEchoChar('*');
-            password.setEchoChar('*');
-        }
-    }//GEN-LAST:event_showpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -780,7 +728,6 @@ public class edituser extends javax.swing.JFrame {
     private javax.swing.JLabel addd;
     private javax.swing.JFormattedTextField birthdate;
     private javax.swing.JLabel candidates;
-    private javax.swing.JPasswordField confpass;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
     private javax.swing.JLabel editinfo;
@@ -793,10 +740,8 @@ public class edituser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -814,11 +759,9 @@ public class edituser extends javax.swing.JFrame {
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
     private javax.swing.JLabel myaccount;
-    private javax.swing.JPasswordField password;
     private javax.swing.JLabel pendings;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;
-    private javax.swing.JCheckBox showpass;
     private javax.swing.JPanel sidebar;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JPanel topbar;

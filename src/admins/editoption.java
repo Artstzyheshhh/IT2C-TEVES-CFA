@@ -35,8 +35,9 @@ public class editoption extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        editpass = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,11 @@ public class editoption extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("EDIT");
         jLabel11.setOpaque(true);
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         main.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 90, 130, 30));
 
         jLabel1.setBackground(new java.awt.Color(204, 0, 0));
@@ -84,18 +90,35 @@ public class editoption extends javax.swing.JFrame {
         jLabel12.setText("(Password)");
         main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 340, 50));
 
+        editpass.setBackground(new java.awt.Color(204, 0, 0));
+        editpass.setForeground(new java.awt.Color(255, 255, 255));
+        editpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        editpass.setText("EDIT");
+        editpass.setOpaque(true);
+        editpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editpassMouseClicked(evt);
+            }
+        });
+        main.add(editpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 130, 30));
+
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("      Edit account password");
         jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
         main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 1000, 50));
 
-        jLabel14.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("EDIT");
-        jLabel14.setOpaque(true);
-        main.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 130, 30));
+        back.setBackground(new java.awt.Color(204, 0, 0));
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        back.setText("BACK");
+        back.setOpaque(true);
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        main.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +134,27 @@ public class editoption extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        editmyacc eda = new editmyacc();
+        eda.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void editpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editpassMouseClicked
+        editpassword ep = new editpassword();
+        ep.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editpassMouseClicked
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        adminsdashboard ad= new adminsdashboard();
+        ad.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -149,12 +192,13 @@ public class editoption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
+    private javax.swing.JLabel editpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
