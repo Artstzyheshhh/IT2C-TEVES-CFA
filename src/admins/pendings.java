@@ -79,6 +79,7 @@ public class pendings extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -298,7 +299,7 @@ public class pendings extends javax.swing.JFrame {
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
         adminsdashboard adm = new adminsdashboard();
         adm.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_myaccountMouseClicked
 
     private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
@@ -316,7 +317,7 @@ public class pendings extends javax.swing.JFrame {
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
@@ -334,7 +335,7 @@ public class pendings extends javax.swing.JFrame {
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
        viewusers vw = new viewusers();
        vw.setVisible(true);
-       this.dispose();
+      
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
@@ -352,7 +353,7 @@ public class pendings extends javax.swing.JFrame {
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
         candidate cnddte = new candidate();
         cnddte.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered
@@ -373,7 +374,7 @@ public class pendings extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+     
         }else{
         accname.setText(""+sess.getUsername());
         }
@@ -421,7 +422,7 @@ public class pendings extends javax.swing.JFrame {
             dbc.updateData("UPDATE users SET stats = '"+status.getSelectedItem()+"' WHERE uid = '"+idd.getText()+"'");
             pendings pnd = new pendings();
             pnd.setVisible(true);
-          this.dispose();
+          
           
           }           
     }//GEN-LAST:event_jLabel8MouseClicked

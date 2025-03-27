@@ -40,6 +40,7 @@ public class editoption extends javax.swing.JFrame {
         back = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -48,10 +49,11 @@ public class editoption extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
 
-        jLabel11.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("EDIT");
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel11.setOpaque(true);
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -77,48 +79,50 @@ public class editoption extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("(Firstname, Lastname, Username, email, Birthdate)");
-        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 340, 50));
+        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 340, 50));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 0, 0));
         jLabel10.setText("      Edit account information");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
-        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 80, 1000, 50));
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 950, 50));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("(Password)");
-        main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 340, 50));
+        main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 340, 50));
 
-        editpass.setBackground(new java.awt.Color(204, 0, 0));
-        editpass.setForeground(new java.awt.Color(255, 255, 255));
+        editpass.setBackground(new java.awt.Color(255, 255, 255));
+        editpass.setForeground(new java.awt.Color(204, 0, 0));
         editpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         editpass.setText("EDIT");
+        editpass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         editpass.setOpaque(true);
         editpass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editpassMouseClicked(evt);
             }
         });
-        main.add(editpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 130, 30));
+        main.add(editpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, 130, 30));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("      Edit account password");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
-        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 1000, 50));
+        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 950, 50));
 
-        back.setBackground(new java.awt.Color(204, 0, 0));
-        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setBackground(new java.awt.Color(255, 255, 255));
+        back.setForeground(new java.awt.Color(204, 0, 0));
         back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         back.setText("BACK");
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         back.setOpaque(true);
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
             }
         });
-        main.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, 130, 30));
+        main.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 200, 130, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,19 +144,19 @@ public class editoption extends javax.swing.JFrame {
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         editmyacc eda = new editmyacc();
         eda.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void editpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editpassMouseClicked
         editpassword ep = new editpassword();
         ep.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_editpassMouseClicked
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         adminsdashboard ad= new adminsdashboard();
         ad.setVisible(true);
-        this.dispose();
+        
         
     }//GEN-LAST:event_backMouseClicked
 

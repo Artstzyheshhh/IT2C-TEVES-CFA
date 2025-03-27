@@ -54,6 +54,7 @@ public class editpassword extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -229,7 +230,7 @@ public class editpassword extends javax.swing.JFrame {
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         editoption eo = new editoption();
         eo.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_backMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -264,7 +265,7 @@ Session sess = Session.getInstance();
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+        
         }else{
             id.setText(""+sess.getId());
             

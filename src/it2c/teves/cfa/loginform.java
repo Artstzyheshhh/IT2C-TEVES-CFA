@@ -14,10 +14,8 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-
 import users.usersdashboard;
 
 
@@ -98,11 +96,15 @@ public class loginform extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         warningusername = new javax.swing.JLabel();
         signup = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         loginFrame.setBackground(new java.awt.Color(255, 255, 255));
         loginFrame.setLayout(null);
@@ -118,14 +120,14 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(upass);
-        upass.setBounds(590, 260, 310, 30);
+        upass.setBounds(600, 270, 310, 30);
 
         warningpass.setBackground(new java.awt.Color(255, 255, 255));
         warningpass.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningpass.setForeground(new java.awt.Color(153, 0, 0));
         warningpass.setOpaque(true);
         loginFrame.add(warningpass);
-        warningpass.setBounds(590, 240, 310, 20);
+        warningpass.setBounds(600, 250, 310, 20);
 
         usern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,20 +135,20 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(usern);
-        usern.setBounds(590, 210, 310, 30);
+        usern.setBounds(600, 220, 310, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Password:");
         loginFrame.add(jLabel2);
-        jLabel2.setBounds(510, 260, 80, 30);
+        jLabel2.setBounds(500, 270, 100, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login form");
         loginFrame.add(jLabel3);
-        jLabel3.setBounds(590, 170, 310, 30);
+        jLabel3.setBounds(600, 180, 310, 30);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -180,7 +182,7 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(loginbttn);
-        loginbttn.setBounds(760, 320, 140, 30);
+        loginbttn.setBounds(770, 330, 140, 30);
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setForeground(new java.awt.Color(153, 0, 0));
@@ -191,33 +193,84 @@ public class loginform extends javax.swing.JFrame {
             }
         });
         loginFrame.add(showpass);
-        showpass.setBounds(590, 290, 310, 20);
+        showpass.setBounds(600, 300, 310, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Username:");
         loginFrame.add(jLabel10);
-        jLabel10.setBounds(510, 210, 80, 30);
+        jLabel10.setBounds(500, 220, 100, 30);
 
         warningusername.setBackground(new java.awt.Color(255, 255, 255));
         warningusername.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         warningusername.setForeground(new java.awt.Color(153, 0, 0));
         warningusername.setOpaque(true);
         loginFrame.add(warningusername);
-        warningusername.setBounds(590, 190, 310, 20);
+        warningusername.setBounds(600, 200, 310, 20);
 
         signup.setBackground(new java.awt.Color(204, 0, 0));
         signup.setForeground(new java.awt.Color(255, 255, 255));
         signup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         signup.setText("Sign up");
+        signup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         signup.setOpaque(true);
         signup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signupMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signupMouseExited(evt);
+            }
         });
         loginFrame.add(signup);
-        signup.setBounds(600, 320, 140, 30);
+        signup.setBounds(610, 330, 140, 30);
+
+        minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        minimize.setForeground(new java.awt.Color(204, 0, 0));
+        minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimize.setText("—");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
+            }
+        });
+        loginFrame.add(minimize);
+        minimize.setBounds(890, 10, 30, 25);
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("X");
+        jLabel5.setOpaque(true);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+        });
+        loginFrame.add(jLabel5);
+        jLabel5.setBounds(930, 10, 30, 25);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loginFrame.add(jLabel6);
+        jLabel6.setBounds(910, 0, 25, 25);
 
         jPanel3.setBackground(new java.awt.Color(204, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -226,17 +279,17 @@ public class loginform extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("COMELEC ");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 170, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("FILING APPLICATION");
         jLabel7.setPreferredSize(new java.awt.Dimension(163, 17));
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
 
         loginFrame.add(jPanel3);
-        jPanel3.setBounds(0, 0, 480, 540);
+        jPanel3.setBounds(0, 0, 460, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,7 +301,7 @@ public class loginform extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(loginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         loginFrame.getAccessibleContext().setAccessibleName("");
@@ -279,16 +332,16 @@ public class loginform extends javax.swing.JFrame {
             else if(!status.equalsIgnoreCase("active")){
                 JOptionPane.showMessageDialog(null,"account in-active, contact the admin!");
                 }
-            else{JOptionPane.showMessageDialog(null,"login success!");
+            else{
             
             if(typee.equals("Admin")){
                 adminsdashboard admdash = new adminsdashboard();
                 admdash.setVisible(true);
-                this.dispose();
+               
             }else if(typee.equals("User")){
                 usersdashboard usrdash = new usersdashboard();
                 usrdash.setVisible(true);
-                this.dispose();
+                
             }else{
                 JOptionPane.showMessageDialog(null,"No account type found!!");
             }
@@ -316,12 +369,46 @@ public class loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_showpassActionPerformed
 
     private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
-       
+        
         registeracc racc = new registeracc();
         racc.setVisible(true);
-        this.dispose();
-        // TODO add your handling code here:
+       this.dispose();
+        
     }//GEN-LAST:event_signupMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void signupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseEntered
+         signup.setBackground(Color.white);
+          signup.setForeground(new java.awt.Color(204, 0, 0));
+    }//GEN-LAST:event_signupMouseEntered
+
+    private void signupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseExited
+          signup.setBackground(new java.awt.Color(204, 0, 0));
+          signup.setForeground(Color.white);
+    }//GEN-LAST:event_signupMouseExited
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+       jLabel5.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+         jLabel5.setBackground(Color.white);
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+       setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
+         minimize.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_minimizeMouseEntered
+
+    private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
+            minimize.setBackground(Color.white);
+    }//GEN-LAST:event_minimizeMouseExited
 
     /**
      * @param args the command line arguments
@@ -351,7 +438,7 @@ public class loginform extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new loginform().setVisible(true);
             }
@@ -363,12 +450,15 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JPanel loginFrame;
     private javax.swing.JLabel loginbttn;
+    private javax.swing.JLabel minimize;
     private javax.swing.JCheckBox showpass;
     private javax.swing.JLabel signup;
     private javax.swing.JPasswordField upass;

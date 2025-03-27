@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2025 at 07:49 AM
+-- Generation Time: Mar 27, 2025 at 03:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,8 +31,51 @@ CREATE TABLE `candidates` (
   `cid` int(10) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `age` int(10) NOT NULL
+  `age` int(10) NOT NULL,
+  `mname` varchar(50) NOT NULL,
+  `birthdate` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `nationality` varchar(50) NOT NULL,
+  `sex` varchar(50) NOT NULL,
+  `occupation` varchar(50) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `position` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `positions`
+--
+
+CREATE TABLE `positions` (
+  `pid` int(10) NOT NULL,
+  `pname` varchar(255) NOT NULL,
+  `term` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `positions`
+--
+
+INSERT INTO `positions` (`pid`, `pname`, `term`) VALUES
+(1, 'President', 6),
+(2, 'Vice-president', 6),
+(3, 'Senator', 6),
+(4, 'Congressman/Congresswoman', 3),
+(5, 'Governor', 3),
+(6, 'Vice-governor', 3),
+(7, 'Provincial board member', 3),
+(8, 'Mayor ', 3),
+(9, 'Vice-mayor', 3),
+(10, 'City councilor', 3),
+(11, 'Barangay Captain', 3),
+(12, 'Barangay councilor', 3),
+(13, 'SK chairman', 3),
+(14, 'SK councilor', 3);
 
 -- --------------------------------------------------------
 
@@ -58,8 +101,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `utype`, `birthdate`, `password`, `stats`) VALUES
-(4, 'teves', 'teves', 'ishigami', 'teves1222@gmailcom', 'male', 'Admin', '2004-12-04', 'testtest', 'Active'),
-(5, 'ishigamiqwq', 'senku', 'ishenku', 'senkiii@gmail.com', 'male', 'User', '0000-00-00', '0tAup03iyfqx2ALblpwY1AmoZjqWl5d7scmMzdneQ3I=', 'Active'),
+(4, 'teves', 'teves', 'ishigami', 'teves1222@gmailcom', 'male', 'Admin', '2004-12-04', '12345678', 'Active'),
+(5, 'ishigamiqwq', 'senku', 'ishenku', 'senkiii@gmail.com', 'male', 'User', '0000-00-00', '12344wqwq', 'Active'),
 (9, 'Roronoa', 'Zorro', 'zorrochi', 'zorrororor', 'male', 'Admin', '0000-00-00', 'onepiece', 'active'),
 (10, 'yuji', 'itadori', 'yujiii', 'itadori@gmail.com', 'male', 'User', '0000-00-00', 'hollowpurple', 'Pending'),
 (11, 'test', 'try', 'try', 'try', 'male', 'User', '2004-12-04', '1111111111', 'pending'),
@@ -67,6 +110,18 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'hokagi123', 'pending'),
 (14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', '12345678', 'Active'),
 (15, 'anthony', 'teves', 'artstzy', 'qwertyuio', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verifications`
+--
+
+CREATE TABLE `verifications` (
+  `vid` int(10) NOT NULL,
+  `answer` varchar(255) NOT NULL,
+  `user_id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -76,13 +131,27 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 -- Indexes for table `candidates`
 --
 ALTER TABLE `candidates`
-  ADD PRIMARY KEY (`cid`);
+  ADD PRIMARY KEY (`cid`),
+  ADD KEY `uid` (`user_id`);
+
+--
+-- Indexes for table `positions`
+--
+ALTER TABLE `positions`
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`uid`);
+
+--
+-- Indexes for table `verifications`
+--
+ALTER TABLE `verifications`
+  ADD PRIMARY KEY (`vid`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -95,10 +164,38 @@ ALTER TABLE `candidates`
   MODIFY `cid` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `positions`
+--
+ALTER TABLE `positions`
+  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `verifications`
+--
+ALTER TABLE `verifications`
+  MODIFY `vid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `candidates`
+--
+ALTER TABLE `candidates`
+  ADD CONSTRAINT `uid` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`);
+
+--
+-- Constraints for table `verifications`
+--
+ALTER TABLE `verifications`
+  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

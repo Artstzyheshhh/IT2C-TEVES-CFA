@@ -8,10 +8,14 @@ package it2c.teves.cfa;
 
 import config.dbconnect;
 import config.passwordHasher;
+import java.awt.Color;
+import java.awt.event.WindowEvent;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 
 
@@ -95,8 +99,11 @@ public class registeracc extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         mainlgf.setBackground(new java.awt.Color(255, 255, 255));
         mainlgf.setLayout(null);
@@ -204,14 +211,20 @@ public class registeracc extends javax.swing.JFrame {
         emaill.setBounds(610, 230, 310, 25);
 
         loginbttn.setBackground(new java.awt.Color(204, 0, 0));
-        loginbttn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         loginbttn.setForeground(new java.awt.Color(255, 255, 255));
         loginbttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginbttn.setText("Create");
+        loginbttn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginbttn.setOpaque(true);
         loginbttn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginbttnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginbttnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginbttnMouseExited(evt);
             }
         });
         mainlgf.add(loginbttn);
@@ -249,14 +262,20 @@ public class registeracc extends javax.swing.JFrame {
         jLabel17.setBounds(490, 320, 120, 25);
 
         goback.setBackground(new java.awt.Color(204, 0, 0));
-        goback.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         goback.setForeground(new java.awt.Color(255, 255, 255));
         goback.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         goback.setText("Go back");
+        goback.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         goback.setOpaque(true);
         goback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 gobackMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                gobackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                gobackMouseExited(evt);
             }
         });
         mainlgf.add(goback);
@@ -280,6 +299,46 @@ public class registeracc extends javax.swing.JFrame {
 
         mainlgf.add(jPanel3);
         jPanel3.setBounds(0, 0, 460, 540);
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("X");
+        jLabel5.setOpaque(true);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+        });
+        mainlgf.add(jLabel5);
+        jLabel5.setBounds(930, 10, 30, 25);
+
+        minimize.setBackground(new java.awt.Color(255, 255, 255));
+        minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        minimize.setForeground(new java.awt.Color(204, 0, 0));
+        minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimize.setText("—");
+        minimize.setOpaque(true);
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
+            }
+        });
+        mainlgf.add(minimize);
+        minimize.setBounds(890, 10, 30, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -397,12 +456,55 @@ public class registeracc extends javax.swing.JFrame {
     }//GEN-LAST:event_typeActionPerformed
 
     private void gobackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseClicked
-         this.setVisible(false);
+      
         loginform lfm = new loginform();
         lfm.setVisible(true);
         this.dispose();
-       
     }//GEN-LAST:event_gobackMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        jLabel5.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        jLabel5.setBackground(Color.white);
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void loginbttnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseEntered
+         loginbttn.setBackground(Color.white);
+        loginbttn.setForeground(new java.awt.Color(204, 0, 0));
+    }//GEN-LAST:event_loginbttnMouseEntered
+
+    private void loginbttnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseExited
+        loginbttn.setBackground(new java.awt.Color(204, 0, 0));
+        loginbttn.setForeground(Color.white);
+    }//GEN-LAST:event_loginbttnMouseExited
+
+    private void gobackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseEntered
+         goback.setBackground(Color.white);
+        goback.setForeground(new java.awt.Color(204, 0, 0));
+    }//GEN-LAST:event_gobackMouseEntered
+
+    private void gobackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseExited
+       goback.setBackground(new java.awt.Color(240, 0, 0));
+        goback.setForeground(Color.white);
+    }//GEN-LAST:event_gobackMouseExited
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+       setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
+        minimize.setBackground(new java.awt.Color(240,240,240));
+    }//GEN-LAST:event_minimizeMouseEntered
+
+    private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
+         minimize.setBackground(Color.white);
+    }//GEN-LAST:event_minimizeMouseExited
 
     /**
      * @param args the command line arguments
@@ -455,6 +557,7 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -463,6 +566,7 @@ public class registeracc extends javax.swing.JFrame {
     private javax.swing.JTextField lname;
     private javax.swing.JLabel loginbttn;
     public javax.swing.JPanel mainlgf;
+    private javax.swing.JLabel minimize;
     private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JCheckBox showpass;

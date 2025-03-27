@@ -6,9 +6,7 @@
 package admins;
 
 
-import admins.candidate;
-import admins.pendings;
-import admins.viewusers;
+
 import config.Session;
 import it2c.teves.cfa.loginform;
 import java.awt.Color;
@@ -73,6 +71,7 @@ public class adminsdashboard extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -322,7 +321,7 @@ public class adminsdashboard extends javax.swing.JFrame {
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
@@ -340,7 +339,7 @@ public class adminsdashboard extends javax.swing.JFrame {
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         viewusers vwusr = new viewusers();
         vwusr.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
@@ -380,7 +379,7 @@ public class adminsdashboard extends javax.swing.JFrame {
     private void pendingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseClicked
         pendings pnding = new pendings();
         pnding.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_pendingsMouseClicked
 
     private void pendingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseEntered
@@ -398,7 +397,7 @@ public class adminsdashboard extends javax.swing.JFrame {
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
         candidate cnddte = new candidate();
         cnddte.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered
@@ -416,7 +415,7 @@ public class adminsdashboard extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
        editoption eo = new editoption();
        eo.setVisible(true);
-       this.dispose();
+       
     }//GEN-LAST:event_jLabel12MouseClicked
 
     /**

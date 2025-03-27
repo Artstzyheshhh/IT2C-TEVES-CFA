@@ -95,6 +95,7 @@ public class viewusers extends javax.swing.JFrame {
         viewdetails = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -450,7 +451,7 @@ public class viewusers extends javax.swing.JFrame {
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
         adminsdashboard adm = new adminsdashboard();
         adm.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_myaccountMouseClicked
 
     private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
@@ -468,7 +469,7 @@ public class viewusers extends javax.swing.JFrame {
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
@@ -526,13 +527,13 @@ public class viewusers extends javax.swing.JFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         adduser adu = new adduser();
         adu.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_addMouseClicked
 
     private void pendingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseClicked
         pendings pnding = new pendings();
         pnding.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_pendingsMouseClicked
 
     private void pendingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseEntered
@@ -553,7 +554,7 @@ public class viewusers extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+       
         }else{
         accname.setText(""+sess.getUsername());
         
@@ -563,7 +564,7 @@ public class viewusers extends javax.swing.JFrame {
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
         candidate cnddte = new candidate();
         cnddte.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered
@@ -581,7 +582,7 @@ public class viewusers extends javax.swing.JFrame {
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
        edituser edt = new edituser();
        edt.setVisible(true);
-       this.dispose();
+     
     }//GEN-LAST:event_editMouseClicked
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

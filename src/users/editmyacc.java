@@ -91,6 +91,7 @@ public class editmyacc extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -224,7 +225,7 @@ public class editmyacc extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         usersdashboard ud = new usersdashboard();
         ud.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
@@ -255,7 +256,7 @@ public class editmyacc extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"account updated successfully.");
             usersdashboard ud = new usersdashboard();
             ud.setVisible(true);
-            this.dispose();
+            
         }
     }//GEN-LAST:event_savebttnMouseClicked
 
@@ -265,7 +266,7 @@ public class editmyacc extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+       
         }else{
             id.setText(""+sess.getId());
             fname.setText(""+sess.getFname());

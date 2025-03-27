@@ -40,6 +40,7 @@ public class editoption extends javax.swing.JFrame {
         editpass1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,13 +145,13 @@ public class editoption extends javax.swing.JFrame {
     private void editpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editpassMouseClicked
       editoption eo = new editoption();
       eo.setVisible(true);
-      this.dispose();
+    
     }//GEN-LAST:event_editpassMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         editpassword ed = new editpassword();
         ed.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jLabel13MouseClicked
 
     /**

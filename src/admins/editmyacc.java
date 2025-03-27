@@ -89,6 +89,7 @@ public class editmyacc extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -111,7 +112,8 @@ public class editmyacc extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
         main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 40));
 
-        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id.setEnabled(false);
@@ -267,14 +269,14 @@ public class editmyacc extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"account updated successfully.");
             adminsdashboard adm = new adminsdashboard();
             adm.setVisible(true);
-            this.dispose();
+          
         }
     }//GEN-LAST:event_savebttnMouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         adminsdashboard adm = new adminsdashboard();
         adm.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**

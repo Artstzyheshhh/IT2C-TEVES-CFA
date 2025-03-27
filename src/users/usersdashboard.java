@@ -71,6 +71,7 @@ public class usersdashboard extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -307,7 +308,7 @@ public class usersdashboard extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+       
         }else{
         accname.setText(""+sess.getUsername());
         fullname.setText("  "+sess.getLname()+",  "+sess.getFname());
@@ -342,7 +343,7 @@ public class usersdashboard extends javax.swing.JFrame {
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
@@ -376,7 +377,7 @@ public class usersdashboard extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         editoption eo = new editoption();
         eo.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_jLabel12MouseClicked
 
     /**

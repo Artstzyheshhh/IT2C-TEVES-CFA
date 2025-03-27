@@ -122,11 +122,11 @@ public class edituser extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         userstable = new javax.swing.JTable();
         savebttn = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         editinfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -427,14 +427,6 @@ public class edituser extends javax.swing.JFrame {
         });
         main.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 90, 20));
 
-        jLabel8.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Clear");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        jLabel8.setOpaque(true);
-        main.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, 20));
-
         editinfo.setBackground(new java.awt.Color(204, 0, 0));
         editinfo.setForeground(new java.awt.Color(255, 255, 255));
         editinfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -452,7 +444,12 @@ public class edituser extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Refresh");
         jLabel1.setOpaque(true);
-        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 90, 20));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -476,7 +473,7 @@ public class edituser extends javax.swing.JFrame {
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
         adminsdashboard adm = new adminsdashboard();
         adm.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_myaccountMouseClicked
 
     private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
@@ -494,7 +491,7 @@ public class edituser extends javax.swing.JFrame {
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         loginform lfm = new loginform();
         lfm.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_logoutMouseClicked
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
@@ -512,7 +509,7 @@ public class edituser extends javax.swing.JFrame {
     private void pendingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseClicked
         pendings pnding = new pendings();
         pnding.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_pendingsMouseClicked
 
     private void pendingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseEntered
@@ -530,7 +527,7 @@ public class edituser extends javax.swing.JFrame {
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
         candidate cnddte = new candidate();
         cnddte.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered
@@ -576,7 +573,7 @@ public class edituser extends javax.swing.JFrame {
     private void viewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseClicked
         viewusers viewusr = new viewusers();
         viewusr.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_viewMouseClicked
 
     private void viewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseEntered
@@ -607,7 +604,7 @@ public class edituser extends javax.swing.JFrame {
     private void adddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adddMouseClicked
         adduser adu = new adduser();
         adu.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_adddMouseClicked
 
     private void adddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adddMouseEntered
@@ -688,6 +685,19 @@ public class edituser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_savebttnMouseClicked
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+         id.setText("");
+            fname.setText("");
+            lname.setText("");
+            uname.setText("");
+            emaill.setText("");                        
+           
+            sex.setSelectedItem("");
+            status.setSelectedItem("");
+            type.setSelectedItem("");
+            birthdate.setText("");
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -749,7 +759,6 @@ public class edituser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
