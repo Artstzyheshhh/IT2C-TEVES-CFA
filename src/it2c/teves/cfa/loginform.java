@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import users.usersdashboard;
+import users.usermaindash;
 
 
 /**
@@ -100,6 +100,7 @@ public class loginform extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -195,9 +196,14 @@ public class loginform extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel10.setText("Username:");
+        jLabel10.setText("Forgot password?");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
         loginFrame.add(jLabel10);
-        jLabel10.setBounds(500, 220, 100, 30);
+        jLabel10.setBounds(610, 380, 160, 30);
 
         warningusername.setBackground(new java.awt.Color(255, 255, 255));
         warningusername.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -283,6 +289,12 @@ public class loginform extends javax.swing.JFrame {
         loginFrame.add(jPanel3);
         jPanel3.setBounds(0, 0, 460, 540);
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel11.setText("Username:");
+        loginFrame.add(jLabel11);
+        jLabel11.setBounds(500, 220, 100, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -331,7 +343,7 @@ public class loginform extends javax.swing.JFrame {
                 admdash.setVisible(true);
                this.dispose();
             }else if(typee.equals("User")){
-                usersdashboard usrdash = new usersdashboard();
+                usermaindash usrdash = new usermaindash();
                 usrdash.setVisible(true);
                 this.dispose();
             }else{
@@ -402,6 +414,12 @@ public class loginform extends javax.swing.JFrame {
             minimize.setBackground(Color.white);
     }//GEN-LAST:event_minimizeMouseExited
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        this.dispose();
+        recovery rv = new recovery();
+        rv.setVisible(true);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -440,6 +458,7 @@ public class loginform extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

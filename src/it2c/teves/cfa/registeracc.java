@@ -9,11 +9,9 @@ package it2c.teves.cfa;
 import config.dbconnect;
 import config.passwordHasher;
 import java.awt.Color;
-
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 
 
