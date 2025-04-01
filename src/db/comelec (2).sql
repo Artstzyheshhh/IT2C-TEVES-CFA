@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2025 at 03:57 PM
+-- Generation Time: Apr 01, 2025 at 05:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,6 +80,28 @@ INSERT INTO `positions` (`pid`, `pname`, `term`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `recovery`
+--
+
+CREATE TABLE `recovery` (
+  `rid` int(10) NOT NULL,
+  `userid` int(10) NOT NULL,
+  `answer1` varchar(255) NOT NULL,
+  `answer2` varchar(255) NOT NULL,
+  `answer3` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `recovery`
+--
+
+INSERT INTO `recovery` (`rid`, `userid`, `answer1`, `answer2`, `answer3`) VALUES
+(1, 15, 'jokjook', 'black', 'chimken'),
+(2, 14, 'romo', 'blue', 'dashi');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -107,8 +129,8 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (10, 'yuji', 'itadori', 'yujiii', 'itadori@gmail.com', 'male', 'User', '0000-00-00', 'hollowpurple', 'Pending'),
 (11, 'test', 'try', 'try', 'try', 'male', 'User', '2004-12-04', '1111111111', 'pending'),
 (12, 'testtt', 'testtt', 'tesstttt', 'tesstttts', 'male', 'User', '1987-12-12', 'testtest', 'pending'),
-(13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'hokagi123', 'pending'),
-(14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', '12345678', 'Active'),
+(13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'Vkh+6vmFm1qfN7vw1rV3YNqLhLh3kafHVVCJPtgW1Ak=', 'Active'),
+(14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', 'Tex6uJFFl9hHsI/4S6CB5avUxwSTilpuddqTOf3uQrQ=', 'Active'),
 (15, 'anthony', 'teves', 'artstzy', 'qwertyuio', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active');
 
 -- --------------------------------------------------------
@@ -141,6 +163,13 @@ ALTER TABLE `positions`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Indexes for table `recovery`
+--
+ALTER TABLE `recovery`
+  ADD PRIMARY KEY (`rid`),
+  ADD KEY `userid` (`userid`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -170,6 +199,12 @@ ALTER TABLE `positions`
   MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `recovery`
+--
+ALTER TABLE `recovery`
+  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -190,6 +225,12 @@ ALTER TABLE `verifications`
 --
 ALTER TABLE `candidates`
   ADD CONSTRAINT `uid` FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`);
+
+--
+-- Constraints for table `recovery`
+--
+ALTER TABLE `recovery`
+  ADD CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `users` (`uid`);
 
 --
 -- Constraints for table `verifications`
