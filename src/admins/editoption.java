@@ -5,6 +5,12 @@
  */
 package admins;
 
+import account.editmyaccount;
+import account.editpass;
+
+import it2c.teves.cfa.loginform;
+import java.awt.Color;
+
 /**
  *
  * @author acer
@@ -28,101 +34,156 @@ public class editoption extends javax.swing.JFrame {
     private void initComponents() {
 
         main = new javax.swing.JPanel();
+        minimize = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        editpass = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        back = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        details = new javax.swing.JLabel();
+        passwordd = new javax.swing.JLabel();
+        verification = new javax.swing.JLabel();
+        logout = new javax.swing.JLabel();
+        goback = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         main.setBackground(new java.awt.Color(255, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        minimize.setBackground(new java.awt.Color(204, 0, 0));
+        minimize.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        minimize.setForeground(new java.awt.Color(255, 255, 255));
+        minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimize.setText("—");
+        minimize.setOpaque(true);
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
+            }
+        });
+        main.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, 30, 25));
+
+        jLabel5.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("X");
+        jLabel5.setOpaque(true);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+        });
+        main.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, 30, 25));
 
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         main.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 170, 0));
 
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("EDIT");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jLabel11.setOpaque(true);
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-        });
-        main.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 90, 130, 30));
-
         jLabel1.setBackground(new java.awt.Color(204, 0, 0));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("     ADMINISTRATORS DASHBOARD");
+        jLabel1.setText("   MANAGE ACCOUNT INFORMATION:");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         jLabel1.setOpaque(true);
         main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 40));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel2.setText("  Edit account information:");
-        main.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 670, 40));
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 970, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel9.setText("(Firstname, Lastname, Username, email, Birthdate)");
-        main.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 340, 50));
+        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 970, 450));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel10.setText("      Edit account information");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        main.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 950, 50));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel12.setText("(Password)");
-        main.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 340, 50));
-
-        editpass.setBackground(new java.awt.Color(255, 255, 255));
-        editpass.setForeground(new java.awt.Color(204, 0, 0));
-        editpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        editpass.setText("EDIT");
-        editpass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        editpass.setOpaque(true);
-        editpass.addMouseListener(new java.awt.event.MouseAdapter() {
+        details.setBackground(new java.awt.Color(204, 0, 0));
+        details.setForeground(new java.awt.Color(204, 0, 0));
+        details.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        details.setText("  Details");
+        details.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editpassMouseClicked(evt);
+                detailsMouseClicked(evt);
             }
         });
-        main.add(editpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 150, 130, 30));
+        main.add(details, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 120, 20));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel13.setText("      Edit account password");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 950, 50));
-
-        back.setBackground(new java.awt.Color(255, 255, 255));
-        back.setForeground(new java.awt.Color(204, 0, 0));
-        back.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        back.setText("BACK");
-        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        back.setOpaque(true);
-        back.addMouseListener(new java.awt.event.MouseAdapter() {
+        passwordd.setBackground(new java.awt.Color(204, 0, 0));
+        passwordd.setForeground(new java.awt.Color(204, 0, 0));
+        passwordd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        passwordd.setText("  Password");
+        passwordd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backMouseClicked(evt);
+                passworddMouseClicked(evt);
             }
         });
-        main.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 200, 130, 30));
+        main.add(passwordd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 120, 20));
+
+        verification.setBackground(new java.awt.Color(204, 0, 0));
+        verification.setForeground(new java.awt.Color(204, 0, 0));
+        verification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        verification.setText("  Verification");
+        main.add(verification, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 120, 20));
+
+        logout.setBackground(new java.awt.Color(204, 0, 0));
+        logout.setForeground(new java.awt.Color(204, 0, 0));
+        logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logout.setText("  Log out");
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logoutMouseExited(evt);
+            }
+        });
+        main.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 120, 20));
+
+        goback.setBackground(new java.awt.Color(204, 0, 0));
+        goback.setForeground(new java.awt.Color(204, 0, 0));
+        goback.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        goback.setText("  Go back");
+        goback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gobackMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                gobackMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                gobackMouseExited(evt);
+            }
+        });
+        main.add(goback, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 120, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,24 +202,86 @@ public class editoption extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        editmyacc eda = new editmyacc();
-        eda.setVisible(true);
-       
-    }//GEN-LAST:event_jLabel11MouseClicked
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
 
-    private void editpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editpassMouseClicked
-        editpassword ep = new editpassword();
-        ep.setVisible(true);
-       
-    }//GEN-LAST:event_editpassMouseClicked
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setOpaque(true);
+        logout.setBackground(new java.awt.Color(221,21,21));
+        logout.setForeground(Color.white);
+    }//GEN-LAST:event_logoutMouseEntered
 
-    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-        adminsdashboard ad= new adminsdashboard();
-        ad.setVisible(true);
-        
-        
-    }//GEN-LAST:event_backMouseClicked
+    private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
+        logout.setBackground(Color.white);
+        logout.setForeground(new java.awt.Color(221,21,21));
+        logout.setOpaque(false);
+    }//GEN-LAST:event_logoutMouseExited
+
+    private void gobackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseClicked
+        maindash md = new maindash();
+        md.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_gobackMouseClicked
+
+    private void gobackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseEntered
+        goback.setOpaque(true);
+        goback.setBackground(new java.awt.Color(221,21,21));
+        goback.setForeground(Color.white);
+    }//GEN-LAST:event_gobackMouseEntered
+
+    private void gobackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseExited
+        goback.setBackground(Color.white);
+        goback.setForeground(new java.awt.Color(221,21,21));
+        goback.setOpaque(false);
+    }//GEN-LAST:event_gobackMouseExited
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+          jDesktopPane1.removeAll();
+    editmyaccount em = new editmyaccount();
+     jDesktopPane1.add(em).setVisible(true);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+      
+    }//GEN-LAST:event_formWindowActivated
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+        setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
+
+    }//GEN-LAST:event_minimizeMouseEntered
+
+    private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
+
+    }//GEN-LAST:event_minimizeMouseExited
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void passworddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passworddMouseClicked
+          jDesktopPane1.removeAll();
+      editpass ep = new editpass();
+        jDesktopPane1.add(ep).setVisible(true);  
+    }//GEN-LAST:event_passworddMouseClicked
+
+    private void detailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detailsMouseClicked
+       jDesktopPane1.removeAll();
+      editmyaccount em = new editmyaccount();
+        jDesktopPane1.add(em).setVisible(true);       
+    }//GEN-LAST:event_detailsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -196,16 +319,16 @@ public class editoption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel back;
-    private javax.swing.JLabel editpass;
+    private javax.swing.JLabel details;
+    private javax.swing.JLabel goback;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
+    private javax.swing.JLabel minimize;
+    private javax.swing.JLabel passwordd;
+    private javax.swing.JLabel verification;
     // End of variables declaration//GEN-END:variables
 }

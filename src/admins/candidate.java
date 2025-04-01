@@ -449,8 +449,7 @@ public class candidate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-        adminsdashboard adm = new adminsdashboard();
-        adm.setVisible(true);
+       
         
     }//GEN-LAST:event_myaccountMouseClicked
 
@@ -619,9 +618,7 @@ public class candidate extends javax.swing.JFrame {
     }//GEN-LAST:event_savebttnMouseExited
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        viewusers vw = new viewusers();
-        vw.setVisible(true);
-        
+     
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered

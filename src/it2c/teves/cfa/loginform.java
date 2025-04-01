@@ -5,7 +5,8 @@
  */
 package it2c.teves.cfa;
 
-import admins.adminsdashboard;
+
+import admins.maindash;
 import config.Session;
 import config.dbconnect;
 import config.passwordHasher;
@@ -13,9 +14,7 @@ import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import users.usersdashboard;
 
 
@@ -98,7 +97,6 @@ public class loginform extends javax.swing.JFrame {
         signup = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -266,12 +264,6 @@ public class loginform extends javax.swing.JFrame {
         loginFrame.add(jLabel5);
         jLabel5.setBounds(930, 10, 30, 25);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginFrame.add(jLabel6);
-        jLabel6.setBounds(910, 0, 25, 25);
-
         jPanel3.setBackground(new java.awt.Color(204, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -335,13 +327,13 @@ public class loginform extends javax.swing.JFrame {
             else{
             
             if(typee.equals("Admin")){
-                adminsdashboard admdash = new adminsdashboard();
+                maindash admdash = new maindash();
                 admdash.setVisible(true);
-               
+               this.dispose();
             }else if(typee.equals("User")){
                 usersdashboard usrdash = new usersdashboard();
                 usrdash.setVisible(true);
-                
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(null,"No account type found!!");
             }
@@ -451,7 +443,6 @@ public class loginform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
