@@ -5,6 +5,7 @@
  */
 package account;
 
+import admins.editoption;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import config.dbconnect;
 import config.Session;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import users.userditop;
 /**
  *
  * @author acer
@@ -27,7 +29,8 @@ public class forgotpass extends javax.swing.JInternalFrame {
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
     }
-    
+     
+    public static String utypee;
     public boolean duplicatecheck(){
             dbconnect dbc = new dbconnect();
             Session sess = Session.getInstance();
@@ -36,8 +39,11 @@ public class forgotpass extends javax.swing.JInternalFrame {
 
             try{
                 String query = "SELECT * FROM recovery WHERE userid = '"+ uid +"'";
+                String querys = "SELECT * FROM users WHERE userid = '"+ uid +"'";
+                
                 ResultSet resultSet = dbc.getData(query);
                 if(resultSet.next()){
+                    utypee= resultSet.getString("utype");
                     userid = resultSet.getInt("userid");
                     if(uid == userid){
                         System.out.println("user done this setup");
@@ -225,6 +231,8 @@ public class forgotpass extends javax.swing.JInternalFrame {
            q2.setText("");
            q3.setText("");
            savebttn.enable(false);
+           
+           
         }}
         
     }//GEN-LAST:event_savebttnMouseClicked

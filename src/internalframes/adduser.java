@@ -350,6 +350,9 @@ public class adduser extends javax.swing.JInternalFrame {
                     + type.getSelectedItem() + "', '"
                     + birthdate.getText() + "', '"
                     + pass + "','pending')");
+                
+                int dbb = dbc.insertData("INSERT INTO logs()"); 
+                
                 JOptionPane.showMessageDialog(null,"users account created successfully.");
                 }catch(NoSuchAlgorithmException ex){
                     System.out.println(""+ex);}

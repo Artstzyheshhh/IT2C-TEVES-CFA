@@ -10,7 +10,7 @@ import config.dbconnect;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+
 
 
 /**
@@ -33,13 +33,14 @@ public class recovery extends javax.swing.JFrame {
             
 
             try{
-                String query = "SELECT * FROM recovery WHERE userid = '"+ user_id +"'";
+                String query = "SELECT * FROM recovery WHERE userid = '"+ user_id.getText() +"'";
                 ResultSet resultSet = dbc.getData(query);
                 if(resultSet.next()){
+                    sess.setId(resultSet.getInt("userid"));
                     ans1 = resultSet.getString("answer1");
                     ans2 = resultSet.getString("answer2");
                     ans3 = resultSet.getString("answer3");
-                    sess.setId(resultSet.getInt("userid"));
+                    
                     return true;
                 }
                 else{
@@ -277,20 +278,26 @@ public class recovery extends javax.swing.JFrame {
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
            if(recoverycheck()){
-           if(!(a1.getText().equals(ans1))){
+               
+            if(!(a1.getText().equals(ans1))&!(a2.getText().equals(ans2))&!(a3.getText().equals(ans3))){
+            caution.setText("All answers are incorrect!");
+            } else if(!(a1.getText().equals(ans1))){
            caution.setText("Incorrect answer in question 1");
            a1.setText("");
-           }else if(!(a2.getText().equals(ans2))){
+           } else if(!(a2.getText().equals(ans2))){
              caution.setText("Incorrect answer in question 2");
              a2.setText("");
-           }else if(!(a3.getText().equals(ans3))){
+           } else if(!(a3.getText().equals(ans3))){
              caution.setText("Incorrect answer in question 3");
              a3.setText("");
-           }
-           }else{
+           } else{
+               this.dispose();
+              
                changepass cp = new changepass();
                cp.setVisible(true);
+             
            
+           }        
            }
     }//GEN-LAST:event_loginbttnMouseClicked
 

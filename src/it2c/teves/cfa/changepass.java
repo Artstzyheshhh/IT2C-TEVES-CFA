@@ -46,6 +46,11 @@ public class changepass extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeactivated(java.awt.event.WindowEvent evt) {
+                formWindowDeactivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,7 +155,7 @@ public class changepass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       this.dispose();
+      System.exit(0);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
@@ -193,11 +198,12 @@ public class changepass extends javax.swing.JFrame {
             caution.setText("password & confirm password should match");
             } else{
                  String pass = passwordHasher.hashPassword(password.getText());
-            dbc.insertData("UPDATE users SET fname ='"+pass+"'WHERE uid ='"+uid+"'");
+            dbc.insertData("UPDATE users SET password ='"+pass+"'WHERE uid ='"+uid+"'");
             System.out.println("updated successfully!");
             this.dispose();
             loginform lfm = new loginform();
             lfm.setVisible(true);
+            
             }
       }catch(NoSuchAlgorithmException ex){
                     System.out.println(""+ex);}
@@ -214,6 +220,8 @@ public class changepass extends javax.swing.JFrame {
     }//GEN-LAST:event_loginbttnMouseExited
 
     private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+        recovery rv = new recovery();
+        rv.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cancelMouseClicked
 
@@ -224,6 +232,10 @@ public class changepass extends javax.swing.JFrame {
     private void cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelMouseExited
+
+    private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
+       
+    }//GEN-LAST:event_formWindowDeactivated
 
     /**
      * @param args the command line arguments

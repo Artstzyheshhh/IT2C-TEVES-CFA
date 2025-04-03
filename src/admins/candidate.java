@@ -7,10 +7,10 @@ package admins;
 
 import config.Session;
 import config.dbconnect;
-import config.passwordHasher;
+
 import it2c.teves.cfa.loginform;
 import java.awt.Color;
-import java.security.NoSuchAlgorithmException;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -342,11 +342,11 @@ public class candidate extends javax.swing.JFrame {
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        main.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 50, 20));
+        main.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 70, 20));
 
         jLabel13.setForeground(new java.awt.Color(153, 0, 0));
         jLabel13.setText("Birthdate:");
-        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 70, 20));
+        main.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 60, 20));
         main.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 100, 20));
 
         jLabel14.setForeground(new java.awt.Color(153, 0, 0));

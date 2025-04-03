@@ -6,7 +6,12 @@
 package candidates;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-
+import config.Session;
+import config.dbconnect;
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author acer
@@ -22,7 +27,51 @@ public class addcandidate extends javax.swing.JInternalFrame {
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
     }
-
+         public static String cmail,usname,termm;
+    
+    public boolean duplicatecheck(){
+        
+        dbconnect dbc = new dbconnect();
+   try {
+            String query = "SELECT * FROM candidates WHERE emsil = '"+ email.getText()+"'";
+             String queryy = "SELECT * FROM pname WHERE pname = '"+ position.getSelectedItem()+"'";
+            ResultSet resultSet = dbc.getData(query);
+            if(resultSet.next()){
+              
+                 cmail = resultSet.getString("email");
+                if(cmail.equals(email.getText())){
+                JOptionPane.showMessageDialog(null,"email already existed");
+                email.setText("");
+                }
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+            return false;
+        }
+    }
+    
+    public boolean positionss(){    
+        dbconnect dbc = new dbconnect();
+   try {          
+             String queryy = "SELECT * FROM pname WHERE pname = '"+ position.getSelectedItem()+"'";
+            ResultSet resultSet = dbc.getData(queryy);
+            if(resultSet.next()){             
+                 termm = resultSet.getString("term");               
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+            return false;
+        }}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,23 +81,298 @@ public class addcandidate extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBorder(null);
+        jPanel3 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        fname = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        lname = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        middlename = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        address = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        sex = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        birthdate = new javax.swing.JFormattedTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        savebttn = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fname1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        nationality = new javax.swing.JTextField();
+        occupation = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        contact = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        position = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel10.setText("Firstname:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 110, 20));
+        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 250, 20));
+
+        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel11.setText("Lastname:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 110, 20));
+        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 250, -1));
+
+        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel9.setText("Middlename:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, 20));
+        jPanel3.add(middlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 250, 20));
+
+        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel15.setText("Address");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 110, 20));
+        jPanel3.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 250, 20));
+
+        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel12.setText("Sex:");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 110, 20));
+
+        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
+        sex.setPreferredSize(new java.awt.Dimension(57, 25));
+        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 50, 20));
+
+        jLabel13.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel13.setText("Birthdate:");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 70, 20));
+        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 100, 20));
+
+        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel14.setText("Nationality");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 110, 20));
+
+        jLabel17.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel17.setText("Occupation");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 110, 20));
+
+        savebttn.setBackground(new java.awt.Color(204, 0, 0));
+        savebttn.setForeground(new java.awt.Color(255, 255, 255));
+        savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        savebttn.setText("save");
+        savebttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
+        savebttn.setOpaque(true);
+        savebttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                savebttnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                savebttnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                savebttnMouseExited(evt);
+            }
+        });
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 20));
+
+        jLabel8.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Clear");
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
+        jLabel8.setOpaque(true);
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 90, 20));
+
+        fname1.setEnabled(false);
+        jPanel3.add(fname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 80, 20));
+
+        jLabel24.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel24.setText("Candidates ID:");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, 20));
+        jPanel3.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 250, -1));
+
+        occupation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                occupationActionPerformed(evt);
+            }
+        });
+        jPanel3.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 250, -1));
+
+        jLabel18.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel18.setText("Contact number:");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 100, 20));
+
+        jLabel21.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel21.setText("Position:");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 100, 20));
+        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 250, -1));
+
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
+        jPanel3.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 250, -1));
+
+        jLabel23.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel23.setText("Email:");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 20));
+
+        position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 250, -1));
+
+        jPanel2.setBackground(new java.awt.Color(204, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 110, 35));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 30));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
         );
+
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
+
+        Session sess = Session.getInstance();
+        dbconnect dbc = new dbconnect();
+        String birthdateText = birthdate.getText();
+        if(fname.getText() .isEmpty() || lname.getText().isEmpty()
+            ||middlename.getText() .isEmpty()
+            || birthdate.getText() .isEmpty()
+            || address.getText() .isEmpty()
+            ||nationality.getText().isEmpty()
+            ||occupation.getText().isEmpty()
+            ||contact.getText().isEmpty()
+            ||email.getText().isEmpty())
+
+        {JOptionPane.showMessageDialog(null,"all field are required");
+        }  else if(duplicatecheck()){
+            System.out.println("duplicate exist");
+
+        }
+        else if(duplicatecheck()){
+        }
+        else if (contact.getText().matches("-?\\d+")) {
+            JOptionPane.showMessageDialog(null,"integers only");
+        }
+        else if (birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) {
+            int year = Integer.parseInt(birthdateText.substring(0, 4));
+            int month = Integer.parseInt(birthdateText.substring(5, 7));
+            int day = Integer.parseInt(birthdateText.substring(8, 10));
+
+            if (!(month >= 1 && month <= 12)) {
+                JOptionPane.showMessageDialog(null, "Invalid month! Must not exceed 12.");
+            } else if (!(day > 1 || day < 31)) {
+                JOptionPane.showMessageDialog(null, "Invalid day! must not exceed 31");
+            }else if (!(year > 1966 )) {
+                JOptionPane.showMessageDialog(null, "Invalid year! too old.");
+            }else if (!(year < 2006 )) {
+                JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
+            }else {
+                
+                
+              int  userid= sess.getId();
+                int db = dbc.insertData("INSERT INTO candidates(fname, lname, mname,address, sex, nationality, birthdate, occupation, email ,contact,position,term,user_id) VALUES ('"
+                    + fname.getText() + "', '"
+                    + lname.getText() + "', '"
+                    + middlename.getText() + "', '"
+                    + address.getText() + "', '"
+                    + sex.getSelectedItem()+ "', '"
+                    + nationality.getText() + "', '"
+                    + birthdate.getText() + "', '"
+                    + occupation.getText() + "' '"
+                    + email.getText() + "' '"
+                    + contact.getText() + "' '"
+                    + position.getSelectedItem() + "' '"
+                    + termm + "' '"
+                    + userid+"')");
+                JOptionPane.showMessageDialog(null,"Candidate added successfully.");
+                
+               
+            }
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savebttnMouseClicked
+
+    private void savebttnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseEntered
+        savebttn.setBackground(Color.white);
+        savebttn.setForeground(new java.awt.Color(204,0,0));
+    }//GEN-LAST:event_savebttnMouseEntered
+
+    private void savebttnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseExited
+
+        savebttn.setBackground(new java.awt.Color(204,0,0));
+        savebttn.setForeground(Color.white);
+    }//GEN-LAST:event_savebttnMouseExited
+
+    private void occupationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_occupationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_occupationActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField address;
+    private javax.swing.JFormattedTextField birthdate;
+    private javax.swing.JTextField contact;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField fname;
+    private javax.swing.JTextField fname1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField lname;
+    private javax.swing.JTextField middlename;
+    private javax.swing.JTextField nationality;
+    private javax.swing.JTextField occupation;
+    private javax.swing.JComboBox<String> position;
+    private javax.swing.JLabel savebttn;
+    private javax.swing.JComboBox<String> sex;
     // End of variables declaration//GEN-END:variables
 }

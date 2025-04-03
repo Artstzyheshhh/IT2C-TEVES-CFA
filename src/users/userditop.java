@@ -299,7 +299,7 @@ public class userditop extends javax.swing.JFrame {
 
     private void gobackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gobackMouseClicked
         this.dispose();
-        maindash md = new maindash();
+        usermaindash md = new usermaindash();
         md.setVisible(true);
 
     }//GEN-LAST:event_gobackMouseClicked

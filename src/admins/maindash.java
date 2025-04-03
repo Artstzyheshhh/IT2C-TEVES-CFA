@@ -7,6 +7,7 @@ package admins;
 
 import config.Session;
 import account.accdetails;
+import candidates.managecandidates;
 import internalframes.manageuser;
 import it2c.teves.cfa.loginform;
 import java.awt.Color;
@@ -278,7 +279,9 @@ public class maindash extends javax.swing.JFrame {
     }//GEN-LAST:event_candidatesMouseEntered
 
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
-       
+       managecandidates mcd = new managecandidates();
+       jDesktopPane1.removeAll();    
+        jDesktopPane1.add(mcd).setVisible(true);
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited

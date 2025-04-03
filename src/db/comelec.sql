@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2025 at 05:04 PM
+-- Generation Time: Apr 04, 2025 at 12:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,6 +48,19 @@ CREATE TABLE `candidates` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `lid` int(10) NOT NULL,
+  `userid` int(10) NOT NULL,
+  `activity` varchar(255) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `positions`
 --
 
@@ -65,7 +78,7 @@ INSERT INTO `positions` (`pid`, `pname`, `term`) VALUES
 (1, 'President', 6),
 (2, 'Vice-president', 6),
 (3, 'Senator', 6),
-(4, 'Congressman/Congresswoman', 3),
+(4, 'Congressman', 3),
 (5, 'Governor', 3),
 (6, 'Vice-governor', 3),
 (7, 'Provincial board member', 3),
@@ -97,7 +110,8 @@ CREATE TABLE `recovery` (
 
 INSERT INTO `recovery` (`rid`, `userid`, `answer1`, `answer2`, `answer3`) VALUES
 (1, 15, 'jokjook', 'black', 'chimken'),
-(2, 14, 'romo', 'blue', 'dashi');
+(2, 14, 'romo', 'blue', 'dashi'),
+(3, 12, 'doraemon', 'green', 'fish');
 
 -- --------------------------------------------------------
 
@@ -128,7 +142,7 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (9, 'Roronoa', 'Zorro', 'zorrochi', 'zorrororor', 'male', 'Admin', '0000-00-00', 'onepiece', 'active'),
 (10, 'yuji', 'itadori', 'yujiii', 'itadori@gmail.com', 'male', 'User', '0000-00-00', 'hollowpurple', 'Pending'),
 (11, 'test', 'try', 'try', 'try', 'male', 'User', '2004-12-04', '1111111111', 'pending'),
-(12, 'testtt', 'testtt', 'tesstttt', 'tesstttts', 'male', 'User', '1987-12-12', 'testtest', 'pending'),
+(12, 'testtttt', 'testtt', 'tesstttt', 'tesstttts', 'male', 'User', '1987-12-12', 'k36NX7tIvUlJU2zWW401xCa4DS+DDFwwjizexCKuIkQ=', 'Active'),
 (13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'Vkh+6vmFm1qfN7vw1rV3YNqLhLh3kafHVVCJPtgW1Ak=', 'Active'),
 (14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', 'Tex6uJFFl9hHsI/4S6CB5avUxwSTilpuddqTOf3uQrQ=', 'Active'),
 (15, 'anthony', 'teves', 'artstzy', 'qwertyuio', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active');
@@ -155,6 +169,12 @@ CREATE TABLE `verifications` (
 ALTER TABLE `candidates`
   ADD PRIMARY KEY (`cid`),
   ADD KEY `uid` (`user_id`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`lid`);
 
 --
 -- Indexes for table `positions`
@@ -193,6 +213,12 @@ ALTER TABLE `candidates`
   MODIFY `cid` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
@@ -202,7 +228,7 @@ ALTER TABLE `positions`
 -- AUTO_INCREMENT for table `recovery`
 --
 ALTER TABLE `recovery`
-  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

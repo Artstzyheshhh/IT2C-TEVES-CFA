@@ -41,6 +41,23 @@ public class managecandidates extends javax.swing.JInternalFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setBorder(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,7 +167,7 @@ public class managecandidates extends javax.swing.JInternalFrame {
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         jDesktopPane1.removeAll();
-       addcandidate ad = new addcandidate();
+        addcandidate ad = new addcandidate();
         jDesktopPane1.add(ad).setVisible(true);
 
     }//GEN-LAST:event_addMouseClicked
@@ -199,6 +216,12 @@ public class managecandidates extends javax.swing.JInternalFrame {
         delete.setForeground(new java.awt.Color(204,0,0));
         delete.setOpaque(false);
     }//GEN-LAST:event_deleteMouseExited
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        jDesktopPane1.removeAll();
+        addcandidate ad = new addcandidate();
+        jDesktopPane1.add(ad).setVisible(true);
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
