@@ -219,8 +219,8 @@ public class managecandidates extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         jDesktopPane1.removeAll();
-        addcandidate ad = new addcandidate();
-        jDesktopPane1.add(ad).setVisible(true);
+       viewcandidates vw = new viewcandidates();
+        jDesktopPane1.add(vw).setVisible(true);
     }//GEN-LAST:event_formInternalFrameOpened
 
 

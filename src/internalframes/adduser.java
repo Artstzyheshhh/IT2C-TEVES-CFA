@@ -5,12 +5,18 @@
  */
 package internalframes;
 
+import com.mysql.jdbc.Statement;
+import config.Session;
 import config.dbconnect;
 import config.passwordHasher;
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -299,6 +305,7 @@ public class adduser extends javax.swing.JInternalFrame {
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
+             Session sess = Session.getInstance();
         String birthdateText = birthdate.getText();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||uname.getText() .isEmpty()
@@ -340,22 +347,52 @@ public class adduser extends javax.swing.JInternalFrame {
             }else {
                 
                  try{
+                   
+                    int lastInsertedId = -1;
+                     
                   String pass = passwordHasher.hashPassword(password.getText());
-                int db = dbc.insertData("INSERT INTO users(fname, lname, ussername,useremail, sex,utype, birthdate, password,stats) VALUES ('"
-                    + fname.getText() + "', '"
-                    + lname.getText() + "', '"
-                    + uname.getText() + "', '"
-                    + emaill.getText() + "', '"
-                    + sex.getSelectedItem()+ "', '"
-                    + type.getSelectedItem() + "', '"
-                    + birthdate.getText() + "', '"
-                    + pass + "','pending')");
-                
-                int dbb = dbc.insertData("INSERT INTO logs()"); 
-                
-                JOptionPane.showMessageDialog(null,"users account created successfully.");
-                }catch(NoSuchAlgorithmException ex){
-                    System.out.println(""+ex);}
+               String sql = "INSERT INTO users(fname, lname, ussername, useremail, sex, utype, birthdate, password, stats) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                PreparedStatement pst = dbc.connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+                // Use prepared statements properly with parameters
+                pst.setString(1, fname.getText());
+                pst.setString(2, lname.getText());
+                pst.setString(3, uname.getText());
+                pst.setString(4, emaill.getText());
+                pst.setString(5, sex.getSelectedItem().toString());
+                pst.setString(6, type.getSelectedItem().toString());
+                pst.setString(7, birthdate.getText());
+                pst.setString(8, pass);
+                pst.setString(9, "pending");
+
+              int affectedRows = pst.executeUpdate();
+    
+          if (affectedRows > 0) {
+        // Now retrieve the generated key
+        try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                lastInsertedId = generatedKeys.getInt(1);
+            }
+        }
+
+        String actionn = "Created user account ID: " + lastInsertedId;
+        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
+
+        JOptionPane.showMessageDialog(null, "User account created successfully.");
+        fname.setText("");
+        lname.setText("");
+        uname.setText("");
+        emaill.setText("");
+        birthdate.setText("");
+        password.setText("");
+        confpass.setText("");
+    } else {
+        JOptionPane.showMessageDialog(null, "Creating user failed, no rows affected.");
+    }}catch(NoSuchAlgorithmException ex){
+                    System.out.println(""+ex);} catch (SQLException ex) {
+                    Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }

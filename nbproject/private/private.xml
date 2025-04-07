@@ -4,14 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/changepass.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/managepaartylist.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/viewusers.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/editmyaccount.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admins/candidate.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admins/editoption.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/addpartylist.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/accdetails.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/viewpartylist.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admins/pendings.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/forgotpass.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/users/userditop.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/config/dbconnect.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/registeracc.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/manageuser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/users/usermaindash.java</file>
@@ -26,6 +30,7 @@
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/adduser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/managecandidates.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/editpass.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/editpartylist.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/viewcandidates.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/recovery.java</file>
         </group>

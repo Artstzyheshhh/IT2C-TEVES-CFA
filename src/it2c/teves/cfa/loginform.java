@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import users.usermaindash;
 
@@ -31,7 +32,8 @@ public class loginform extends javax.swing.JFrame {
          
     
     
-    static String hashedpassword, rehashedpassword, usname,status,typee;    
+    static String hashedpassword, rehashedpassword, usname,status,typee;   
+    static int uid;
     public boolean loginAcc(String username, String password){
     dbconnect dbc = new dbconnect();
     
@@ -42,8 +44,7 @@ public class loginform extends javax.swing.JFrame {
                    hashedpassword = resultSet.getString("password");
                    rehashedpassword = passwordHasher.hashPassword(password);
                     
-                   System.out.println(""+rehashedpassword);
-                   System.out.println(""+hashedpassword);
+                   uid = resultSet.getInt("uid");
                    usname = resultSet.getString("ussername");
                    status= resultSet.getString("stats");
                     typee = resultSet.getString("utype");
@@ -323,7 +324,8 @@ public class loginform extends javax.swing.JFrame {
     }//GEN-LAST:event_upassActionPerformed
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
-
+           dbconnect dbc = new dbconnect();
+        
         if(loginAcc(usern.getText(),upass.getText())){
             if(! hashedpassword.equals(rehashedpassword)){
                      warningpass.setText("incorrect password");
@@ -337,15 +339,17 @@ public class loginform extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"account in-active, contact the admin!");
                 }
             else{
-            
+            String action = "User with ID "+uid+" logged in";
             if(typee.equals("Admin")){
                 maindash admdash = new maindash();
                 admdash.setVisible(true);
                this.dispose();
+               dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
             }else if(typee.equals("User")){
                 usermaindash usrdash = new usermaindash();
                 usrdash.setVisible(true);
                 this.dispose();
+                dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
             }else{
                 JOptionPane.showMessageDialog(null,"No account type found!!");
             }

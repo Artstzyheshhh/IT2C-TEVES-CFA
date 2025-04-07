@@ -241,8 +241,6 @@ public class manageuser extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel topbar;
-    private javax.swing.JDesktopPane users;
-    private javax.swing.JDesktopPane users1;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables
 }
