@@ -33,28 +33,46 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        partylistpane = new javax.swing.JDesktopPane();
         topbar = new javax.swing.JPanel();
         view = new javax.swing.JLabel();
         add = new javax.swing.JLabel();
         edit = new javax.swing.JLabel();
         delete = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout partylistpaneLayout = new javax.swing.GroupLayout(partylistpane);
+        partylistpane.setLayout(partylistpaneLayout);
+        partylistpaneLayout.setHorizontalGroup(
+            partylistpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        partylistpaneLayout.setVerticalGroup(
+            partylistpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+        getContentPane().add(partylistpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,9 +149,9 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseClicked
-        jDesktopPane1.removeAll();
+        partylistpane.removeAll();
         viewpartylist vw = new viewpartylist();
-        jDesktopPane1.add(vw).setVisible(true);
+        partylistpane.add(vw).setVisible(true);
     }//GEN-LAST:event_viewMouseClicked
 
     private void viewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseEntered
@@ -149,9 +167,9 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_viewMouseExited
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        jDesktopPane1.removeAll();
+        partylistpane.removeAll();
         addpartylist ad = new addpartylist();
-        jDesktopPane1.add(ad).setVisible(true);
+        partylistpane.add(ad).setVisible(true);
 
     }//GEN-LAST:event_addMouseClicked
 
@@ -167,9 +185,9 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_addMouseExited
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-        jDesktopPane1.removeAll();
+        partylistpane.removeAll();
         editpartylist ed = new editpartylist();
-        jDesktopPane1.add(ed).setVisible(true);
+        partylistpane.add(ed).setVisible(true);
     }//GEN-LAST:event_editMouseClicked
 
     private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
@@ -200,12 +218,18 @@ public class managepaartylist extends javax.swing.JInternalFrame {
         delete.setOpaque(false);
     }//GEN-LAST:event_deleteMouseExited
 
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        partylistpane.removeAll();
+        addpartylist ad = new addpartylist();
+        partylistpane.add(ad).setVisible(true);
+    }//GEN-LAST:event_formInternalFrameOpened
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel add;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public javax.swing.JDesktopPane partylistpane;
     private javax.swing.JPanel topbar;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables

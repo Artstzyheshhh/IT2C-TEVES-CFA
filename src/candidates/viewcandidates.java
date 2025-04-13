@@ -5,7 +5,15 @@
  */
 package candidates;
 
+import config.Session;
+import config.dbconnect;
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -18,11 +26,28 @@ public class viewcandidates extends javax.swing.JInternalFrame {
      */
     public viewcandidates() {
         initComponents();
-            this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
+         displayData();
+       this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       
+        candidatestable.getTableHeader().setOpaque(false);
+       candidatestable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       candidatestable.getTableHeader().setForeground(Color.white);
+       
     }
+        public void displayData(){
+        try{
+            dbconnect dbc = new dbconnect();
+            ResultSet rs = dbc.getData("SELECT cid, lname, fname FROM candidates");
+            candidatestable.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
+        }catch(SQLException ex){
+            System.out.println("Errors: "+ex.getMessage());
 
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,14 +57,620 @@ public class viewcandidates extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        viewdetails1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        candidatestable1 = new javax.swing.JTable();
+        infopanel1 = new javax.swing.JPanel();
+        fname1 = new javax.swing.JLabel();
+        mname1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        email1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        id1 = new javax.swing.JLabel();
+        lname1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        sexx1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        nationality1 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        birthdate1 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        position1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        age1 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        address1 = new javax.swing.JLabel();
+        contact1 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        occupation1 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        term1 = new javax.swing.JLabel();
+        date1 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        viewdetails = new javax.swing.JLabel();
+        infopanel = new javax.swing.JPanel();
+        fname = new javax.swing.JLabel();
+        mname = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
+        lname = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        sexx = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        nationality = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        birthdate = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        position = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        age = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        address = new javax.swing.JLabel();
+        contact = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        occupation = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        term = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        candidatestable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jInternalFrame1.setBorder(null);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(204, 0, 0));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -30, 110, 35));
+
+        jPanel9.setPreferredSize(new java.awt.Dimension(800, 30));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
+
+        viewdetails1.setBackground(new java.awt.Color(204, 0, 0));
+        viewdetails1.setForeground(new java.awt.Color(255, 255, 255));
+        viewdetails1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewdetails1.setText("view details");
+        viewdetails1.setOpaque(true);
+        viewdetails1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewdetails1MouseClicked(evt);
+            }
+        });
+        jPanel7.add(viewdetails1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 90, 20));
+
+        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField2.setText("  search");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
+
+        candidatestable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        candidatestable1.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(candidatestable1);
+
+        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 400, 340));
+
+        infopanel1.setBackground(new java.awt.Color(255, 255, 255));
+        infopanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        infopanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        fname1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        fname1.setForeground(new java.awt.Color(204, 0, 0));
+        fname1.setText("Fname");
+        infopanel1.add(fname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 220, 20));
+
+        mname1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        mname1.setForeground(new java.awt.Color(204, 0, 0));
+        mname1.setText("mname");
+        infopanel1.add(mname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 220, 20));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel12.setText("Middlename:");
+        infopanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 20));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel17.setText("ID:");
+        infopanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 20));
+
+        email1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        email1.setForeground(new java.awt.Color(204, 0, 0));
+        email1.setText("Email");
+        infopanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 220, 20));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel18.setText("Firstname:");
+        infopanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 70, 20));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel20.setText("Lastname:");
+        infopanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel21.setText("Contact no. :");
+        infopanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
+
+        id1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        id1.setForeground(new java.awt.Color(204, 0, 0));
+        id1.setText("ID:");
+        infopanel1.add(id1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 220, 20));
+
+        lname1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lname1.setForeground(new java.awt.Color(204, 0, 0));
+        lname1.setText("Lname");
+        infopanel1.add(lname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 220, 20));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel22.setText("Sex:");
+        infopanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 70, 20));
+
+        sexx1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        sexx1.setForeground(new java.awt.Color(204, 0, 0));
+        sexx1.setText("Sex");
+        infopanel1.add(sexx1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 220, 20));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel23.setText("Nationality:");
+        infopanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 70, 20));
+
+        nationality1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nationality1.setForeground(new java.awt.Color(204, 0, 0));
+        nationality1.setText("nationality");
+        infopanel1.add(nationality1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 210, 20));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel24.setText("birthdate:");
+        infopanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, 20));
+
+        birthdate1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        birthdate1.setForeground(new java.awt.Color(204, 0, 0));
+        birthdate1.setText("birthdate");
+        infopanel1.add(birthdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 220, 20));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel25.setText("date:");
+        infopanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 70, 20));
+
+        position1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        position1.setForeground(new java.awt.Color(204, 0, 0));
+        position1.setText("Position");
+        infopanel1.add(position1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 210, 20));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setText("Address:");
+        infopanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
+
+        age1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        age1.setForeground(new java.awt.Color(204, 0, 0));
+        age1.setText("Age");
+        infopanel1.add(age1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 220, 20));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel26.setText("Age:");
+        infopanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 70, 20));
+
+        address1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        address1.setForeground(new java.awt.Color(204, 51, 0));
+        address1.setText("address");
+        infopanel1.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 220, 20));
+
+        contact1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        contact1.setForeground(new java.awt.Color(204, 0, 0));
+        contact1.setText("contact");
+        infopanel1.add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 220, 20));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel27.setText("Email:");
+        infopanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 70, 20));
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+
+        infopanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 350, 60));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
+        );
+
+        infopanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 80));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel28.setText("Occupation:");
+        infopanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 70, 20));
+
+        occupation1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        occupation1.setForeground(new java.awt.Color(204, 0, 0));
+        occupation1.setText("occupation");
+        infopanel1.add(occupation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, 20));
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+
+        infopanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 350, 60));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel29.setText("Position:");
+        infopanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 70, 20));
+
+        term1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        term1.setForeground(new java.awt.Color(204, 0, 0));
+        term1.setText("term");
+        infopanel1.add(term1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 20));
+
+        date1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        date1.setForeground(new java.awt.Color(204, 0, 0));
+        date1.setText("date");
+        infopanel1.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 210, 20));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel30.setText("term:");
+        infopanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 70, 20));
+
+        jPanel7.add(infopanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 370, 370));
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 212, 0, 0));
+
+        viewdetails.setBackground(new java.awt.Color(204, 0, 0));
+        viewdetails.setForeground(new java.awt.Color(255, 255, 255));
+        viewdetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewdetails.setText("view details");
+        viewdetails.setOpaque(true);
+        viewdetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewdetailsMouseClicked(evt);
+            }
+        });
+        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 90, 20));
+
+        infopanel.setBackground(new java.awt.Color(255, 255, 255));
+        infopanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        infopanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        fname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        fname.setForeground(new java.awt.Color(204, 0, 0));
+        fname.setText("Fname");
+        infopanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 220, 20));
+
+        mname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        mname.setForeground(new java.awt.Color(204, 0, 0));
+        mname.setText("mname");
+        infopanel.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 220, 20));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel8.setText("Middlename:");
+        infopanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 20));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("ID:");
+        infopanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 20));
+
+        email.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        email.setForeground(new java.awt.Color(204, 0, 0));
+        email.setText("Email");
+        infopanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 220, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("Firstname:");
+        infopanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 70, 20));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel7.setText("Lastname:");
+        infopanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setText("Contact no. :");
+        infopanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
+
+        id.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        id.setForeground(new java.awt.Color(204, 0, 0));
+        id.setText("ID:");
+        infopanel.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 220, 20));
+
+        lname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lname.setForeground(new java.awt.Color(204, 0, 0));
+        lname.setText("Lname");
+        infopanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 220, 20));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel9.setText("Sex:");
+        infopanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 70, 20));
+
+        sexx.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        sexx.setForeground(new java.awt.Color(204, 0, 0));
+        sexx.setText("Sex");
+        infopanel.add(sexx, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 220, 20));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel10.setText("Nationality:");
+        infopanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, 20));
+
+        nationality.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nationality.setForeground(new java.awt.Color(204, 0, 0));
+        nationality.setText("nationality");
+        infopanel.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 210, 20));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel11.setText("birthdate:");
+        infopanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, 20));
+
+        birthdate.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        birthdate.setForeground(new java.awt.Color(204, 0, 0));
+        birthdate.setText("birthdate");
+        infopanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 220, 20));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel13.setText("date:");
+        infopanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 70, 20));
+
+        position.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        position.setForeground(new java.awt.Color(204, 0, 0));
+        position.setText("Position");
+        infopanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 210, 20));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setText("Address:");
+        infopanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
+
+        age.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        age.setForeground(new java.awt.Color(204, 0, 0));
+        age.setText("Age");
+        infopanel.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 220, 20));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel2.setText("Age:");
+        infopanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 70, 20));
+
+        address.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        address.setForeground(new java.awt.Color(204, 51, 0));
+        address.setText("address");
+        infopanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 220, 20));
+
+        contact.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        contact.setForeground(new java.awt.Color(204, 0, 0));
+        contact.setText("contact");
+        infopanel.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 220, 20));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel15.setText("Occupation:");
+        infopanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 70, 20));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel14.setText("Email:");
+        infopanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 70, 20));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+
+        infopanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 350, 60));
+
+        occupation.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        occupation.setForeground(new java.awt.Color(204, 0, 0));
+        occupation.setText("occupation");
+        infopanel.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, 20));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+
+        infopanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 350, 60));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel16.setText("Position:");
+        infopanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
+
+        term.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        term.setForeground(new java.awt.Color(204, 0, 0));
+        term.setText("term");
+        infopanel.add(term, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 210, 20));
+
+        date.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        date.setForeground(new java.awt.Color(204, 0, 0));
+        date.setText("date");
+        infopanel.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 210, 20));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel19.setText("term:");
+        infopanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 70, 20));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 108, Short.MAX_VALUE)
+        );
+
+        infopanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 350, 110));
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
+        );
+
+        infopanel.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 80));
+
+        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 370, 360));
+
+        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField1.setText("  search");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, -1));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -54,7 +685,20 @@ public class viewcandidates extends javax.swing.JInternalFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -30, 110, 35));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -30, 110, 35));
+
+        candidatestable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(candidatestable);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 400, 340));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -69,29 +713,152 @@ public class viewcandidates extends javax.swing.JInternalFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void viewdetails1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewdetails1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewdetails1MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void viewdetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewdetailsMouseClicked
+        Session sess = Session.getInstance();
+        int rowIndex = candidatestable.getSelectedRow();
+
+        if (rowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a candidate!");
+        }else {
+            try {
+                dbconnect dbc = new dbconnect();
+                TableModel tbl = candidatestable.getModel();
+                ResultSet rs = dbc.getData("SELECT * FROM candidates WHERE cid = '" + tbl.getValueAt(rowIndex, 0) + "'");
+
+                if (rs.next()) {
+                    int yy, dd;
+                    String mm;
+                    mm = rs.getString("month");
+                    yy = rs.getInt("year");
+                    dd = rs.getInt("day");
+                    id.setText(""+rs.getInt("cid"));
+                    fname.setText(""+rs.getString("fname"));
+                    lname.setText(""+rs.getString("lname"));
+                    mname.setText(""+rs.getString("mname"));
+
+                    address.setText(""+rs.getString("address"));
+                    email.setText(""+rs.getString("email"));
+                    contact.setText(""+rs.getString("contact"));
+
+                    sexx.setText(""+rs.getString("sex"));
+                    birthdate.setText(""+yy+"-"+mm+"-"+dd+"");
+                    age.setText(""+rs.getInt("age"));
+
+                    occupation.setText(""+rs.getString("age"));
+                    nationality.setText(""+rs.getString("nationality"));
+                    position.setText(""+rs.getString("position"));
+                    term.setText(""+rs.getInt("term"));
+                    date.setText(""+rs.getString("date"));
+
+                }
+
+            } catch (SQLException ex) {
+                System.out.println("" + ex);
+            }
+        }
+    }//GEN-LAST:event_viewdetailsMouseClicked
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel address;
+    private javax.swing.JLabel address1;
+    private javax.swing.JLabel age;
+    private javax.swing.JLabel age1;
+    private javax.swing.JLabel birthdate;
+    private javax.swing.JLabel birthdate1;
+    private javax.swing.JTable candidatestable;
+    private javax.swing.JTable candidatestable1;
+    private javax.swing.JLabel contact;
+    private javax.swing.JLabel contact1;
+    private javax.swing.JLabel date;
+    private javax.swing.JLabel date1;
+    private javax.swing.JLabel email;
+    private javax.swing.JLabel email1;
+    private javax.swing.JLabel fname;
+    private javax.swing.JLabel fname1;
+    private javax.swing.JLabel id;
+    private javax.swing.JLabel id1;
+    private javax.swing.JPanel infopanel;
+    private javax.swing.JPanel infopanel1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lname;
+    private javax.swing.JLabel lname1;
+    private javax.swing.JLabel mname;
+    private javax.swing.JLabel mname1;
+    private javax.swing.JLabel nationality;
+    private javax.swing.JLabel nationality1;
+    private javax.swing.JLabel occupation;
+    private javax.swing.JLabel occupation1;
+    private javax.swing.JLabel position;
+    private javax.swing.JLabel position1;
+    private javax.swing.JLabel sexx;
+    private javax.swing.JLabel sexx1;
+    private javax.swing.JLabel term;
+    private javax.swing.JLabel term1;
+    private javax.swing.JLabel viewdetails;
+    private javax.swing.JLabel viewdetails1;
     // End of variables declaration//GEN-END:variables
 }

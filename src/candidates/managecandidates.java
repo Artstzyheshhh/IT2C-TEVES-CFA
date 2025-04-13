@@ -40,9 +40,12 @@ public class managecandidates extends javax.swing.JInternalFrame {
         delete = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
+        setPreferredSize(new java.awt.Dimension(820, 500));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -139,10 +142,10 @@ public class managecandidates extends javax.swing.JInternalFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,9 +222,15 @@ public class managecandidates extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         jDesktopPane1.removeAll();
-       viewcandidates vw = new viewcandidates();
+        viewcandidates vw = new viewcandidates();
         jDesktopPane1.add(vw).setVisible(true);
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        jDesktopPane1.removeAll();
+        viewcandidates vw = new viewcandidates();
+        jDesktopPane1.add(vw).setVisible(true);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

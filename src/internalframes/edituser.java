@@ -5,9 +5,12 @@
  */
 package internalframes;
 
+import config.Session;
 import config.dbconnect;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.TableModel;
@@ -29,7 +32,13 @@ public class edituser extends javax.swing.JInternalFrame {
        this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
-    } public static String uemail,usname;
+       
+       userstable.getTableHeader().setOpaque(false);
+       userstable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       userstable.getTableHeader().setForeground(Color.white);
+    } 
+    
+    public static String uemail,usname;
       
     public boolean updatecheck(){
         
@@ -269,7 +278,7 @@ public class edituser extends javax.swing.JInternalFrame {
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
-
+         Session sess = Session.getInstance();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
@@ -292,10 +301,16 @@ public class edituser extends javax.swing.JInternalFrame {
                 + "sex ='"+sex.getSelectedItem()+"',utype ='"+type.getSelectedItem()+"',"
                 + "stats ='"+status.getSelectedItem()+"',"
                 + "birthdate ='"+birthdate.getText()+"' WHERE uid ='"+id.getText()+"'");
+            
+            String actionn = "Updated user with ID No.: " + id.getText();
+        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
             JOptionPane.showMessageDialog(null,"account updated successfully.");
-            edituser edt = new edituser();
-            edt.setVisible(true);
-
+                    id.setText("");
+                    fname.setText("");
+                    lname.setText("");
+                    uname.setText("");
+                    emaill.setText("");
+                    birthdate.setText("");
         }
     }//GEN-LAST:event_savebttnMouseClicked
 
@@ -314,7 +329,7 @@ public class edituser extends javax.swing.JInternalFrame {
 
                     editpanel.setVisible(true);
                     id.setText(""+rs.getInt("uid"));
-                    fname.setText(""+rs.getString("lname"));
+                    fname.setText(""+rs.getString("fname"));
                     lname.setText(""+rs.getString("lname"));
                     uname.setText(""+rs.getString("ussername"));
                     emaill.setText(""+rs.getString("useremail"));

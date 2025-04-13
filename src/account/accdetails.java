@@ -86,7 +86,7 @@ public class accdetails extends javax.swing.JInternalFrame {
         fullname.setBackground(new java.awt.Color(204, 0, 0));
         fullname.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
         fullname.setForeground(new java.awt.Color(204, 0, 0));
-        fullname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconnn.jpg"))); // NOI18N
+        fullname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconnn.jpg"))); // NOI18N
         fullname.setText("   firstname, lastname ");
         jPanel2.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 650, 90));
 

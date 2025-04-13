@@ -7,6 +7,7 @@ package internalframes;
 
 import config.Session;
 import config.dbconnect;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -27,9 +28,14 @@ public class viewusers extends javax.swing.JInternalFrame {
         initComponents();
         
         displayData();
-            this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
+        
+       this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       
+       userstable.getTableHeader().setOpaque(false);
+       userstable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       userstable.getTableHeader().setForeground(Color.white);
     }
 public void displayData(){
         try{
@@ -93,7 +99,7 @@ public void displayData(){
         userstable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(userstable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 420, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 420, 340));
 
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
         jTextField1.setText("  search");
@@ -102,7 +108,7 @@ public void displayData(){
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, -1));
 
         infopanel.setBackground(new java.awt.Color(255, 255, 255));
         infopanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
@@ -198,7 +204,7 @@ public void displayData(){
         status.setText("status");
         infopanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 170, 20));
 
-        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 340, 330));
+        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 340, 340));
 
         viewdetails.setBackground(new java.awt.Color(204, 0, 0));
         viewdetails.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,7 +216,7 @@ public void displayData(){
                 viewdetailsMouseClicked(evt);
             }
         });
-        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 90, 20));
+        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 90, 20));
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 

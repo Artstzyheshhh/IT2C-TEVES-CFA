@@ -8,10 +8,14 @@ package admins;
 import config.Session;
 import account.accdetails;
 import candidates.managecandidates;
+import config.dbconnect;
 import internalframes.manageuser;
 import it2c.teves.cfa.loginform;
 import java.awt.Color;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
+
+import partylist.managepaartylist;
 
 /**
  *
@@ -154,6 +158,11 @@ public class maindash extends javax.swing.JFrame {
         jLabel22.setBackground(new java.awt.Color(204, 0, 0));
         jLabel22.setForeground(new java.awt.Color(204, 0, 0));
         jLabel22.setText("  Partylist");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
         sidebar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 160, 40));
 
         pendings.setBackground(new java.awt.Color(204, 0, 0));
@@ -188,7 +197,7 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 160, 40));
 
-        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account-circle-icon (1).png"))); // NOI18N
+        accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-circle-icon (1).png"))); // NOI18N
         sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
 
         jLabel21.setBackground(new java.awt.Color(204, 0, 0));
@@ -297,8 +306,15 @@ public class maindash extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+         dbconnect dbc = new dbconnect();
+         Session sess= Session.getInstance();
+         
+          String action = "User with ID "+sess.getId()+" logged out";
+        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+        
         loginform lfm = new loginform();
         lfm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
     private void pendingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseExited
@@ -392,7 +408,7 @@ public class maindash extends javax.swing.JFrame {
 
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
            jDesktopPane1.removeAll();
-    accdetails ad = new accdetails();
+            accdetails ad = new accdetails();
        jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_myaccountMouseClicked
 
@@ -414,6 +430,12 @@ public class maindash extends javax.swing.JFrame {
      accdetails ad = new accdetails();
      jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_formWindowOpened
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+     jDesktopPane1.removeAll();
+     managepaartylist mp = new managepaartylist();
+     jDesktopPane1.add(mp).setVisible(true);
+    }//GEN-LAST:event_jLabel22MouseClicked
 
     /**
      * @param args the command line arguments

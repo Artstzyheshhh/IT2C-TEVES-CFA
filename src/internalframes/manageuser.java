@@ -39,7 +39,7 @@ public class manageuser extends javax.swing.JInternalFrame {
         add = new javax.swing.JLabel();
         edit = new javax.swing.JLabel();
         delete = new javax.swing.JLabel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        userss = new javax.swing.JDesktopPane();
 
         jToolBar1.setRollover(true);
 
@@ -138,18 +138,18 @@ public class manageuser extends javax.swing.JInternalFrame {
 
         jPanel1.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 100));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout userssLayout = new javax.swing.GroupLayout(userss);
+        userss.setLayout(userssLayout);
+        userssLayout.setHorizontalGroup(
+            userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 800, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        userssLayout.setVerticalGroup(
+            userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 480));
 
@@ -157,15 +157,15 @@ public class manageuser extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        jDesktopPane1.removeAll();
+        userss.removeAll();
      adduser ad = new adduser();
-       jDesktopPane1.add(ad).setVisible(true);       
+       userss.add(ad).setVisible(true);       
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void viewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseClicked
-        jDesktopPane1.removeAll();
+        userss.removeAll();
          viewusers vw = new viewusers();
-        jDesktopPane1.add(vw).setVisible(true);             
+        userss.add(vw).setVisible(true);             
     }//GEN-LAST:event_viewMouseClicked
 
     private void viewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseEntered
@@ -181,16 +181,16 @@ public class manageuser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_viewMouseExited
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        jDesktopPane1.removeAll();
+        userss.removeAll();
         adduser ad = new adduser();
-        jDesktopPane1.add(ad).setVisible(true);       
+        userss.add(ad).setVisible(true);       
         
     }//GEN-LAST:event_addMouseClicked
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-     jDesktopPane1.removeAll();
+     userss.removeAll();
      edituser ed = new edituser();
-    jDesktopPane1.add(ed).setVisible(true);       
+    userss.add(ed).setVisible(true);       
     }//GEN-LAST:event_editMouseClicked
 
     private void editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseEntered
@@ -237,10 +237,10 @@ public class manageuser extends javax.swing.JInternalFrame {
     private javax.swing.JLabel add;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel topbar;
+    public javax.swing.JDesktopPane userss;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables
 }
