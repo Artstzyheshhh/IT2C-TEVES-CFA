@@ -112,8 +112,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        savebttn = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -127,6 +126,10 @@ public class addpartylist extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         representative = new javax.swing.JComboBox<>();
+        remove = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        savebttn = new javax.swing.JLabel();
+        clear = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -179,74 +182,51 @@ public class addpartylist extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
-        savebttn.setBackground(new java.awt.Color(204, 0, 0));
-        savebttn.setForeground(new java.awt.Color(255, 255, 255));
-        savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        savebttn.setText("save");
-        savebttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        savebttn.setOpaque(true);
-        savebttn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                savebttnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                savebttnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                savebttnMouseExited(evt);
-            }
-        });
-        getContentPane().add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 20));
-
-        jLabel8.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Clear");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        jLabel8.setOpaque(true);
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 90, 20));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Platform:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 190, 20));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 180, 20));
 
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Partylist name:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 130, 20));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 130, 20));
 
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Shortname:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 130, 20));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, 20));
 
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("Representative:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 20));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, 20));
 
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Contact no :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 190, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 190, 20));
 
         platform.setColumns(20);
         platform.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         platform.setRows(5);
         jScrollPane1.setViewportView(platform);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 400, 130));
-        getContentPane().add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 400, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 390, 110));
+        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, -1));
 
         acronym.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acronymActionPerformed(evt);
             }
         });
-        getContentPane().add(acronym, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 240, -1));
+        jPanel3.add(acronym, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 240, -1));
 
         pname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pnameActionPerformed(evt);
             }
         });
-        getContentPane().add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 240, -1));
+        jPanel3.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 240, -1));
 
         jPanel4.setLayout(null);
 
@@ -265,11 +245,64 @@ public class addpartylist extends javax.swing.JInternalFrame {
         jPanel4.add(image);
         image.setBounds(0, 0, 140, 130);
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 130));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 140, 130));
 
         representative.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         representative.setOpaque(false);
-        getContentPane().add(representative, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 240, 25));
+        jPanel3.add(representative, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 240, 25));
+
+        remove.setBackground(new java.awt.Color(204, 0, 0));
+        remove.setForeground(new java.awt.Color(204, 0, 0));
+        remove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove.setText("Remove Image");
+        remove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMouseClicked(evt);
+            }
+        });
+        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, 20));
+
+        jLabel31.setBackground(new java.awt.Color(255, 153, 102));
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText(" ADD PARTYLIST");
+        jLabel31.setOpaque(true);
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 40));
+
+        savebttn.setBackground(new java.awt.Color(204, 0, 0));
+        savebttn.setForeground(new java.awt.Color(255, 255, 255));
+        savebttn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        savebttn.setText("save");
+        savebttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
+        savebttn.setOpaque(true);
+        savebttn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                savebttnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                savebttnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                savebttnMouseExited(evt);
+            }
+        });
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 90, 20));
+
+        clear.setBackground(new java.awt.Color(204, 0, 0));
+        clear.setForeground(new java.awt.Color(255, 255, 255));
+        clear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clear.setText("Clear");
+        clear.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
+        clear.setOpaque(true);
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMouseClicked(evt);
+            }
+        });
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 90, 20));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -321,7 +354,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
         acronym.setText("");
         contact.setText("");
         platform.setText("");
-        destination = "";
+        image.setIcon(null);
        
     } else {
         JOptionPane.showMessageDialog(null, "Creating user failed, no rows affected.");
@@ -385,23 +418,38 @@ public class addpartylist extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
+         pname.setText("");
+        acronym.setText("");
+        contact.setText("");
+        platform.setText("");
+        image.setIcon(null);
+    }//GEN-LAST:event_clearMouseClicked
+
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
+       image.setIcon(null);
+    }//GEN-LAST:event_removeMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField acronym;
+    private javax.swing.JLabel clear;
     private javax.swing.JTextField contact;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea platform;
     private javax.swing.JTextField pname;
+    private javax.swing.JLabel remove;
     private javax.swing.JComboBox<String> representative;
     private javax.swing.JLabel savebttn;
     // End of variables declaration//GEN-END:variables

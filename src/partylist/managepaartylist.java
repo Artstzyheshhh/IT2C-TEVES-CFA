@@ -69,10 +69,10 @@ public class managepaartylist extends javax.swing.JInternalFrame {
         );
         partylistpaneLayout.setVerticalGroup(
             partylistpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        getContentPane().add(partylistpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+        getContentPane().add(partylistpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 470));
 
         topbar.setBackground(new java.awt.Color(255, 255, 255));
         topbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -229,7 +229,7 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel add;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
-    public javax.swing.JDesktopPane partylistpane;
+    private javax.swing.JDesktopPane partylistpane;
     private javax.swing.JPanel topbar;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables

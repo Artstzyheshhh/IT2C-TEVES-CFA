@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 import partylist.managepaartylist;
+import tabless.reports;
 
 /**
  *
@@ -48,7 +49,7 @@ public class maindash extends javax.swing.JFrame {
         users = new javax.swing.JLabel();
         myaccount = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        pendings = new javax.swing.JLabel();
+        reportss = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         accname = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -165,21 +166,21 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 160, 40));
 
-        pendings.setBackground(new java.awt.Color(204, 0, 0));
-        pendings.setForeground(new java.awt.Color(204, 0, 0));
-        pendings.setText("  Pendings");
-        pendings.addMouseListener(new java.awt.event.MouseAdapter() {
+        reportss.setBackground(new java.awt.Color(204, 0, 0));
+        reportss.setForeground(new java.awt.Color(204, 0, 0));
+        reportss.setText(" Reports");
+        reportss.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pendingsMouseClicked(evt);
+                reportssMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pendingsMouseEntered(evt);
+                reportssMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                pendingsMouseExited(evt);
+                reportssMouseExited(evt);
             }
         });
-        sidebar.add(pendings, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
+        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setForeground(new java.awt.Color(204, 0, 0));
@@ -310,28 +311,30 @@ public class maindash extends javax.swing.JFrame {
          Session sess= Session.getInstance();
          
           String action = "User with ID "+sess.getId()+" logged out";
-        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+        dbc.insertData("INSERT INTO logged(user_id, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
         
         loginform lfm = new loginform();
         lfm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutMouseClicked
 
-    private void pendingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseExited
-        pendings.setBackground(Color.white);
-        pendings.setForeground(new java.awt.Color(221,21,21));
-        pendings.setOpaque(false);
-    }//GEN-LAST:event_pendingsMouseExited
+    private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
+        reportss.setBackground(Color.white);
+        reportss.setForeground(new java.awt.Color(221,21,21));
+        reportss.setOpaque(false);
+    }//GEN-LAST:event_reportssMouseExited
 
-    private void pendingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseEntered
-        pendings.setOpaque(true);
-        pendings.setBackground(new java.awt.Color(221,21,21));
-        pendings.setForeground(Color.white);
-    }//GEN-LAST:event_pendingsMouseEntered
+    private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
+        reportss.setOpaque(true);
+        reportss.setBackground(new java.awt.Color(221,21,21));
+        reportss.setForeground(Color.white);
+    }//GEN-LAST:event_reportssMouseEntered
 
-    private void pendingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendingsMouseClicked
-       
-    }//GEN-LAST:event_pendingsMouseClicked
+    private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
+       reports rp = new reports();
+       jDesktopPane1.removeAll();    
+        jDesktopPane1.add(rp).setVisible(true);
+    }//GEN-LAST:event_reportssMouseClicked
 
     private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
         users.setBackground(Color.white);
@@ -487,7 +490,7 @@ public class maindash extends javax.swing.JFrame {
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel myaccount;
-    private javax.swing.JLabel pendings;
+    private javax.swing.JLabel reportss;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables

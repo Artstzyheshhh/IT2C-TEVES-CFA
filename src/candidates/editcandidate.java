@@ -10,11 +10,25 @@ import static candidates.addcandidate.cmail;
 import config.Session;
 import config.dbconnect;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -33,6 +47,11 @@ public class editcandidate extends javax.swing.JInternalFrame {
           this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       
+       candidatestable.getTableHeader().setOpaque(false);
+       candidatestable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       candidatestable.getTableHeader().setForeground(Color.white);
+     
     }
       public boolean duplicatecheck(){
         
@@ -63,15 +82,107 @@ public class editcandidate extends javax.swing.JInternalFrame {
       public void displayData(){
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT cid, lname FROM candidates");
+            ResultSet rs = dbc.getData("SELECT cid, lname, fname FROM candidates");
             candidatestable.setModel(DbUtils.resultSetToTableModel(rs));
-             rs.close();
+                  candidatestable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+               TableColumnModel columnModel = candidatestable.getColumnModel();     
+               
+               columnModel.getColumn(0).setHeaderValue("ID");
+               columnModel.getColumn(1).setHeaderValue("Lastname");
+               columnModel.getColumn(2).setHeaderValue("Firstname");
+
+        // Apply header changes
+              candidatestable.getTableHeader().repaint();
+                columnModel.getColumn(0).setPreferredWidth(50); 
+                columnModel.getColumn(1).setPreferredWidth(135); 
+                columnModel.getColumn(2).setPreferredWidth(135); 
+               
+            rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
 
         }
 
     }
+      
+                public String destination = "";
+    File selectedFile;
+    public String oldpath;
+    public String path;
+    public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
+        
+        Path filePath = Paths.get("src/images", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+        if (fileExists) {
+            return 1;
+        } else {
+            return 0;
+        }
+    
+    }
+    
+    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
+        try {
+            // Read the image file
+            File imageFile = new File(imagePath);
+            BufferedImage image = ImageIO.read(imageFile);
+            
+            // Get the original width and height of the image
+            int originalWidth = image.getWidth();
+            int originalHeight = image.getHeight();
+            
+            // Calculate the new height based on the desired width and the aspect ratio
+            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
+            
+            return newHeight;
+        } catch (IOException ex) {
+            System.out.println("No image found!");
+        }
+        
+        return -1;
+    }
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
+    
+    public void imageUpdater(String existingFilePath, String newFilePath){
+        File existingFile = new File(existingFilePath);
+        if (existingFile.exists()) {
+            String parentDirectory = existingFile.getParent();
+            File newFile = new File(newFilePath);
+            String newFileName = newFile.getName();
+            File updatedFile = new File(parentDirectory, newFileName);
+            existingFile.delete();
+            try {
+                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image updated successfully.");
+            } catch (IOException e) {
+                System.out.println("Error occurred while updating the image: "+e);
+            }
+        } else {
+            try{
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch(IOException e){
+                System.out.println("Error on update!");
+            }
+        }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,11 +194,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        candidatestable = new javax.swing.JTable();
         editinfo = new javax.swing.JLabel();
-        savebttn = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         fname = new javax.swing.JTextField();
@@ -111,6 +218,14 @@ public class editcandidate extends javax.swing.JInternalFrame {
         email = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         position = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
+        remove = new javax.swing.JLabel();
+        savebttn = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        candidatestable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -146,19 +261,6 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
-        candidatestable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(candidatestable);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 360, 350));
-
         editinfo.setBackground(new java.awt.Color(204, 0, 0));
         editinfo.setForeground(new java.awt.Color(255, 255, 255));
         editinfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -169,7 +271,112 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 editinfoMouseClicked(evt);
             }
         });
-        getContentPane().add(editinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 90, 20));
+        getContentPane().add(editinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 90, 20));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel10.setText("Firstname:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 70, 20));
+        jPanel4.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 180, 20));
+
+        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel11.setText("Lastname:");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 70, 20));
+        jPanel4.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 180, -1));
+
+        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel9.setText("Middlename:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 70, 20));
+        jPanel4.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 180, 20));
+
+        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel15.setText("Address");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 70, 20));
+        jPanel4.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 180, 20));
+
+        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel12.setText("Sex:");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 40, 20));
+
+        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
+        sex.setPreferredSize(new java.awt.Dimension(57, 25));
+        jPanel4.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 90, 20));
+
+        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel14.setText("Nationality");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 20));
+
+        jLabel17.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel17.setText("Occupation");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 110, 20));
+
+        cid.setEnabled(false);
+        jPanel4.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 90, 20));
+
+        jLabel24.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel24.setText(" ID:");
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 70, 20));
+        jPanel4.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 290, -1));
+        jPanel4.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 290, -1));
+
+        jLabel18.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel18.setText("Contact number:");
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 110, 20));
+
+        jLabel21.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel21.setText("Position:");
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 70, 20));
+        jPanel4.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 290, -1));
+        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 210, -1));
+
+        jLabel23.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel23.setText("Email:");
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 110, 20));
+
+        position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "President", "Vice president", "Senator", "Congressman", "Governor", "Vice-governor", "Provincial board member", "Mayor", "Vice-mayor", "City councilor", "Barangay captain", "Barangay councilor", "SK  chairman", "SK councilor" }));
+        position.setEnabled(false);
+        jPanel4.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 210, -1));
+
+        jLabel26.setBackground(new java.awt.Color(255, 153, 102));
+        jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText(" UPDATE CANDIDATE INFO");
+        jLabel26.setOpaque(true);
+        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 40));
+
+        jPanel6.setLayout(null);
+
+        image.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        image.setForeground(new java.awt.Color(153, 153, 153));
+        image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imageMouseEntered(evt);
+            }
+        });
+        jPanel6.add(image);
+        image.setBounds(0, 0, 140, 130);
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, 130));
+
+        remove.setBackground(new java.awt.Color(204, 0, 0));
+        remove.setForeground(new java.awt.Color(204, 0, 0));
+        remove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove.setText("Remove Image");
+        remove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMouseClicked(evt);
+            }
+        });
+        jPanel4.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 20));
 
         savebttn.setBackground(new java.awt.Color(204, 0, 0));
         savebttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,84 +395,30 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        getContentPane().add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 20));
+        jPanel4.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 90, 20));
 
         jLabel8.setBackground(new java.awt.Color(204, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Clear");
+        jLabel8.setText("Clear all");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 90, 20));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 90, 20));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 420));
 
-        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel10.setText("Firstname:");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 20));
-        jPanel4.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 250, 20));
+        candidatestable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel11.setText("Lastname:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 20));
-        jPanel4.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 250, -1));
+            },
+            new String [] {
 
-        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel9.setText("Middlename:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 110, 20));
-        jPanel4.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 250, 20));
+            }
+        ));
+        candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(candidatestable);
 
-        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel15.setText("Address");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 110, 20));
-        jPanel4.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 250, 20));
-
-        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel12.setText("Sex:");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 60, 20));
-
-        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
-        sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel4.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 80, 20));
-
-        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel14.setText("Nationality");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 110, 20));
-
-        jLabel17.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel17.setText("Occupation");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 110, 20));
-
-        cid.setEnabled(false);
-        jPanel4.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 80, 20));
-
-        jLabel24.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel24.setText("Candidates ID:");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 110, 20));
-        jPanel4.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 250, -1));
-        jPanel4.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 250, -1));
-
-        jLabel18.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel18.setText("Contact number:");
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, 20));
-
-        jLabel21.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel21.setText("Position:");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, 20));
-        jPanel4.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 250, -1));
-        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 250, -1));
-
-        jLabel23.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel23.setText("Email:");
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, 20));
-
-        position.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "President", "Vice president", "Senator", "Congressman", "Governor", "Vice-governor", "Provincial board member", "Mayor", "Vice-mayor", "City councilor", "Barangay captain", "Barangay councilor", "SK  chairman", "SK councilor" }));
-        position.setEnabled(false);
-        jPanel4.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 250, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 410, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 340, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -294,7 +447,10 @@ public class editcandidate extends javax.swing.JInternalFrame {
                     contact.setText(""+rs.getString("contact"));
                     email.setText(""+rs.getString("email"));
                     position.setSelectedItem(""+rs.getString("position"));
-
+                    image.setIcon(ResizeImage(rs.getString("Uimage"),null,image));
+                    oldpath = rs.getString("Uimage");
+                    path = rs.getString("Uimage");
+                    destination = rs.getString("Uimage");
                 }
 
             } catch (SQLException ex) {
@@ -331,22 +487,35 @@ public class editcandidate extends javax.swing.JInternalFrame {
             dbc.updateData("UPDATE candidates SET fname ='"+fname.getText()+"',lname ='"+lname.getText()+"',"
                 + "mname ='"+mname.getText()+"',address ='"+address.getText()+"',"
                 + "sex ='"+sex.getSelectedItem()+"',nationality ='"+nationality.getText()+"',"
-                + "contact ='"+contact.getText()+"',occupation = '"+occupation.getText()+"'"
+                + "contact ='"+contact.getText()+"',occupation = '"+occupation.getText()+"',"
+                +"cimage = '"+destination+"' "
                 + " WHERE cid ='"+cid.getText()+"'");
-            JOptionPane.showMessageDialog(null,"Candidate updated successfully.");
-            cid.setText("");
-            fname.setText("");
-            lname.setText("");
-            mname.setText("");
-            address.setText("");
-            sex.setSelectedItem("");
-            nationality.setText("");
-            occupation.setText("");
-            contact.setText("");
-            email.setText("");
-          
+                if(destination.isEmpty()){
+                    File existingFile = new File(oldpath);
+                    if(existingFile.exists()){
+                    existingFile.delete();
+                }
+                }else{
+                    if(!(oldpath.equals(path))){
+                    imageUpdater(oldpath,path);
+                }
+                }
+             
             String actionn = "Updated candidate with ID No.: " + cid.getText();
-        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
+            dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
+            JOptionPane.showMessageDialog(null,"Candidate updated successfully.");
+                cid.setText("");
+                fname.setText("");
+                lname.setText("");
+                mname.setText("");
+                address.setText("");
+                sex.setSelectedItem("");
+                nationality.setText("");
+                occupation.setText("");
+                contact.setText("");
+                email.setText("");
+                image.setIcon(null);
+         
         }
 
         // TODO add your handling code here:
@@ -363,6 +532,38 @@ public class editcandidate extends javax.swing.JInternalFrame {
         savebttn.setForeground(Color.white);
     }//GEN-LAST:event_savebttnMouseExited
 
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
+        image.setIcon(null);
+    }//GEN-LAST:event_removeMouseClicked
+
+    private void imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            try {
+                selectedFile = fileChooser.getSelectedFile();
+                destination = "src/images/" + selectedFile.getName();
+                path  = selectedFile.getAbsolutePath();
+
+                if(FileExistenceChecker(path) == 1){
+
+                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
+                    destination = "";
+                    path="";
+                }else{
+                    image.setText("image here!");
+                    image.setIcon(ResizeImage(path, null, image));
+                }
+            } catch (Exception ex) {
+                System.out.println("File Error!");
+            }
+        }
+    }//GEN-LAST:event_imageMouseClicked
+
+    private void imageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseEntered
+
+    }//GEN-LAST:event_imageMouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
@@ -372,6 +573,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
     private javax.swing.JLabel editinfo;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
+    private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -382,18 +584,20 @@ public class editcandidate extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lname;
     private javax.swing.JTextField mname;
     private javax.swing.JTextField nationality;
     private javax.swing.JTextField occupation;
     private javax.swing.JComboBox<String> position;
+    private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;
     // End of variables declaration//GEN-END:variables

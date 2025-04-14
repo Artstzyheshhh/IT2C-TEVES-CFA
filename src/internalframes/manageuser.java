@@ -138,6 +138,8 @@ public class manageuser extends javax.swing.JInternalFrame {
 
         jPanel1.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 100));
 
+        userss.setPreferredSize(new java.awt.Dimension(800, 475));
+
         javax.swing.GroupLayout userssLayout = new javax.swing.GroupLayout(userss);
         userss.setLayout(userssLayout);
         userssLayout.setHorizontalGroup(
@@ -146,10 +148,10 @@ public class manageuser extends javax.swing.JInternalFrame {
         );
         userssLayout.setVerticalGroup(
             userssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
 
-        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 430));
+        jPanel1.add(userss, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 475));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 480));
 

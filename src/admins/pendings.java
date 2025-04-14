@@ -348,9 +348,7 @@ public class pendings extends javax.swing.JFrame {
     }//GEN-LAST:event_usersMouseExited
 
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
-        candidate cnddte = new candidate();
-        cnddte.setVisible(true);
-       
+        
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered

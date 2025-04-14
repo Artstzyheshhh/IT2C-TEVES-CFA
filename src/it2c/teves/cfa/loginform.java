@@ -339,17 +339,17 @@ public class loginform extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"account in-active, contact the admin!");
                 }
             else{
-            String action = "User with ID "+uid+" logged in";
+            
             if(typee.equals("Admin")){
                 maindash admdash = new maindash();
                 admdash.setVisible(true);
                this.dispose();
-               dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
+               
             }else if(typee.equals("User")){
                 usermaindash usrdash = new usermaindash();
                 usrdash.setVisible(true);
                 this.dispose();
-                dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
+               
             }else{
                 JOptionPane.showMessageDialog(null,"No account type found!!");
             }

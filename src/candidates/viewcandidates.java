@@ -7,11 +7,17 @@ package candidates;
 
 import config.Session;
 import config.dbconnect;
+import static internalframes.edituser.getHeightFromWidth;
 import java.awt.Color;
+import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -34,13 +40,25 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         candidatestable.getTableHeader().setOpaque(false);
        candidatestable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
        candidatestable.getTableHeader().setForeground(Color.white);
-       
+    
     }
         public void displayData(){
         try{
             dbconnect dbc = new dbconnect();
             ResultSet rs = dbc.getData("SELECT cid, lname, fname FROM candidates");
             candidatestable.setModel(DbUtils.resultSetToTableModel(rs));
+                  candidatestable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+               TableColumnModel columnModel = candidatestable.getColumnModel(); 
+               
+                columnModel.getColumn(0).setHeaderValue("ID");
+               columnModel.getColumn(1).setHeaderValue("Lastname");
+               columnModel.getColumn(2).setHeaderValue("Firstname");
+
+        
+              candidatestable.getTableHeader().repaint();
+                columnModel.getColumn(0).setPreferredWidth(50); 
+                columnModel.getColumn(1).setPreferredWidth(135); 
+                columnModel.getColumn(2).setPreferredWidth(135); 
              rs.close();
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
@@ -48,6 +66,22 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         }
 
     }
+        
+        public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,16 +160,14 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         contact = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         occupation = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         term = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         candidatestable = new javax.swing.JTable();
@@ -441,236 +473,207 @@ public class viewcandidates extends javax.swing.JInternalFrame {
                 viewdetailsMouseClicked(evt);
             }
         });
-        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 90, 20));
+        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 90, 20));
 
         infopanel.setBackground(new java.awt.Color(255, 255, 255));
         infopanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         infopanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        fname.setBackground(new java.awt.Color(255, 153, 102));
         fname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        fname.setForeground(new java.awt.Color(204, 0, 0));
+        fname.setForeground(new java.awt.Color(255, 255, 255));
         fname.setText("Fname");
-        infopanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 220, 20));
+        fname.setOpaque(true);
+        infopanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 220, 20));
 
+        mname.setBackground(new java.awt.Color(255, 153, 102));
         mname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        mname.setForeground(new java.awt.Color(204, 0, 0));
+        mname.setForeground(new java.awt.Color(255, 255, 255));
         mname.setText("mname");
-        infopanel.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 220, 20));
+        mname.setOpaque(true);
+        infopanel.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 220, 20));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 0, 0));
         jLabel8.setText("Middlename:");
-        infopanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 20));
+        infopanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 70, 20));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("ID:");
-        infopanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 20));
+        infopanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 30, 20));
 
+        email.setBackground(new java.awt.Color(255, 153, 102));
         email.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        email.setForeground(new java.awt.Color(204, 0, 0));
+        email.setForeground(new java.awt.Color(255, 255, 255));
         email.setText("Email");
-        infopanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 220, 20));
+        email.setOpaque(true);
+        infopanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 320, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("Firstname:");
-        infopanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 70, 20));
+        infopanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 70, 20));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 0, 0));
         jLabel7.setText("Lastname:");
-        infopanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
+        infopanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 70, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("Contact no. :");
-        infopanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, 20));
+        infopanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 70, 20));
 
-        id.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        id.setBackground(new java.awt.Color(255, 153, 102));
+        id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         id.setForeground(new java.awt.Color(204, 0, 0));
         id.setText("ID:");
-        infopanel.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 220, 20));
+        infopanel.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 110, 20));
 
+        lname.setBackground(new java.awt.Color(255, 153, 102));
         lname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        lname.setForeground(new java.awt.Color(204, 0, 0));
+        lname.setForeground(new java.awt.Color(255, 255, 255));
         lname.setText("Lname");
-        infopanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 220, 20));
+        lname.setOpaque(true);
+        infopanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 220, 20));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 0, 0));
         jLabel9.setText("Sex:");
-        infopanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 70, 20));
+        infopanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 60, 20));
 
+        sexx.setBackground(new java.awt.Color(255, 153, 102));
         sexx.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        sexx.setForeground(new java.awt.Color(204, 0, 0));
+        sexx.setForeground(new java.awt.Color(255, 255, 255));
         sexx.setText("Sex");
-        infopanel.add(sexx, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 220, 20));
+        sexx.setOpaque(true);
+        infopanel.add(sexx, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 120, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 0, 0));
         jLabel10.setText("Nationality:");
-        infopanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 70, 20));
+        infopanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 70, 20));
 
+        nationality.setBackground(new java.awt.Color(255, 153, 102));
         nationality.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        nationality.setForeground(new java.awt.Color(204, 0, 0));
+        nationality.setForeground(new java.awt.Color(255, 255, 255));
         nationality.setText("nationality");
-        infopanel.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 210, 20));
+        nationality.setOpaque(true);
+        infopanel.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 130, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(204, 0, 0));
         jLabel11.setText("birthdate:");
-        infopanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 70, 20));
+        infopanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
 
+        birthdate.setBackground(new java.awt.Color(255, 153, 102));
         birthdate.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        birthdate.setForeground(new java.awt.Color(204, 0, 0));
+        birthdate.setForeground(new java.awt.Color(255, 255, 255));
         birthdate.setText("birthdate");
-        infopanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 220, 20));
+        birthdate.setOpaque(true);
+        infopanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 130, 20));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("date:");
-        infopanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 70, 20));
+        infopanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 60, 20));
 
+        position.setBackground(new java.awt.Color(255, 153, 102));
         position.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        position.setForeground(new java.awt.Color(204, 0, 0));
+        position.setForeground(new java.awt.Color(255, 255, 255));
         position.setText("Position");
-        infopanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 210, 20));
+        position.setOpaque(true);
+        infopanel.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 130, 20));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Address:");
-        infopanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, 20));
+        infopanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 60, 20));
 
+        age.setBackground(new java.awt.Color(255, 153, 102));
         age.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        age.setForeground(new java.awt.Color(204, 0, 0));
+        age.setForeground(new java.awt.Color(255, 255, 255));
         age.setText("Age");
-        infopanel.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 220, 20));
+        age.setOpaque(true);
+        infopanel.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 120, 20));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Age:");
-        infopanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 70, 20));
+        infopanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 60, 20));
 
+        address.setBackground(new java.awt.Color(255, 153, 102));
         address.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        address.setForeground(new java.awt.Color(204, 51, 0));
+        address.setForeground(new java.awt.Color(255, 255, 255));
         address.setText("address");
-        infopanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 220, 20));
+        address.setOpaque(true);
+        infopanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 120, 20));
 
+        contact.setBackground(new java.awt.Color(255, 153, 102));
         contact.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        contact.setForeground(new java.awt.Color(204, 0, 0));
+        contact.setForeground(new java.awt.Color(255, 255, 255));
         contact.setText("contact");
-        infopanel.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 220, 20));
+        contact.setOpaque(true);
+        infopanel.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 130, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 0, 0));
         jLabel15.setText("Occupation:");
-        infopanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 70, 20));
+        infopanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 70, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(204, 0, 0));
         jLabel14.setText("Email:");
-        infopanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 70, 20));
+        infopanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, 20));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-        );
-
-        infopanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 350, 60));
-
+        occupation.setBackground(new java.awt.Color(255, 153, 102));
         occupation.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        occupation.setForeground(new java.awt.Color(204, 0, 0));
+        occupation.setForeground(new java.awt.Color(255, 255, 255));
         occupation.setText("occupation");
-        infopanel.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, 20));
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-        );
-
-        infopanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 350, 60));
+        occupation.setOpaque(true);
+        infopanel.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 130, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("Position:");
-        infopanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
+        infopanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 70, 20));
 
+        term.setBackground(new java.awt.Color(255, 153, 102));
         term.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        term.setForeground(new java.awt.Color(204, 0, 0));
+        term.setForeground(new java.awt.Color(255, 255, 255));
         term.setText("term");
-        infopanel.add(term, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 210, 20));
+        term.setOpaque(true);
+        infopanel.add(term, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 120, 20));
 
+        date.setBackground(new java.awt.Color(255, 153, 102));
         date.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        date.setForeground(new java.awt.Color(204, 0, 0));
+        date.setForeground(new java.awt.Color(255, 255, 255));
         date.setText("date");
-        infopanel.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 210, 20));
+        date.setOpaque(true);
+        infopanel.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 120, 20));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(204, 0, 0));
         jLabel19.setText("term:");
-        infopanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 70, 20));
+        infopanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 60, 20));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jPanel5.setLayout(null);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 108, Short.MAX_VALUE)
-        );
+        image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel5.add(image);
+        image.setBounds(0, 0, 140, 130);
 
-        infopanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 350, 110));
+        infopanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 140, 130));
 
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jLabel31.setBackground(new java.awt.Color(255, 153, 102));
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText(" ADD CANDIDATE");
+        jLabel31.setOpaque(true);
+        infopanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 40));
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
-
-        infopanel.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 350, 80));
-
-        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 370, 360));
-
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("  search");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 190, -1));
+        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 420));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -698,7 +701,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(candidatestable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 400, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 340, 390));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -744,25 +747,25 @@ public class viewcandidates extends javax.swing.JInternalFrame {
                     mm = rs.getString("month");
                     yy = rs.getInt("year");
                     dd = rs.getInt("day");
-                    id.setText(""+rs.getInt("cid"));
-                    fname.setText(""+rs.getString("fname"));
-                    lname.setText(""+rs.getString("lname"));
-                    mname.setText(""+rs.getString("mname"));
+                    id.setText(" "+rs.getInt("cid"));
+                    fname.setText(" "+rs.getString("fname"));
+                    lname.setText(" "+rs.getString("lname"));
+                    mname.setText(" "+rs.getString("mname"));
 
-                    address.setText(""+rs.getString("address"));
-                    email.setText(""+rs.getString("email"));
-                    contact.setText(""+rs.getString("contact"));
+                    address.setText(" "+rs.getString("address"));
+                    email.setText(" "+rs.getString("email"));
+                    contact.setText(" "+rs.getString("contact"));
 
-                    sexx.setText(""+rs.getString("sex"));
-                    birthdate.setText(""+yy+"-"+mm+"-"+dd+"");
-                    age.setText(""+rs.getInt("age"));
+                    sexx.setText(" "+rs.getString("sex"));
+                    birthdate.setText(" "+yy+"-"+mm+"-"+dd+"");
+                    age.setText(" "+rs.getInt("age"));
 
-                    occupation.setText(""+rs.getString("age"));
-                    nationality.setText(""+rs.getString("nationality"));
-                    position.setText(""+rs.getString("position"));
-                    term.setText(""+rs.getInt("term"));
-                    date.setText(""+rs.getString("date"));
-
+                    occupation.setText(" "+rs.getString("age"));
+                    nationality.setText(" "+rs.getString("nationality"));
+                    position.setText(" "+rs.getString("position"));
+                    term.setText(" "+rs.getInt("term"));
+                    date.setText(" "+rs.getString("date"));
+                     image.setIcon(ResizeImage(rs.getString("cimage"),null,image));
                 }
 
             } catch (SQLException ex) {
@@ -770,10 +773,6 @@ public class viewcandidates extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_viewdetailsMouseClicked
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -795,6 +794,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
     private javax.swing.JLabel fname1;
     private javax.swing.JLabel id;
     private javax.swing.JLabel id1;
+    private javax.swing.JLabel image;
     private javax.swing.JPanel infopanel;
     private javax.swing.JPanel infopanel1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -822,6 +822,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -831,9 +832,6 @@ public class viewcandidates extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -842,7 +840,6 @@ public class viewcandidates extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lname;
     private javax.swing.JLabel lname1;
