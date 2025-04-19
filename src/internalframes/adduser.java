@@ -134,6 +134,20 @@ public class adduser extends javax.swing.JInternalFrame {
     ImageIcon image = new ImageIcon(newImg);
     return image;
 }
+     public boolean isValidEmail(String email) {
+
+        String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+        if (email == null || !email.matches(emailRegex)) {
+            JOptionPane.showMessageDialog(null, 
+                "Invalid email format.\nPlease enter a valid email address (e.g., user@example.com).",
+                "Invalid Email",
+                JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -410,8 +424,9 @@ public class adduser extends javax.swing.JInternalFrame {
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
-             Session sess = Session.getInstance();
+        Session sess = Session.getInstance();
         String birthdateText = birthdate.getText();
+        String emailInput = emaill.getText();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
@@ -420,7 +435,12 @@ public class adduser extends javax.swing.JInternalFrame {
             ||confpass.getText().isEmpty() )
 
         {JOptionPane.showMessageDialog(null,"all field are required");
-        }  else if(duplicatecheck()){
+        }  
+        else if (!isValidEmail(emailInput)) {
+           // Stop submission or return early
+           
+        } 
+        else if(duplicatecheck()){
             System.out.println("duplicate exist");
 
         }
@@ -434,8 +454,10 @@ public class adduser extends javax.swing.JInternalFrame {
         }
         else if(!(password.getText().equals(confpass.getText()))){
             JOptionPane.showMessageDialog(null, "password not match");
+        } else if(!(birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}"))){
+            JOptionPane.showMessageDialog(null, "birthdate: invalid input");
         }
-
+        
         else if (birthdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) {
             int year = Integer.parseInt(birthdateText.substring(0, 4));
             int month = Integer.parseInt(birthdateText.substring(5, 7));
@@ -443,12 +465,16 @@ public class adduser extends javax.swing.JInternalFrame {
 
             if (!(month >= 1 && month <= 12)) {
                 JOptionPane.showMessageDialog(null, "Invalid month! Must not exceed 12.");
-            } else if (!(day > 1 || day < 31)) {
+                return;
+            } if (!(day > 1 || day < 31)) {
                 JOptionPane.showMessageDialog(null, "Invalid day! must not exceed 31");
-            }else if (!(year > 1966 )) {
+                return;
+            } if (!(year > 1966 )) {
                 JOptionPane.showMessageDialog(null, "Invalid year! too old.");
-            }else if (!(year < 2006 )) {
+                return;
+            }if (!(year < 2006 )) {
                 JOptionPane.showMessageDialog(null, "Invalid year! Must not exceed 2006.");
+                
             }else {
                 
                  try{
@@ -501,7 +527,7 @@ public class adduser extends javax.swing.JInternalFrame {
                 }
             }
 
-        }
+        } 
 
         // TODO add your handling code here:
     }//GEN-LAST:event_savebttnMouseClicked

@@ -5,6 +5,7 @@
  */
 package admins;
 
+import Print.printing;
 import config.Session;
 import account.accdetails;
 import candidates.managecandidates;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 import partylist.managepaartylist;
-import tabless.reports;
+
 
 /**
  *
@@ -48,11 +49,10 @@ public class maindash extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         users = new javax.swing.JLabel();
         myaccount = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        partylist = new javax.swing.JLabel();
         reportss = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         accname = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         candidates = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -156,15 +156,21 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(myaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 40));
 
-        jLabel22.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel22.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel22.setText("  Partylist");
-        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+        partylist.setBackground(new java.awt.Color(204, 0, 0));
+        partylist.setForeground(new java.awt.Color(204, 0, 0));
+        partylist.setText("  Partylist");
+        partylist.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel22MouseClicked(evt);
+                partylistMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                partylistMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                partylistMouseExited(evt);
             }
         });
-        sidebar.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 160, 40));
+        sidebar.add(partylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 160, 40));
 
         reportss.setBackground(new java.awt.Color(204, 0, 0));
         reportss.setForeground(new java.awt.Color(204, 0, 0));
@@ -180,7 +186,7 @@ public class maindash extends javax.swing.JFrame {
                 reportssMouseExited(evt);
             }
         });
-        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
+        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setForeground(new java.awt.Color(204, 0, 0));
@@ -200,11 +206,6 @@ public class maindash extends javax.swing.JFrame {
 
         accname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-circle-icon (1).png"))); // NOI18N
         sidebar.add(accname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, -1));
-
-        jLabel21.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel21.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel21.setText("  Positions");
-        sidebar.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
 
         candidates.setBackground(new java.awt.Color(221, 21, 21));
         candidates.setForeground(new java.awt.Color(204, 0, 0));
@@ -331,7 +332,7 @@ public class maindash extends javax.swing.JFrame {
     }//GEN-LAST:event_reportssMouseEntered
 
     private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
-       reports rp = new reports();
+       printing rp = new printing();
        jDesktopPane1.removeAll();    
         jDesktopPane1.add(rp).setVisible(true);
     }//GEN-LAST:event_reportssMouseClicked
@@ -434,11 +435,23 @@ public class maindash extends javax.swing.JFrame {
      jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+    private void partylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseClicked
      jDesktopPane1.removeAll();
      managepaartylist mp = new managepaartylist();
      jDesktopPane1.add(mp).setVisible(true);
-    }//GEN-LAST:event_jLabel22MouseClicked
+    }//GEN-LAST:event_partylistMouseClicked
+
+    private void partylistMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseEntered
+        partylist.setOpaque(true);
+        partylist.setBackground(new java.awt.Color(221,21,21));
+        partylist.setForeground(Color.white);
+    }//GEN-LAST:event_partylistMouseEntered
+
+    private void partylistMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseExited
+        partylist.setBackground(Color.white);
+        partylist.setForeground(new java.awt.Color(221,21,21));
+        partylist.setOpaque(false);
+    }//GEN-LAST:event_partylistMouseExited
 
     /**
      * @param args the command line arguments
@@ -481,8 +494,6 @@ public class maindash extends javax.swing.JFrame {
     private javax.swing.JLabel editaccc;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
@@ -490,6 +501,7 @@ public class maindash extends javax.swing.JFrame {
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel myaccount;
+    private javax.swing.JLabel partylist;
     private javax.swing.JLabel reportss;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel users;

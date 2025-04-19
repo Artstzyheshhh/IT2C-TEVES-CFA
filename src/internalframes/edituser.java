@@ -186,6 +186,20 @@ public class edituser extends javax.swing.JInternalFrame {
             }
         }
    }
+    public boolean isValidEmail(String email) {
+
+        String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+        if (email == null || !email.matches(emailRegex)) {
+            JOptionPane.showMessageDialog(null, 
+                "Invalid email format.\nPlease enter a valid email address (e.g., user@example.com).",
+                "Invalid Email",
+                JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -417,6 +431,7 @@ public class edituser extends javax.swing.JInternalFrame {
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
          Session sess = Session.getInstance();
+         String emailInput = emaill.getText();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
@@ -424,9 +439,12 @@ public class edituser extends javax.swing.JInternalFrame {
         )
 
         {JOptionPane.showMessageDialog(null,"all field are required");
-        }  else if(updatecheck()){
-            System.out.println("duplicate exist");
+        }  
+        else if (!isValidEmail(emailInput)) {
 
+        }
+        else if(updatecheck()){
+            
         }
 
         else if (uname.getText().equals(emaill.getText())){

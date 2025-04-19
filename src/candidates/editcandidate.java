@@ -44,6 +44,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
     public editcandidate() {
         initComponents();
         displayData();
+        
           this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
@@ -57,8 +58,8 @@ public class editcandidate extends javax.swing.JInternalFrame {
         
         dbconnect dbc = new dbconnect();
    try {
-            String query = "SELECT * FROM candidates WHERE emsil = '"+ email.getText()+"'";
-             String queryy = "SELECT * FROM pname WHERE pname = '"+ position.getSelectedItem()+"'";
+            String query = "SELECT * FROM candidates WHERE email = '"+ email.getText()+"'";
+             
             ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
               
@@ -82,22 +83,21 @@ public class editcandidate extends javax.swing.JInternalFrame {
       public void displayData(){
         try{
             dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT cid, lname, fname FROM candidates");
-            candidatestable.setModel(DbUtils.resultSetToTableModel(rs));
-                  candidatestable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-               TableColumnModel columnModel = candidatestable.getColumnModel();     
-               
-               columnModel.getColumn(0).setHeaderValue("ID");
-               columnModel.getColumn(1).setHeaderValue("Lastname");
-               columnModel.getColumn(2).setHeaderValue("Firstname");
-
-        // Apply header changes
-              candidatestable.getTableHeader().repaint();
-                columnModel.getColumn(0).setPreferredWidth(50); 
-                columnModel.getColumn(1).setPreferredWidth(135); 
-                columnModel.getColumn(2).setPreferredWidth(135); 
-               
-            rs.close();
+            try (ResultSet rs = dbc.getData("SELECT cid, lname, fname FROM candidates")) {
+                candidatestable.setModel(DbUtils.resultSetToTableModel(rs));
+                candidatestable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                TableColumnModel columnModel = candidatestable.getColumnModel();
+                
+                columnModel.getColumn(0).setHeaderValue("ID");
+                columnModel.getColumn(1).setHeaderValue("Lastname");
+                columnModel.getColumn(2).setHeaderValue("Firstname");
+                
+                // Apply header changes
+                candidatestable.getTableHeader().repaint();
+                columnModel.getColumn(0).setPreferredWidth(50);
+                columnModel.getColumn(1).setPreferredWidth(135);
+                columnModel.getColumn(2).setPreferredWidth(135);
+            }
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
 
@@ -183,6 +183,21 @@ public class editcandidate extends javax.swing.JInternalFrame {
             }
         }
    }
+    
+        public boolean isValidEmail(String email) {
+    // Improved regex pattern for email validation
+    String emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+    if (email == null || !email.matches(emailRegex)) {
+        JOptionPane.showMessageDialog(null, 
+            "Invalid email format.\nPlease enter a valid email address (e.g., user@example.com).",
+            "Invalid Email",
+            JOptionPane.ERROR_MESSAGE);
+        return false;
+    }
+
+    return true;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -395,7 +410,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel4.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 90, 20));
+        jPanel4.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 90, 20));
 
         jLabel8.setBackground(new java.awt.Color(204, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -403,9 +418,9 @@ public class editcandidate extends javax.swing.JInternalFrame {
         jLabel8.setText("Clear all");
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
         jLabel8.setOpaque(true);
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 90, 20));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 90, 20));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 420));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 430));
 
         candidatestable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -418,7 +433,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
         candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(candidatestable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 340, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 340, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -447,10 +462,10 @@ public class editcandidate extends javax.swing.JInternalFrame {
                     contact.setText(""+rs.getString("contact"));
                     email.setText(""+rs.getString("email"));
                     position.setSelectedItem(""+rs.getString("position"));
-                    image.setIcon(ResizeImage(rs.getString("Uimage"),null,image));
-                    oldpath = rs.getString("Uimage");
-                    path = rs.getString("Uimage");
-                    destination = rs.getString("Uimage");
+                    image.setIcon(ResizeImage(rs.getString("cimage"),null,image));
+                    oldpath = rs.getString("cimage");
+                    path = rs.getString("cimage");
+                    destination = rs.getString("cimage");
                 }
 
             } catch (SQLException ex) {
@@ -463,7 +478,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
         Session sess = Session.getInstance();
         dbconnect dbc = new dbconnect();
-
+        String emailInput = email.getText();
         if(fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||mname.getText() .isEmpty()
             || address.getText() .isEmpty()
@@ -473,23 +488,29 @@ public class editcandidate extends javax.swing.JInternalFrame {
             ||email.getText().isEmpty())
 
         {JOptionPane.showMessageDialog(null,"all field are required");
-        }  else if(duplicatecheck()){
+        }   
+        else if (!isValidEmail(emailInput)) {
+            
+        }
+        
+        else if(duplicatecheck()){
             System.out.println("duplicate exist");
 
         }
         else if(duplicatecheck()){
         }
-        else if (contact.getText().matches("-?\\d+")) {
+        else if (!contact.getText().matches("-?\\d+")) {
             JOptionPane.showMessageDialog(null,"integers only");
         }
         else {
 
             dbc.updateData("UPDATE candidates SET fname ='"+fname.getText()+"',lname ='"+lname.getText()+"',"
-                + "mname ='"+mname.getText()+"',address ='"+address.getText()+"',"
+                + "mname ='"+mname.getText()+"',address ='"+address.getText()+"',email = '"+email.getText()+"',"
                 + "sex ='"+sex.getSelectedItem()+"',nationality ='"+nationality.getText()+"',"
                 + "contact ='"+contact.getText()+"',occupation = '"+occupation.getText()+"',"
                 +"cimage = '"+destination+"' "
                 + " WHERE cid ='"+cid.getText()+"'");
+            
                 if(destination.isEmpty()){
                     File existingFile = new File(oldpath);
                     if(existingFile.exists()){

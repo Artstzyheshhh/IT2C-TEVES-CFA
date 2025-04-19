@@ -229,7 +229,7 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel add;
     private javax.swing.JLabel delete;
     private javax.swing.JLabel edit;
-    private javax.swing.JDesktopPane partylistpane;
+    public javax.swing.JDesktopPane partylistpane;
     private javax.swing.JPanel topbar;
     private javax.swing.JLabel view;
     // End of variables declaration//GEN-END:variables

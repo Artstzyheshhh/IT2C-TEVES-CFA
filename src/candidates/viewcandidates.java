@@ -673,7 +673,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         jLabel31.setOpaque(true);
         infopanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 40));
 
-        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 420));
+        getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 430));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -701,7 +701,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         candidatestable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(candidatestable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 340, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 340, 400));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
