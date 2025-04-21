@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package candidates;
 
 import com.mysql.jdbc.Statement;
@@ -81,95 +77,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
         }
     }
     
-    public boolean positionss(){    
-        dbconnect dbc = new dbconnect();
-     try {          
-             String queryy = "SELECT * FROM positions WHERE pname = '"+ positionn.getSelectedItem().toString()+"'";
-            ResultSet resultSet = dbc.getData(queryy);
-            if(resultSet.next()){             
-                 termm = resultSet.getInt("term"); 
-                
-                return true;
-            }
-            else{
-                return false;
-            }
-            
-        } catch (SQLException ex) {
-            System.out.println(""+ex);
-            return false;
-        }}
-    
-    public void loadPositionsToComboBox() {
-    try {
-         dbconnect dbc = new dbconnect();
-        String sql = "SELECT  pname FROM positions";
-        PreparedStatement pst = dbc.connect.prepareStatement(sql);
-        ResultSet rss = pst.executeQuery();
 
-        
-        positionn.removeAllItems();
- 
-
-        while (rss.next()) {
-            String position = rss.getString("pname");
-            positionn.addItem(position);
-        }
-
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error loading positions: " + ex.getMessage());
-    }
-}   
-    public void loadPartylist() {
-    try {
-         dbconnect dbc = new dbconnect();
-        String sql = "SELECT pid, pname FROM partylist";
-        PreparedStatement pst = dbc.connect.prepareStatement(sql);
-        ResultSet Rss = pst.executeQuery();
-
-        
-        partylist.removeAllItems();
-        partylist.addItem("Independent");
-        while (Rss.next()) {
-            String position = Rss.getString("pname");
-            partylist.addItem(position);
-        }
-
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error loading positions: " + ex.getMessage());
-    }
-}   public static int pid;
-    
-    public boolean getpid(){ 
-       dbconnect dbc = new dbconnect();
-     try {    
-             String  partylistt = "Independent"; 
-             String queryy = "SELECT * FROM partylist WHERE pname = '"+ partylist.getSelectedItem().toString()+"'";
-            ResultSet resultSet = dbc.getData(queryy);
-            if(resultSet.next()){   
-                
-                 if( partylist.getSelectedItem().toString().equals(partylistt)){
-                 pid = '0';
-                 }
-                 else{
-                     pid = resultSet.getInt("pid"); 
-                 
-                 }
-                 
-                
-                return true;
-            }
-            else{
-                return false;
-            }
-            
-        } catch (SQLException ex) {
-            System.out.println(""+ex);
-            return false;
-        }    
-    }
     
     
     public void addCandidate(){
@@ -178,14 +86,14 @@ public class addcandidate extends javax.swing.JInternalFrame {
          LocalDate birthDate = LocalDate.parse(input, formatter);
          LocalDate currentDate = LocalDate.now();
          int age = Period.between(birthDate, currentDate).getYears();
-        if(positionss()||getpid()){  
+        
             try{
          
           Session sess = Session.getInstance();   
          dbconnect dbc = new dbconnect();          
                     int lastInsertedId = -1;
-  String sql = "INSERT INTO candidates(fname, lname, mname, address, sex, nationality, occupation, email ,age,contact,position,term, bdate, date ,user_id,cimage,p_id)"
-                               + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  String sql = "INSERT INTO candidates(fname, lname, mname, address, sex, nationality, occupation, email ,age,contact, bdate, date ,user_id,cimage, status)"
+                               + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement pst = dbc.connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
                 // Use prepared statements properly with parameters
@@ -198,14 +106,13 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 pst.setString(7, occupation.getText());
                 pst.setString(8, email.getText());
                 pst.setInt(9,age);
-                pst.setString(10, contact.getText());
-                pst.setString(11, positionn.getSelectedItem().toString());
-                pst.setInt(12, termm);
-                pst.setString(13, bdate.getText());
-                pst.setString(14,LocalDateTime.now().toString());
-                pst.setInt(15,  sess.getId());
-                pst.setString(16, destination);
-                pst.setInt(17, pid);
+                pst.setString(10, contact.getText()); 
+                pst.setString(11, bdate.getText());
+                pst.setString(12,LocalDateTime.now().toString());
+                pst.setInt(13,  sess.getId());
+                pst.setString(14, destination);
+                pst.setString(14, "Incomplete");
+                
               int affectedRows = pst.executeUpdate();
     
           if (affectedRows > 0) {
@@ -215,7 +122,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 lastInsertedId = generatedKeys.getInt(1);
             }
         }
-        dbc.insertData("INSERT INTO partylistgroup (pid, cid,lname, pname) VALUES ('"+pid+"','"+lastInsertedId+"','"+lname.getText()+"','"+ partylist.getSelectedItem().toString()+"')");
+        
         String actionn = "Added candidate with ID No.: " + lastInsertedId;
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
 
@@ -224,7 +131,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
             lname.setText("");
             mname.setText("");
             address.setText("");
-            sex.setSelectedItem("");
             nationality.setText("");
             occupation.setText("");
             bdate.setText("");
@@ -238,7 +144,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 }
     
             
-        }
+        
    
     }
      public String destination = "";
@@ -333,11 +239,9 @@ public class addcandidate extends javax.swing.JInternalFrame {
         nationality = new javax.swing.JTextField();
         occupation = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         contact = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        positionn = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -349,8 +253,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         sex = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        partylist = new javax.swing.JComboBox<>();
-        jLabel22 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -420,10 +322,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
         jLabel18.setForeground(new java.awt.Color(153, 0, 0));
         jLabel18.setText("Contact No.:");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 70, 20));
-
-        jLabel21.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel21.setText("Partylist");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 120, 20));
         jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, -1));
 
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -436,13 +334,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
         jLabel23.setForeground(new java.awt.Color(153, 0, 0));
         jLabel23.setText("Email:");
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 70, 20));
-
-        positionn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                positionnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(positionn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 170, -1));
 
         jPanel4.setLayout(null);
 
@@ -533,17 +424,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
         jLabel12.setText("Sex:");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 50, 20));
 
-        partylist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partylistActionPerformed(evt);
-            }
-        });
-        jPanel2.add(partylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 140, -1));
-
-        jLabel22.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel22.setText("Position:");
-        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 120, 20));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 430));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
@@ -595,7 +475,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-         loadPositionsToComboBox();
+       
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
@@ -630,25 +510,10 @@ public class addcandidate extends javax.swing.JInternalFrame {
          int age = Period.between(birthDate, currentDate).getYears();
         
         if (age < 16 || age >= 60) {
-            JOptionPane.showMessageDialog(null, "Candidate must be between 16 and 59 years old.");
-            return;
-        }
-
-        String position = positionn.getSelectedItem().toString();
-        if (age < 21) {
-            if (positionss()) {
-                if (!position.equals("SK chairman") && !position.equals("SK councilor")) {
-                    JOptionPane.showMessageDialog(null, "Candidates aged 20 and below can only run as SK chairman or SK councilor.");
-                } else {
-                    addCandidate();
-                }
-            }
-        } else {
-            if (position.equals("SK chairman") || position.equals("SK councilor")) {
-                JOptionPane.showMessageDialog(null, "Candidates aged 21 and above cannot run as SK chairman or SK councilor.");
-            } else {
-                addCandidate();
-            }
+            JOptionPane.showMessageDialog(null, "Candidate must be between 16 and 59 years old.");   
+        }     
+         else {
+            addCandidate();
         }
 
         // TODO add your handling code here:
@@ -672,10 +537,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
-
-    private void positionnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_positionnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_positionnActionPerformed
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
@@ -727,10 +588,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_sexActionPerformed
 
-    private void partylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partylistActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_partylistActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
@@ -748,8 +605,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
@@ -763,8 +618,6 @@ public class addcandidate extends javax.swing.JInternalFrame {
     private javax.swing.JTextField mname;
     private javax.swing.JTextField nationality;
     private javax.swing.JTextField occupation;
-    private javax.swing.JComboBox<String> partylist;
-    private javax.swing.JComboBox<String> positionn;
     private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;

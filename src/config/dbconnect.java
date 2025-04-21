@@ -66,7 +66,25 @@ public class dbconnect {
     } catch (SQLException ex) {
         System.out.println("Connection Error: " + ex);
     }
-}
+}       
+        
+        public void deleteData(String sql) {
+        try {
+            PreparedStatement pst = connect.prepareStatement(sql);
+            int rowsDeleted = pst.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                JOptionPane.showMessageDialog(null, "Data Deleted Successfully!");
+            } else {
+                System.out.println("No records deleted.");
+            }
+
+            pst.close();
+        } catch (SQLException ex) {
+            System.out.println("Connection Error: " + ex);
+        }
+    }
+    
  
  
 }

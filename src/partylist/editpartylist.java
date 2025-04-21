@@ -26,8 +26,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -43,6 +46,9 @@ public class editpartylist extends javax.swing.JInternalFrame {
             this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       partylisttable.getTableHeader().setOpaque(false);
+       partylisttable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       partylisttable.getTableHeader().setForeground(Color.white);
     }
     
     
@@ -124,30 +130,30 @@ public class editpartylist extends javax.swing.JInternalFrame {
             }
         }
    }
-    public int cid, p_cid;
-    public boolean candidatecheck(){
-         dbconnect dbc = new dbconnect();
-   try {
-            String query = "SELECT * FROM candidates WHERE lname = '"+representative.getSelectedItem()+"'";
-            ResultSet resultSet = dbc.getData(query);
-            String queryy = "SELECT * FROM candidates WHERE lname = '"+representative.getSelectedItem()+"'";
-            ResultSet resultSett = dbc.getData(queryy);
-            if(resultSet.next()||resultSett.next()){
-               cid = resultSet.getInt("cid");
-               p_cid = resultSett.getInt("cid");
-               if(cid == p_cid){
-                    JOptionPane.showMessageDialog(null,"This candidate is already in a partylist");
-               }
-                return true;
+    
+    public void displayData(){
+        try{
+            dbconnect dbc = new dbconnect();
+            try (ResultSet rs = dbc.getData("SELECT pid, pname, contact FROM partylist")) {
+                partylisttable.setModel(DbUtils.resultSetToTableModel(rs));
+                partylisttable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+                TableColumnModel columnModel = partylisttable.getColumnModel();
+                
+                columnModel.getColumn(0).setHeaderValue("ID");
+                columnModel.getColumn(1).setHeaderValue("Partylist");
+                columnModel.getColumn(2).setHeaderValue("Contact");
+                
+                // Apply header changes
+                partylisttable.getTableHeader().repaint();
+                columnModel.getColumn(0).setPreferredWidth(50);
+                columnModel.getColumn(1).setPreferredWidth(140);
+                columnModel.getColumn(2).setPreferredWidth(140);
             }
-            else{
-                return false;
-            }
-            
-        } catch (SQLException ex) {
-            System.out.println(""+ex);
-            return false;
+        }catch(SQLException ex){
+            System.out.println("Errors: "+ex.getMessage());
+
         }
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,7 +168,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         platform = new javax.swing.JTextArea();
@@ -171,7 +176,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
         pname = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
-        representative = new javax.swing.JComboBox<>();
         remove = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
@@ -186,6 +190,23 @@ public class editpartylist extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -194,7 +215,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
 
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Platform:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 70, 20));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 390, 20));
 
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("ID:");
@@ -204,21 +225,17 @@ public class editpartylist extends javax.swing.JInternalFrame {
         jLabel3.setText("Shortname:");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 130, 20));
 
-        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel4.setText("Representative:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 120, 20));
-
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Contact no :");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 110, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, 20));
 
         platform.setColumns(20);
         platform.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         platform.setRows(5);
         jScrollPane1.setViewportView(platform);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 340, 110));
-        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 280, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 390, 120));
+        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 240, -1));
 
         acronym.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,11 +269,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
         image.setBounds(0, 0, 140, 130);
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, 130));
-
-        representative.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        representative.setEnabled(false);
-        representative.setOpaque(false);
-        jPanel3.add(representative, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 240, 25));
 
         remove.setBackground(new java.awt.Color(204, 0, 0));
         remove.setForeground(new java.awt.Color(204, 0, 0));
@@ -375,7 +387,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(partylisttable);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 340, 390));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 340, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -434,8 +446,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
         } else{
             
             dbc.insertData("UPDATE partylist SET pname = '"+pname.getText()+"',shortname ='"+acronym.getText()+"',"
-            + " representative = '"+representative.getSelectedItem()+"',contact = '"+contact.getText()+"'"
-            + " platform = '"+platform.getText()+"', logo = '"+destination+"' WHERE pid = '"+id.getText()+"'");
+            + " contact = '"+contact.getText()+"' platform = '"+platform.getText()+"', logo = '"+destination+"' WHERE pid = '"+id.getText()+"'");
             
             if(destination.isEmpty()){
             File existingFile = new File(oldpath);
@@ -515,6 +526,10 @@ public class editpartylist extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_editinfoMouseClicked
 
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+         displayData();
+    }//GEN-LAST:event_formInternalFrameActivated
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField acronym;
@@ -527,7 +542,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -540,7 +554,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea platform;
     private javax.swing.JTextField pname;
     private javax.swing.JLabel remove;
-    private javax.swing.JComboBox<String> representative;
     private javax.swing.JLabel savebttn;
     // End of variables declaration//GEN-END:variables
 }

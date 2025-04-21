@@ -54,11 +54,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
        
-       tablereps.getTableHeader().setOpaque(false);
-       tablereps.getTableHeader().setBackground(new java.awt.Color(221,21,21));
-       tablereps.getTableHeader().setForeground(Color.white);
        
-       displayData();
        image.setText("image here!");
     }
     
@@ -118,97 +114,10 @@ public class addpartylist extends javax.swing.JInternalFrame {
     return image;
 }
     
-    public void loadreps() {
-    try {
-         dbconnect dbc = new dbconnect();
-         String pos = "Representative";
-         
-        String sql = "SELECT cid FROM candidates WHERE p_id = '"+ 0 +"' AND position = '"+ pos +"'";
-        PreparedStatement pst = dbc.connect.prepareStatement(sql);
-        ResultSet rss = pst.executeQuery();
+ 
 
-        // Optional: clear previous items
-        representative1.removeAllItems();
-        representative2.removeAllItems();
-        representative3.removeAllItems();
-        representative4.removeAllItems(); 
-        representative5.removeAllItems();
-          
-        // Optional: add default item
-        
-
-        while (rss.next()) {
-            String reps = rss.getString("cid");
-            
-            representative1.addItem(reps);     
-            representative2.addItem(reps);     
-            representative3.addItem(reps);          
-            representative4.addItem(reps);
-            representative5.addItem(reps);
-            
-        }
-
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-        JOptionPane.showMessageDialog(null, "Error loading positions: " + ex.getMessage());
-    }
-}
-      public void displayData(){
-        try{
-            String pos = "Representative";
-            dbconnect dbc = new dbconnect();
-            ResultSet rs = dbc.getData("SELECT cid, lname,fname FROM candidates WHERE p_id = '"+ 0 +"' AND position = '"+ pos +"'");
-            tablereps.setModel(DbUtils.resultSetToTableModel(rs));
-             tablereps.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-               TableColumnModel columnModel = tablereps.getColumnModel();     
-               
-               columnModel.getColumn(0).setHeaderValue("ID");
-               columnModel.getColumn(1).setHeaderValue("Lastname");
-               columnModel.getColumn(2).setHeaderValue("Firstname");
-
-        // Apply header changes
-              tablereps.getTableHeader().repaint();
-                columnModel.getColumn(0).setPreferredWidth(50); 
-                columnModel.getColumn(1).setPreferredWidth(160); 
-                columnModel.getColumn(2).setPreferredWidth(160); 
-             rs.close();
-        }catch(SQLException ex){
-            System.out.println("Errors: "+ex.getMessage());
-
-        }
-
-    }
       
-    public boolean repcheck() {
-    JComboBox[] reps = {representative1, representative2, representative3, representative4, representative5};
-    Set<Object> used = new HashSet<>();
-    boolean changed = false;
-
-    for (int i = 0; i < reps.length; i++) {
-        Object selected = reps[i].getSelectedItem();
-
-        if (used.contains(selected)) {
-            // Find a new item not used yet
-            ComboBoxModel model = reps[i].getModel();
-            for (int j = 0; j < model.getSize(); j++) {
-                Object candidate = model.getElementAt(j);
-                if (!used.contains(candidate)) {
-                    reps[i].setSelectedItem(candidate);
-                    selected = candidate;
-                    changed = true;
-                    JOptionPane.showMessageDialog(null, 
-                        "Representative " + (i + 1) + " selection was already used.\n" +
-                        "Automatically changed to an available ID: " + candidate);
-                    break;
-                }
-            }
-        }
-
-        used.add(selected);
-    }
-
-    return changed;
-}
+    
       
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -220,7 +129,6 @@ public class addpartylist extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         platform = new javax.swing.JTextArea();
@@ -229,22 +137,10 @@ public class addpartylist extends javax.swing.JInternalFrame {
         pname = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
-        representative4 = new javax.swing.JComboBox<>();
         remove = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         clear = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        representative1 = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        representative2 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        representative3 = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        representative5 = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablereps = new javax.swing.JTable();
-        refresh = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -314,10 +210,6 @@ public class addpartylist extends javax.swing.JInternalFrame {
         jLabel3.setText("Shortname:");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 130, 20));
 
-        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel4.setText("Representative 4:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 120, 20));
-
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Contact no :");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 90, 20));
@@ -327,7 +219,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
         platform.setRows(5);
         jScrollPane1.setViewportView(platform);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 220, 190));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 350, 170));
         jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 230, -1));
 
         acronym.addActionListener(new java.awt.event.ActionListener() {
@@ -362,24 +254,6 @@ public class addpartylist extends javax.swing.JInternalFrame {
         image.setBounds(0, 0, 110, 100);
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, 100));
-
-        representative4.setOpaque(false);
-        representative4.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                representative4ItemStateChanged(evt);
-            }
-        });
-        representative4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                representative4MouseClicked(evt);
-            }
-        });
-        representative4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                representative4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(representative4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 120, 20));
 
         remove.setBackground(new java.awt.Color(204, 0, 0));
         remove.setForeground(new java.awt.Color(204, 0, 0));
@@ -417,7 +291,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, 90, 20));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 90, 20));
 
         clear.setBackground(new java.awt.Color(204, 0, 0));
         clear.setForeground(new java.awt.Color(255, 255, 255));
@@ -430,122 +304,9 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 clearMouseClicked(evt);
             }
         });
-        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 90, 20));
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 90, 20));
 
-        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel6.setText("Representative 2:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 120, 20));
-
-        representative1.setOpaque(false);
-        representative1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                representative1ItemStateChanged(evt);
-            }
-        });
-        representative1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                representative1MouseClicked(evt);
-            }
-        });
-        representative1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                representative1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(representative1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 120, 20));
-
-        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel7.setText("Representative 1:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, 20));
-
-        representative2.setOpaque(false);
-        representative2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                representative2ItemStateChanged(evt);
-            }
-        });
-        representative2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                representative2MouseClicked(evt);
-            }
-        });
-        representative2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                representative2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(representative2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 120, 20));
-
-        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel8.setText("Representative 3:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 120, 20));
-
-        representative3.setOpaque(false);
-        representative3.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                representative3ItemStateChanged(evt);
-            }
-        });
-        representative3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                representative3MouseClicked(evt);
-            }
-        });
-        representative3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                representative3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(representative3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 120, 20));
-
-        jLabel9.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel9.setText("Representative 5:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 120, 20));
-
-        representative5.setOpaque(false);
-        representative5.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                representative5ItemStateChanged(evt);
-            }
-        });
-        representative5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                representative5MouseClicked(evt);
-            }
-        });
-        representative5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                representative5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(representative5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 120, -1));
-
-        tablereps.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tablereps);
-
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 380, 330));
-
-        refresh.setBackground(new java.awt.Color(204, 0, 0));
-        refresh.setForeground(new java.awt.Color(255, 255, 255));
-        refresh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        refresh.setText("Refresh");
-        refresh.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        refresh.setOpaque(true);
-        refresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshMouseClicked(evt);
-            }
-        });
-        jPanel3.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 90, 20));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 420));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -562,14 +323,12 @@ public class addpartylist extends javax.swing.JInternalFrame {
        } else if (!(contact.getText().length() <= 11)){ 
                 JOptionPane.showMessageDialog(null,"contact should exceed 11 digits");
                 contact.setText("");
-       } else if(repcheck()){}
-       
-       else{
+       }  else{
        try{
                    
                int lastInsertedId = -1;
-               String sql = "INSERT INTO partylist(pname,shortname, contact, platform, logo, rep1, rep2, rep3, rep4, rep5, date, user_id)"
-                       + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+               String sql = "INSERT INTO partylist(pname,shortname, contact, platform, logo, date, uid)"
+                       + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement pst = dbc.connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -579,13 +338,8 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 pst.setString(3, contact.getText());
                 pst.setString(4, platform.getText());
                 pst.setString(5, destination);
-                pst.setString(6, representative1.getSelectedItem().toString());
-                pst.setString(7, representative2.getSelectedItem().toString());
-                pst.setString(8, representative3.getSelectedItem().toString());
-                pst.setString(9, representative4.getSelectedItem().toString());
-                pst.setString(10, representative5.getSelectedItem().toString());
-                pst.setString(11, LocalDateTime.now().toString());
-                pst.setInt(12, sess.getId());
+                pst.setString(6, LocalDateTime.now().toString());
+                pst.setInt(7, sess.getId());
               int affectedRows = pst.executeUpdate();
     
           if (affectedRows > 0) {
@@ -594,11 +348,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
             if (generatedKeys.next()) {
                 lastInsertedId = generatedKeys.getInt(1);
                 
-                dbc.insertData("UPDATE candidates SET p_id = '"+lastInsertedId+"' WHERE cid = '"+representative1.getSelectedItem()+"'");
-                dbc.insertData("UPDATE candidates SET p_id = '"+lastInsertedId+"' WHERE cid = '"+representative2.getSelectedItem()+"'");
-                dbc.insertData("UPDATE candidates SET p_id = '"+lastInsertedId+"' WHERE cid = '"+representative3.getSelectedItem()+"'");
-                dbc.insertData("UPDATE candidates SET p_id = '"+lastInsertedId+"' WHERE cid = '"+representative4.getSelectedItem()+"'");
-                dbc.insertData("UPDATE candidates SET p_id = '"+lastInsertedId+"' WHERE cid = '"+representative5.getSelectedItem()+"'");
+               
             }
         }
         
@@ -686,76 +436,9 @@ public class addpartylist extends javax.swing.JInternalFrame {
        image.setIcon(null);
     }//GEN-LAST:event_removeMouseClicked
 
-    private void representative4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_representative4ActionPerformed
-        
-    }//GEN-LAST:event_representative4ActionPerformed
-
-    private void representative1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_representative1ActionPerformed
-        
-    }//GEN-LAST:event_representative1ActionPerformed
-
-    private void representative2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_representative2ActionPerformed
-        
-    }//GEN-LAST:event_representative2ActionPerformed
-
-    private void representative3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_representative3ActionPerformed
-        
-    }//GEN-LAST:event_representative3ActionPerformed
-
-    private void representative5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_representative5ActionPerformed
-        
-    }//GEN-LAST:event_representative5ActionPerformed
-
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        loadreps();
+        
     }//GEN-LAST:event_formInternalFrameActivated
-
-    private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
-       
-        
-      
-       
-    }//GEN-LAST:event_refreshMouseClicked
-
-    private void representative1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_representative1MouseClicked
-        
-    }//GEN-LAST:event_representative1MouseClicked
-
-    private void representative2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_representative2MouseClicked
-        
-    }//GEN-LAST:event_representative2MouseClicked
-
-    private void representative3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_representative3MouseClicked
-       
-    }//GEN-LAST:event_representative3MouseClicked
-
-    private void representative4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_representative4MouseClicked
-        
-    }//GEN-LAST:event_representative4MouseClicked
-
-    private void representative5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_representative5MouseClicked
-         
-    }//GEN-LAST:event_representative5MouseClicked
-
-    private void representative1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_representative1ItemStateChanged
-
-    }//GEN-LAST:event_representative1ItemStateChanged
-
-    private void representative2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_representative2ItemStateChanged
-        
-    }//GEN-LAST:event_representative2ItemStateChanged
-
-    private void representative3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_representative3ItemStateChanged
-        
-    }//GEN-LAST:event_representative3ItemStateChanged
-
-    private void representative4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_representative4ItemStateChanged
-        
-    }//GEN-LAST:event_representative4ItemStateChanged
-
-    private void representative5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_representative5ItemStateChanged
-        
-    }//GEN-LAST:event_representative5ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -767,28 +450,15 @@ public class addpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea platform;
     private javax.swing.JTextField pname;
-    private javax.swing.JLabel refresh;
     private javax.swing.JLabel remove;
-    private javax.swing.JComboBox<String> representative1;
-    private javax.swing.JComboBox<String> representative2;
-    private javax.swing.JComboBox<String> representative3;
-    private javax.swing.JComboBox<String> representative4;
-    private javax.swing.JComboBox<String> representative5;
     private javax.swing.JLabel savebttn;
-    private javax.swing.JTable tablereps;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ package admins;
 import Print.printing;
 import config.Session;
 import account.accdetails;
+import applications.manageapplications;
 import candidates.managecandidates;
 import config.dbconnect;
 import internalframes.manageuser;
@@ -55,7 +56,7 @@ public class maindash extends javax.swing.JFrame {
         accname = new javax.swing.JLabel();
         candidates = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        applcation = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,7 +175,7 @@ public class maindash extends javax.swing.JFrame {
 
         reportss.setBackground(new java.awt.Color(204, 0, 0));
         reportss.setForeground(new java.awt.Color(204, 0, 0));
-        reportss.setText(" Reports");
+        reportss.setText("  Reports");
         reportss.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 reportssMouseClicked(evt);
@@ -186,7 +187,7 @@ public class maindash extends javax.swing.JFrame {
                 reportssMouseExited(evt);
             }
         });
-        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
+        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setForeground(new java.awt.Color(204, 0, 0));
@@ -238,10 +239,23 @@ public class maindash extends javax.swing.JFrame {
         });
         sidebar.add(editaccc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 160, 40));
 
-        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 560));
+        applcation.setBackground(new java.awt.Color(204, 0, 0));
+        applcation.setForeground(new java.awt.Color(204, 0, 0));
+        applcation.setText("  Application");
+        applcation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                applcationMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                applcationMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                applcationMouseExited(evt);
+            }
+        });
+        sidebar.add(applcation, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 450));
 
@@ -253,12 +267,10 @@ public class maindash extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 530, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
-
-        main.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 800, 500));
+        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,7 +281,7 @@ public class maindash extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -453,6 +465,23 @@ public class maindash extends javax.swing.JFrame {
         partylist.setOpaque(false);
     }//GEN-LAST:event_partylistMouseExited
 
+    private void applcationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseClicked
+        jDesktopPane1.removeAll();
+        manageapplications ma = new manageapplications();
+        jDesktopPane1.add(ma).setVisible(true);
+    }//GEN-LAST:event_applcationMouseClicked
+
+    private void applcationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseEntered
+        applcation.setOpaque(true);
+        applcation.setBackground(new java.awt.Color(221,21,21));
+        applcation.setForeground(Color.white);    }//GEN-LAST:event_applcationMouseEntered
+
+    private void applcationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseExited
+        applcation.setBackground(Color.white);
+        applcation.setForeground(new java.awt.Color(221,21,21));
+        applcation.setOpaque(false);
+    }//GEN-LAST:event_applcationMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -490,13 +519,13 @@ public class maindash extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accname;
+    private javax.swing.JLabel applcation;
     private javax.swing.JLabel candidates;
     private javax.swing.JLabel editaccc;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel logout;
     public javax.swing.JPanel main;
     private javax.swing.JLabel minimize;

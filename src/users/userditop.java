@@ -148,10 +148,10 @@ public class userditop extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 970, 450));
+        main.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 970, 480));
 
         details.setBackground(new java.awt.Color(204, 0, 0));
         details.setForeground(new java.awt.Color(204, 0, 0));
@@ -229,7 +229,7 @@ public class userditop extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
