@@ -280,23 +280,23 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
         jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Firstname:");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 220, 20));
-        jPanel4.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, 20));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, 20));
+        jPanel4.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 210, 20));
 
         jLabel11.setForeground(new java.awt.Color(153, 0, 0));
         jLabel11.setText("Lastname:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 20));
-        jPanel4.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 220, 20));
+        jPanel4.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 210, -1));
 
         jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setText("Middlename:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 220, 20));
-        jPanel4.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, 20));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 220, 20));
+        jPanel4.add(mname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 210, 20));
 
         jLabel15.setForeground(new java.awt.Color(153, 0, 0));
         jLabel15.setText("Address");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 80, 20));
-        jPanel4.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 270, 20));
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 80, 20));
+        jPanel4.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 270, 20));
 
         jLabel12.setForeground(new java.awt.Color(153, 0, 0));
         jLabel12.setText("Sex:");
@@ -308,11 +308,11 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
         jLabel14.setForeground(new java.awt.Color(153, 0, 0));
         jLabel14.setText("Nationality");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 80, 20));
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 80, 20));
 
         jLabel17.setForeground(new java.awt.Color(153, 0, 0));
         jLabel17.setText("Occupation");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 80, 20));
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 80, 20));
 
         cid.setEnabled(false);
         cid.addActionListener(new java.awt.event.ActionListener() {
@@ -320,23 +320,23 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 cidActionPerformed(evt);
             }
         });
-        jPanel4.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, 20));
+        jPanel4.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 100, 20));
 
         jLabel24.setForeground(new java.awt.Color(153, 0, 0));
         jLabel24.setText(" ID:");
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, 20));
-        jPanel4.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 270, -1));
-        jPanel4.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 270, -1));
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 70, 20));
+        jPanel4.add(nationality, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 270, -1));
+        jPanel4.add(occupation, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 270, -1));
 
         jLabel18.setForeground(new java.awt.Color(153, 0, 0));
         jLabel18.setText("Contact No.:");
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 80, 20));
-        jPanel4.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 270, -1));
-        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 270, -1));
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 80, 20));
+        jPanel4.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 270, -1));
+        jPanel4.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 270, -1));
 
         jLabel23.setForeground(new java.awt.Color(153, 0, 0));
         jLabel23.setText("Email:");
-        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 80, 20));
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 20));
 
         jLabel26.setBackground(new java.awt.Color(255, 153, 102));
         jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -362,7 +362,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
         jPanel6.add(image);
         image.setBounds(0, 0, 140, 130);
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, 130));
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 130));
 
         remove.setBackground(new java.awt.Color(204, 0, 0));
         remove.setForeground(new java.awt.Color(204, 0, 0));
@@ -374,7 +374,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 removeMouseClicked(evt);
             }
         });
-        jPanel4.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 20));
+        jPanel4.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 140, 20));
 
         savebttn.setBackground(new java.awt.Color(204, 0, 0));
         savebttn.setForeground(new java.awt.Color(255, 255, 255));

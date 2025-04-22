@@ -9,6 +9,7 @@ import static candidates.editcandidate.getHeightFromWidth;
 import config.dbconnect;
 import java.awt.Color;
 import java.awt.Image;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
@@ -34,6 +35,9 @@ public class editapplication extends javax.swing.JInternalFrame {
        this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       applicationtable.getTableHeader().setOpaque(false);
+       applicationtable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
+       applicationtable.getTableHeader().setForeground(Color.white);
     }
     
      
@@ -56,8 +60,9 @@ public class editapplication extends javax.swing.JInternalFrame {
      public void displayData(){
         try{
             dbconnect dbc = new dbconnect();
-            String stats = "Incomplete";
-            try (ResultSet rs = dbc.getData("SELECT cid, lname, fname,age FROM candidates WHERE status = '"+stats+"'")) {
+            
+            try (ResultSet rs = dbc.getData(
+    "SELECT applications.aid, candidates.lname, candidates.fname,applications.status FROM applications INNER JOIN candidates ON applications.aid = candidates.cid " );) {
                 applicationtable.setModel(DbUtils.resultSetToTableModel(rs));
                 applicationtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 TableColumnModel columnModel = applicationtable.getColumnModel();
@@ -65,13 +70,13 @@ public class editapplication extends javax.swing.JInternalFrame {
                 columnModel.getColumn(0).setHeaderValue("ID");
                 columnModel.getColumn(1).setHeaderValue("Lastname");
                 columnModel.getColumn(2).setHeaderValue("Firstname");
-                columnModel.getColumn(3).setHeaderValue("Age");
-                
+                columnModel.getColumn(3).setHeaderValue("Status");
+               
                 applicationtable.getTableHeader().repaint();
                 columnModel.getColumn(0).setPreferredWidth(50);
-                columnModel.getColumn(1).setPreferredWidth(130);
-                columnModel.getColumn(2).setPreferredWidth(130);
-                columnModel.getColumn(3).setPreferredWidth(50);
+                columnModel.getColumn(1).setPreferredWidth(115);
+                columnModel.getColumn(2).setPreferredWidth(115);
+                columnModel.getColumn(3).setPreferredWidth(115);
             }
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
@@ -79,6 +84,27 @@ public class editapplication extends javax.swing.JInternalFrame {
         }
 
     }
+     
+     public void loadPartylist() {
+    try {
+         dbconnect dbc = new dbconnect();
+        String sql = "SELECT pid, pname FROM partylist";
+        PreparedStatement pst = dbc.connect.prepareStatement(sql);
+        ResultSet Rss = pst.executeQuery();
+        
+        
+        partylist.removeAllItems();
+        
+        while (Rss.next()) {
+            String position = Rss.getString("pname");
+            partylist.addItem(position);
+        }
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error loading positions: " + ex.getMessage());
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,12 +135,33 @@ public class editapplication extends javax.swing.JInternalFrame {
         age = new javax.swing.JLabel();
         partylist = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        aid = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         applicationtable = new javax.swing.JTable();
         jLabel27 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -123,11 +170,11 @@ public class editapplication extends javax.swing.JInternalFrame {
 
         jLabel10.setForeground(new java.awt.Color(204, 0, 0));
         jLabel10.setText("Firstname:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 80, 20));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 20));
 
         jLabel9.setForeground(new java.awt.Color(204, 0, 0));
         jLabel9.setText("Status");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 20));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 20));
 
         jPanel4.setLayout(null);
 
@@ -189,23 +236,23 @@ public class editapplication extends javax.swing.JInternalFrame {
 
         jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("Lastname:");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 80, 20));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 20));
 
         lname.setForeground(new java.awt.Color(204, 0, 0));
         lname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 210, 20));
+        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 240, 20));
 
         fname.setForeground(new java.awt.Color(204, 0, 0));
         fname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 210, 20));
+        jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 240, 20));
 
         jLabel17.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel17.setText("ID:");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 70, 20));
+        jLabel17.setText("Candidates ID:");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 210, 20));
 
         cid.setForeground(new java.awt.Color(204, 0, 0));
         cid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel2.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 210, 20));
+        jPanel2.add(cid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 210, 20));
 
         select.setBackground(new java.awt.Color(204, 0, 0));
         select.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,29 +266,38 @@ public class editapplication extends javax.swing.JInternalFrame {
         });
         jPanel2.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 90, 20));
 
-        jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 240, 20));
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualified", "Disqualified" }));
+        jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 240, 20));
 
         jLabel11.setForeground(new java.awt.Color(204, 0, 0));
         jLabel11.setText("Position:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 20));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 80, 20));
 
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("age");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 20));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 20));
 
         position.setForeground(new java.awt.Color(204, 0, 0));
         position.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel2.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 240, 20));
+        jPanel2.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 240, 20));
 
         age.setForeground(new java.awt.Color(204, 0, 0));
         age.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel2.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 240, 20));
+        jPanel2.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 240, 20));
 
-        jPanel2.add(partylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 240, 20));
+        jPanel2.add(partylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 240, 20));
 
         jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("partylist");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 20));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 80, 20));
+
+        jLabel18.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel18.setText("Candidates ID:");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 210, 20));
+
+        aid.setForeground(new java.awt.Color(204, 0, 0));
+        aid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jPanel2.add(aid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 210, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, 430));
 
@@ -263,6 +319,36 @@ public class editapplication extends javax.swing.JInternalFrame {
         jLabel27.setText("  SELECT APPLICATION");
         jLabel27.setOpaque(true);
         getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 410, 40));
+
+        jPanel5.setBackground(new java.awt.Color(204, 0, 0));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -30, 110, 35));
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(800, 30));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,38 +388,56 @@ public class editapplication extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_clearrMouseClicked
 
     private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
-        int rowIndex = applicationtable.getSelectedRow();
+       int rowIndex = applicationtable.getSelectedRow();
 
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please select an item!");
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please select an item!");
+} else {
+    try {
+        dbconnect dbc = new dbconnect();
+        TableModel tbl = applicationtable.getModel();
+
+        // Get the AID value from the selected row (column 0 assumed to be AID)
+        String selectedAid = tbl.getValueAt(rowIndex, 0).toString();
+
+        ResultSet rs = dbc.getData(
+    "SELECT applications.aid, candidates.cid, candidates.lname, candidates.fname, candidates.age, " +
+    "positions.pname AS position_name, partylist.pname AS party_name, candidates.cimage " +
+    "FROM applications " +
+    "INNER JOIN candidates ON applications.cid = candidates.cid " +
+    "INNER JOIN positions ON applications.ppid = positions.pid " +
+    "INNER JOIN partylist ON applications.pid = partylist.pid " +
+    "WHERE applications.aid = '" + selectedAid + "'"
+);
+        if (rs.next()) {
+            aid.setText(""+rs.getString("aid"));
+            cid.setText("" + rs.getInt("cid"));
+            fname.setText("" + rs.getString("fname"));
+            lname.setText("" + rs.getString("lname"));
+            age.setText("" + rs.getString("age"));
+            position.setText("" + rs.getString("position_name"));
+            partylist.setSelectedItem("" + rs.getString("party_name"));
+            image.setIcon(ResizeImage(rs.getString("cimage"), null, image));
         } else {
-            try {
-                dbconnect dbc = new dbconnect();
-                TableModel tbl = applicationtable.getModel();
-                ResultSet rs = dbc.getData("SELECT candidates.lname, candidates.fname,candidates.age, positions.pname FROM candidates " +
-            "INNER JOIN applications ON candidates.cid = applications.cid INNER JOIN positions ON applications.ppid = positions.pid "
-            + "WHERE application.cid = '"+tbl.getValueAt(rowIndex, 0)+"' ");
-
-                if (rs.next()) {
-
-                    cid.setText(""+rs.getInt("cid"));
-                    fname.setText(""+rs.getString("lname"));
-                    lname.setText(""+rs.getString("lname"));
-                    age.setText(""+rs.getString("age"));
-                    position.setText(""+rs.getString("position"));
-                    image.setIcon(ResizeImage(rs.getString("cimage"),null,image));
-
-                }
-
-            } catch (SQLException ex) {
-                System.out.println("" + ex);
-            }
+            JOptionPane.showMessageDialog(null, "No data found for selected application.");
         }
+
+    } catch (SQLException ex) {
+        System.out.println("SQL Error: " + ex.getMessage());
+        JOptionPane.showMessageDialog(null, "Error fetching data: " + ex.getMessage());
+    }
+}
     }//GEN-LAST:event_selectMouseClicked
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        displayData();
+        loadPartylist();
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel age;
+    private javax.swing.JLabel aid;
     private javax.swing.JTable applicationtable;
     private javax.swing.JLabel cid;
     private javax.swing.JLabel clearr;
@@ -345,11 +449,14 @@ public class editapplication extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lname;
     private javax.swing.JComboBox<String> partylist;

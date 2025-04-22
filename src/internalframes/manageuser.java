@@ -208,7 +208,9 @@ public class manageuser extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editMouseExited
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
+        userss.removeAll();
+     deleteuser dl = new deleteuser();
+    userss.add(dl).setVisible(true); 
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
