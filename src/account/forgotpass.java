@@ -5,7 +5,7 @@
  */
 package account;
 
-import admins.editoption;
+import admindashboard.editoption;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import config.dbconnect;
 import config.Session;
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
-import users.userditop;
+import registrardashboard.userditop;
 /**
  *
  * @author acer

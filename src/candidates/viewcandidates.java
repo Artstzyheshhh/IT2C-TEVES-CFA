@@ -7,7 +7,7 @@ package candidates;
 
 import config.Session;
 import config.dbconnect;
-import static internalframes.edituser.getHeightFromWidth;
+import static User.edituser.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -53,12 +53,12 @@ public class viewcandidates extends javax.swing.JInternalFrame {
                 columnModel.getColumn(0).setHeaderValue("ID");
                columnModel.getColumn(1).setHeaderValue("Lastname");
                columnModel.getColumn(2).setHeaderValue("Firstname");
-               columnModel.getColumn(2).setHeaderValue("Age");
+               columnModel.getColumn(3).setHeaderValue("Age");
         
               candidatestable.getTableHeader().repaint();
                 columnModel.getColumn(0).setPreferredWidth(50); 
                 columnModel.getColumn(1).setPreferredWidth(150); 
-                columnModel.getColumn(2).setPreferredWidth(150); 
+                columnModel.getColumn(2).setPreferredWidth(140); 
                 columnModel.getColumn(3).setPreferredWidth(50); 
              rs.close();
         }catch(SQLException ex){

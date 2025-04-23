@@ -203,7 +203,9 @@ public class managepaartylist extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editMouseExited
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
+        partylistpane.removeAll();
+        deletepartylist dl = new deletepartylist();
+        partylistpane.add(dl).setVisible(true);
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered

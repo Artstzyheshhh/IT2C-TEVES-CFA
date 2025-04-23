@@ -62,7 +62,7 @@ public class editapplication extends javax.swing.JInternalFrame {
             dbconnect dbc = new dbconnect();
             
             try (ResultSet rs = dbc.getData(
-    "SELECT applications.aid, candidates.lname, candidates.fname,applications.status FROM applications INNER JOIN candidates ON applications.aid = candidates.cid " );) {
+         "SELECT applications.aid, candidates.lname, candidates.fname,applications.status FROM applications INNER JOIN candidates ON applications.aid = candidates.cid " );) {
                 applicationtable.setModel(DbUtils.resultSetToTableModel(rs));
                 applicationtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 TableColumnModel columnModel = applicationtable.getColumnModel();

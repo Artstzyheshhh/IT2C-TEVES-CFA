@@ -5,8 +5,12 @@
  */
 package account;
 
+import static User.edituser.getHeightFromWidth;
 import config.Session;
 import it2c.teves.cfa.loginform;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -26,6 +30,21 @@ public class accdetails extends javax.swing.JInternalFrame {
        bi.setNorthPane (null);
     }
 
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +56,8 @@ public class accdetails extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         fullname = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         accountid = new javax.swing.JLabel();
@@ -75,6 +96,7 @@ public class accdetails extends javax.swing.JInternalFrame {
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,11 +108,16 @@ public class accdetails extends javax.swing.JInternalFrame {
         fullname.setBackground(new java.awt.Color(204, 0, 0));
         fullname.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
         fullname.setForeground(new java.awt.Color(204, 0, 0));
-        fullname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iconnn.jpg"))); // NOI18N
-        fullname.setText("   firstname, lastname ");
-        jPanel2.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 650, 90));
+        fullname.setText(" firstname, lastname ");
+        jPanel2.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 580, 90));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 750, 110));
+        jPanel1.setLayout(null);
+        jPanel1.add(image);
+        image.setBounds(0, 0, 110, 110);
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 110));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 750, 130));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
@@ -191,7 +218,7 @@ public class accdetails extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
- Session sess = Session.getInstance();
+        Session sess = Session.getInstance();
         if(sess.getId() == 0){
         JOptionPane.showMessageDialog(null,"No account found, login first!");
         loginform lfm = new loginform();
@@ -209,7 +236,12 @@ public class accdetails extends javax.swing.JInternalFrame {
         usertype.setText(""+sess.getType());
         status.setText(""+sess.getStatus());
         username.setText(""+sess.getUsername());
+        image.setIcon(ResizeImage(""+sess.getUimage(),null,image));
         }    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,6 +250,7 @@ public class accdetails extends javax.swing.JInternalFrame {
     private javax.swing.JLabel email;
     private javax.swing.JLabel fname;
     private javax.swing.JLabel fullname;
+    private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -228,6 +261,7 @@ public class accdetails extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lname;
     private javax.swing.JLabel sexx;

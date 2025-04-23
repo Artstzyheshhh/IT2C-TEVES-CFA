@@ -4,34 +4,44 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/addapplication.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/manageuser.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/deletepartylist.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/deleteapplication.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/managepaartylist.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/viewusers.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/report.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admindashboard/maindash.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admindashboard/editoption.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/editmyaccount.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/rreports/rtables.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/viewusers.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/logs.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/addpartylist.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/rreports/rreport.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/accdetails.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/viewpartylist.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/registrardashboard/userditop.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/forgotpass.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/Print/pendinggs.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/config/dbconnect.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/Print/printing.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/deleteuser.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/adduser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/config/PanelPrinter.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/tables.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/registeracc.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/manageuser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/editapplication.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/deletecandidate.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/edituser.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/logged.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/deleteuser.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/edituser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/config/Session.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/IT2CTEVESCFA.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admins/maindash.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/editcandidate.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/manageapplications.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/addcandidate.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/Print/pcandidate.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/viewapplication.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/loginform.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/internalframes/adduser.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/managecandidates.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/account/editpass.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/registrardashboard/usermaindash.java</file>
+            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/pendinggs.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/partylist/editpartylist.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/viewcandidates.java</file>
             <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/it2c/teves/cfa/recovery.java</file>

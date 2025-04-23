@@ -46,6 +46,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
             this.setBorder(javax.swing. BorderFactory.createEmptyBorder(0,0,0,0)); 
        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
        bi.setNorthPane (null);
+       displayData();
        partylisttable.getTableHeader().setOpaque(false);
        partylisttable.getTableHeader().setBackground(new java.awt.Color(221,21,21));
        partylisttable.getTableHeader().setForeground(Color.white);
@@ -447,7 +448,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
             
             dbc.insertData("UPDATE partylist SET pname = '"+pname.getText()+"',shortname ='"+acronym.getText()+"',"
             + " contact = '"+contact.getText()+"' platform = '"+platform.getText()+"', logo = '"+destination+"' WHERE pid = '"+id.getText()+"'");
-            
+            displayData();
             if(destination.isEmpty()){
             File existingFile = new File(oldpath);
             if(existingFile.exists()){
@@ -461,7 +462,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
             String actionn = "Updated user with ID No.: " + id.getText();
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
             JOptionPane.showMessageDialog(null,"account updated successfully.");
-            
+            displayData();
             id.setText("");
             pname.setText("");
             acronym.setText("");
@@ -527,7 +528,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editinfoMouseClicked
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-         displayData();
+      
     }//GEN-LAST:event_formInternalFrameActivated
 
 

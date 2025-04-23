@@ -7,7 +7,7 @@ package candidates;
 
 import config.Session;
 import config.dbconnect;
-import static internalframes.edituser.getHeightFromWidth;
+import static User.edituser.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.ResultSet;
@@ -670,6 +670,7 @@ public class deletecandidate extends javax.swing.JInternalFrame {
         }if(candidatecheck()){
         }else{
         dbc.deleteData("DELETE FROM candidates WHERE cid = '"+idd.getText()+"'");
+        displayData();
         String actionn = "Deleted candidate with ID No.: " + idd.getText();
             dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
         }

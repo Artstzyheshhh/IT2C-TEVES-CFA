@@ -66,7 +66,7 @@ public class registeracc extends javax.swing.JFrame {
 
     if (email == null || !email.matches(emailRegex)) {
         JOptionPane.showMessageDialog(null, 
-            "Invalid email format.\nPlease enter a valid email address (e.g., user@example.com).",
+            "Invalid email format.\nPlease enter a valid \nemail address (e.g., user@example.com).",
             "Invalid Email",
             JOptionPane.ERROR_MESSAGE);
         return false;

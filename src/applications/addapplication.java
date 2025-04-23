@@ -8,8 +8,8 @@ package applications;
 import com.mysql.jdbc.Statement;
 import config.Session;
 import config.dbconnect;
-import internalframes.adduser;
-import static internalframes.edituser.getHeightFromWidth;
+import User.adduser;
+import static User.edituser.getHeightFromWidth;
 import java.awt.Color;
 import java.awt.Image;
 import java.sql.PreparedStatement;
@@ -49,7 +49,7 @@ public class addapplication extends javax.swing.JInternalFrame {
         public void loadPositions() {
     try {
          dbconnect dbc = new dbconnect();
-        String sql = "SELECT  pname FROM positions";
+        String sql = "SELECT  position FROM positions";
         PreparedStatement pst = dbc.connect.prepareStatement(sql);
         ResultSet rss = pst.executeQuery();
 
@@ -58,7 +58,7 @@ public class addapplication extends javax.swing.JInternalFrame {
  
 
         while (rss.next()) {
-            String position = rss.getString("pname");
+            String position = rss.getString("position");
             positionn.addItem(position);
         }
 

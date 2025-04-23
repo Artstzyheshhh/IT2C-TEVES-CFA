@@ -505,7 +505,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
                 + "contact ='"+contact.getText()+"',occupation = '"+occupation.getText()+"',"
                 +"cimage = '"+destination+"' "
                 + " WHERE cid ='"+cid.getText()+"'");
-            
+                displayData();
                 if(destination.isEmpty()){
                     File existingFile = new File(oldpath);
                     if(existingFile.exists()){

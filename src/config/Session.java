@@ -13,6 +13,7 @@ public class Session {
    private String type;
    private String status;
    private String password;
+   private String Uimage;
    private Session(){
    
    }
@@ -95,7 +96,15 @@ public class Session {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getUimage() {
+        return Uimage;
+    }
 
+    public void setUimage(String Uimage) {
+        this.Uimage = Uimage;
+    }
+    
     public void setType(String type) {
         this.type = type;
     }

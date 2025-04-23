@@ -6,7 +6,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import config.Session;
 import config.dbconnect;
 
-import internalframes.adduser;
+import User.adduser;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;

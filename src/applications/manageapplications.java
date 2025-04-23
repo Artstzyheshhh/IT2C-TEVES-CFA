@@ -151,7 +151,7 @@ public class manageapplications extends javax.swing.JInternalFrame {
 
     private void viewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMouseClicked
         applicationpane.removeAll();
-        viewpartylist vw = new viewpartylist();
+        viewapplication vw = new viewapplication();
         applicationpane.add(vw).setVisible(true);
     }//GEN-LAST:event_viewMouseClicked
 
@@ -204,7 +204,9 @@ public class manageapplications extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_editMouseExited
 
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
-        // TODO add your handling code here:
+         applicationpane.removeAll();
+        deleteapplication dl = new deleteapplication();
+        applicationpane.add(dl).setVisible(true);
     }//GEN-LAST:event_deleteMouseClicked
 
     private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered

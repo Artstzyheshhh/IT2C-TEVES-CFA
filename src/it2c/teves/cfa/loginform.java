@@ -6,7 +6,7 @@
 package it2c.teves.cfa;
 
 
-import admins.maindash;
+import admindashboard.maindash;
 import config.Session;
 import config.dbconnect;
 import config.passwordHasher;
@@ -14,8 +14,9 @@ import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
-import users.usermaindash;
+import registrardashboard.usermaindash;
 
 
 /**
@@ -58,7 +59,7 @@ public class loginform extends javax.swing.JFrame {
                     sess.setStatus(resultSet.getString("stats"));
                     sess.setBirthdate(resultSet.getString("birthdate"));
                     sess.setPassword(resultSet.getString("password"));
-                                
+                    sess.setUimage(resultSet.getString("Uimage"));           
                                     
                    
                      return true;
@@ -343,12 +344,15 @@ public class loginform extends javax.swing.JFrame {
                 maindash admdash = new maindash();
                 admdash.setVisible(true);
                this.dispose();
+               String action = "User with ID "+uid+" logged in";
+               dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
                
             }else if(typee.equals("User")){
                 usermaindash usrdash = new usermaindash();
                 usrdash.setVisible(true);
                 this.dispose();
-               
+               String action = "User with ID "+uid+" logged in";
+               dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" + uid + "', '" + action + "', '" + LocalDateTime.now() + "')");
             }else{
                 JOptionPane.showMessageDialog(null,"No account type found!!");
             }
