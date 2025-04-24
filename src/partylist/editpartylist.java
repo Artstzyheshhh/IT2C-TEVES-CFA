@@ -135,14 +135,14 @@ public class editpartylist extends javax.swing.JInternalFrame {
     public void displayData(){
         try{
             dbconnect dbc = new dbconnect();
-            try (ResultSet rs = dbc.getData("SELECT pid, pname, contact FROM partylist")) {
+            try (ResultSet rs = dbc.getData("SELECT pid, pname, status FROM partylist WHERE pid != 15")) {
                 partylisttable.setModel(DbUtils.resultSetToTableModel(rs));
                 partylisttable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 TableColumnModel columnModel = partylisttable.getColumnModel();
                 
                 columnModel.getColumn(0).setHeaderValue("ID");
                 columnModel.getColumn(1).setHeaderValue("Partylist");
-                columnModel.getColumn(2).setHeaderValue("Contact");
+                columnModel.getColumn(2).setHeaderValue("Status");
                 
                 // Apply header changes
                 partylisttable.getTableHeader().repaint();
@@ -184,6 +184,8 @@ public class editpartylist extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         editinfo = new javax.swing.JLabel();
+        stats = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -215,42 +217,42 @@ public class editpartylist extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel1.setText("Platform:");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 390, 20));
+        jLabel1.setText("Status:");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 20));
 
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("ID:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 20, 20));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 20, 20));
 
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Shortname:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 130, 20));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 130, 20));
 
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Contact no :");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, 20));
 
         platform.setColumns(20);
         platform.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         platform.setRows(5);
         jScrollPane1.setViewportView(platform);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 390, 120));
-        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 240, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 390, 120));
+        jPanel3.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, -1));
 
         acronym.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acronymActionPerformed(evt);
             }
         });
-        jPanel3.add(acronym, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 240, -1));
+        jPanel3.add(acronym, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, -1));
 
         pname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pnameActionPerformed(evt);
             }
         });
-        jPanel3.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 240, -1));
+        jPanel3.add(pname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, -1));
 
         jPanel4.setLayout(null);
 
@@ -269,7 +271,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
         jPanel4.add(image);
         image.setBounds(0, 0, 140, 130);
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, 130));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 130));
 
         remove.setBackground(new java.awt.Color(204, 0, 0));
         remove.setForeground(new java.awt.Color(204, 0, 0));
@@ -281,7 +283,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
                 removeMouseClicked(evt);
             }
         });
-        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 140, 20));
+        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 140, 20));
 
         jLabel31.setBackground(new java.awt.Color(255, 153, 102));
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -307,7 +309,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 90, 20));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 90, 20));
 
         clear.setBackground(new java.awt.Color(204, 0, 0));
         clear.setForeground(new java.awt.Color(255, 255, 255));
@@ -320,11 +322,11 @@ public class editpartylist extends javax.swing.JInternalFrame {
                 clearMouseClicked(evt);
             }
         });
-        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 90, 20));
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 90, 20));
 
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("Partylist name:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 130, 20));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 130, 20));
 
         id.setEnabled(false);
         id.addActionListener(new java.awt.event.ActionListener() {
@@ -332,7 +334,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
                 idActionPerformed(evt);
             }
         });
-        jPanel3.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 70, -1));
+        jPanel3.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 70, -1));
 
         editinfo.setBackground(new java.awt.Color(204, 0, 0));
         editinfo.setForeground(new java.awt.Color(255, 255, 255));
@@ -344,9 +346,16 @@ public class editpartylist extends javax.swing.JInternalFrame {
                 editinfoMouseClicked(evt);
             }
         });
-        jPanel3.add(editinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 90, 20));
+        jPanel3.add(editinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 90, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 420));
+        stats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Completed", "Disqualified", "withdrawed" }));
+        jPanel3.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 110, -1));
+
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("Platform:");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 390, 20));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 430));
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -388,7 +397,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(partylisttable);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 340, 420));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 340, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -431,12 +440,14 @@ public class editpartylist extends javax.swing.JInternalFrame {
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
         Session sess = Session.getInstance();
-        if(pname.getText().isEmpty()||contact.getText().isEmpty()||platform.getText().isEmpty()|| acronym.getText().isEmpty()){
+        if(id.getText().isEmpty()||pname.getText().isEmpty()||contact.getText().isEmpty()||platform.getText().isEmpty()|| acronym.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"all field are required");
         } else if (!contact.getText().matches("-?\\d+")) {
             JOptionPane.showMessageDialog(null,"Contact should be integers only");
@@ -447,7 +458,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
         } else{
             
             dbc.insertData("UPDATE partylist SET pname = '"+pname.getText()+"',shortname ='"+acronym.getText()+"',"
-            + " contact = '"+contact.getText()+"' platform = '"+platform.getText()+"', logo = '"+destination+"' WHERE pid = '"+id.getText()+"'");
+            + " contact = '"+contact.getText()+"', platform = '"+platform.getText()+"', logo = '"+destination+"' WHERE pid = '"+id.getText()+"'");
             displayData();
             if(destination.isEmpty()){
             File existingFile = new File(oldpath);
@@ -459,9 +470,9 @@ public class editpartylist extends javax.swing.JInternalFrame {
             imageUpdater(oldpath,path);
             }
             }
-            String actionn = "Updated user with ID No.: " + id.getText();
+            String actionn = "Updated partylist with ID No.: " + id.getText();
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
-            JOptionPane.showMessageDialog(null,"account updated successfully.");
+            JOptionPane.showMessageDialog(null,"Partylist updated successfully.");
             displayData();
             id.setText("");
             pname.setText("");
@@ -543,6 +554,7 @@ public class editpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -556,5 +568,6 @@ public class editpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JTextField pname;
     private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;
+    private javax.swing.JComboBox<String> stats;
     // End of variables declaration//GEN-END:variables
 }

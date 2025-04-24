@@ -58,7 +58,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
         
         dbconnect dbc = new dbconnect();
    try {
-            String query = "SELECT * FROM candidates WHERE email = '"+ email.getText()+"'";
+            String query = "SELECT * FROM candidates WHERE email = '"+ email.getText()+"'AND cid != '"+cid.getText()+"'";
              
             ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
@@ -519,7 +519,7 @@ public class editcandidate extends javax.swing.JInternalFrame {
              
             String actionn = "Updated candidate with ID No.: " + cid.getText();
             dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
-            JOptionPane.showMessageDialog(null,"Candidate updated successfully.");
+            
                 cid.setText("");
                 fname.setText("");
                 lname.setText("");
@@ -550,6 +550,8 @@ public class editcandidate extends javax.swing.JInternalFrame {
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
 
     private void imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseClicked

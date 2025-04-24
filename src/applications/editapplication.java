@@ -62,7 +62,11 @@ public class editapplication extends javax.swing.JInternalFrame {
             dbconnect dbc = new dbconnect();
             
             try (ResultSet rs = dbc.getData(
-         "SELECT applications.aid, candidates.lname, candidates.fname,applications.status FROM applications INNER JOIN candidates ON applications.aid = candidates.cid " );) {
+         "SELECT applications.aid, candidates.lname, candidates.fname, " +
+                "positions.position, applications.status FROM applications " +
+                "INNER JOIN candidates ON applications.cid = candidates.cid " +
+                "INNER JOIN positions ON applications.ppid = positions.pid " +
+                "INNER JOIN partylist ON applications.pid = partylist.pid " );) {
                 applicationtable.setModel(DbUtils.resultSetToTableModel(rs));
                 applicationtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
                 TableColumnModel columnModel = applicationtable.getColumnModel();
@@ -70,9 +74,10 @@ public class editapplication extends javax.swing.JInternalFrame {
                 columnModel.getColumn(0).setHeaderValue("ID");
                 columnModel.getColumn(1).setHeaderValue("Lastname");
                 columnModel.getColumn(2).setHeaderValue("Firstname");
-                columnModel.getColumn(3).setHeaderValue("Status");
+                columnModel.getColumn(3).setHeaderValue("Position");
+                columnModel.getColumn(4).setHeaderValue("Status");
                
-                applicationtable.getTableHeader().repaint();
+               applicationtable.getTableHeader().repaint();
                 columnModel.getColumn(0).setPreferredWidth(50);
                 columnModel.getColumn(1).setPreferredWidth(115);
                 columnModel.getColumn(2).setPreferredWidth(115);
@@ -96,8 +101,8 @@ public class editapplication extends javax.swing.JInternalFrame {
         partylist.removeAllItems();
         
         while (Rss.next()) {
-            String position = Rss.getString("pname");
-            partylist.addItem(position);
+            String partylists = Rss.getString("pname");
+            partylist.addItem(partylists);
         }
 
     } catch (SQLException ex) {
@@ -198,7 +203,7 @@ public class editapplication extends javax.swing.JInternalFrame {
         jLabel26.setBackground(new java.awt.Color(255, 153, 102));
         jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("  ADD APPLICATION");
+        jLabel26.setText("  UPDATE APPLICATION");
         jLabel26.setOpaque(true);
         jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 40));
 
@@ -402,7 +407,7 @@ if (rowIndex < 0) {
 
         ResultSet rs = dbc.getData(
     "SELECT applications.aid, candidates.cid, candidates.lname, candidates.fname, candidates.age, " +
-    "positions.pname AS position_name, partylist.pname AS party_name, candidates.cimage " +
+    "positions.position AS position_name, partylist.pname AS party_name, candidates.cimage " +
     "FROM applications " +
     "INNER JOIN candidates ON applications.cid = candidates.cid " +
     "INNER JOIN positions ON applications.ppid = positions.pid " +

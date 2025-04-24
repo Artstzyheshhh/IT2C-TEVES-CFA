@@ -47,7 +47,7 @@ public class viewapplication extends javax.swing.JInternalFrame {
             
             try (ResultSet rs = dbc.getData(
                 "SELECT applications.aid, candidates.lname, candidates.fname, " +
-                "positions.position, candidates.cimage FROM applications " +
+                "positions.position, applications.status FROM applications " +
                 "INNER JOIN candidates ON applications.cid = candidates.cid " +
                 "INNER JOIN positions ON applications.ppid = positions.pid " +
                 "INNER JOIN partylist ON applications.pid = partylist.pid " );) 

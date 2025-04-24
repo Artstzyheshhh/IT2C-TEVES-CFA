@@ -141,6 +141,8 @@ public class addpartylist extends javax.swing.JInternalFrame {
         jLabel31 = new javax.swing.JLabel();
         savebttn = new javax.swing.JLabel();
         clear = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
@@ -308,6 +310,17 @@ public class addpartylist extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 420));
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("FILING APPLICATION");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 140, 30));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel27.setText("COMELEC");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -327,8 +340,8 @@ public class addpartylist extends javax.swing.JInternalFrame {
        try{
                    
                int lastInsertedId = -1;
-               String sql = "INSERT INTO partylist(pname,shortname, contact, platform, logo, date, uid)"
-                       + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+               String sql = "INSERT INTO partylist(pname,shortname, contact, platform, logo, date, uid, status)"
+                       + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement pst = dbc.connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -340,6 +353,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 pst.setString(5, destination);
                 pst.setString(6, LocalDateTime.now().toString());
                 pst.setInt(7, sess.getId());
+                pst.setString(8, "Completed");
               int affectedRows = pst.executeUpdate();
     
           if (affectedRows > 0) {
@@ -433,7 +447,9 @@ public class addpartylist extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_clearMouseClicked
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
-       image.setIcon(null);
+      image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
@@ -448,6 +464,8 @@ public class addpartylist extends javax.swing.JInternalFrame {
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel5;

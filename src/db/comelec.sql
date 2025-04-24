@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2025 at 04:15 PM
+-- Generation Time: Apr 24, 2025 at 03:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `applications` (
 
 INSERT INTO `applications` (`aid`, `uid`, `cid`, `pid`, `ppid`, `status`, `date`) VALUES
 (2, 15, 29, 16, 13, 'Qualified', '2025-04-21T06:26:53.065'),
-(3, 15, 31, 15, 1, 'Qualified', '2025-04-21T06:32:46.124');
+(4, 15, 39, 15, 1, 'Qualified', '2025-04-24T05:45:36.379'),
+(5, 15, 36, 15, 1, 'Qualified', '2025-04-24T05:52:25.359');
 
 -- --------------------------------------------------------
 
@@ -75,43 +76,18 @@ CREATE TABLE `candidates` (
 --
 
 INSERT INTO `candidates` (`cid`, `fname`, `lname`, `age`, `mname`, `address`, `nationality`, `sex`, `occupation`, `contact`, `email`, `date`, `user_id`, `cimage`, `bdate`, `status`) VALUES
-(1, 'Mark', 'Romo', -1881, 'ubas', 'japan', 'filipino', 'male', 'student', '099999', 'romo1235', '', 15, '', '', 'Incomplete'),
-(2, 'senku', 'ishigami', 25, 'ishi', 'japan', 'filipino', 'male', 'student', '03333', 'senkuu', '', 15, '', '', 'Incomplete'),
-(3, 'Anthony', 'teves', 10, 'rosalita', 'cebu', 'filipino', 'male', 'students', '09999', 'tevesdd', '', 15, '', '', 'Incomplete'),
-(4, 'anthony', 'teves', 10, 'rosalita', 'city of naga,cebu', 'filipino', 'male', 'student', '0999', 'tevsssss', '', 15, '', '', 'Incomplete'),
-(5, 'alcontin', 'vergara', 10, 'ian brent', 'san fernando', 'filipino', 'male', 'student', '0949494', 'aintian', '', 15, '', '', 'Incomplete'),
-(6, 'kuroko', 'kuroko', 10, 'n/a', 'japan', 'filipino', 'male', 'student', '08393', 'tetsuyaaa@gmail.com', '', 15, '', '', 'Incomplete'),
-(7, 'sdsaddsad', 'sdsadd', 24, 'sdsadssadsad', 'sadsadsdsad', 'dssadsa', 'male', 'dasdasd', '2222', 'sdsd', '', 15, '', '', 'Incomplete'),
-(8, 'sdsaddsad', 'sdsadd', 24, 'sdsadssadsad', 'sadsadsdsad', 'dssadsa', 'male', 'dasdasd', '2222', 'sssssss', '', 15, '', '', 'Incomplete'),
-(9, 'sdsaddsad', 'sdsadd', 24, 'sdsadssadsad', 'sadsadsdsad', 'dssadsa', 'male', 'dasdasd', '2222', 'sssssssddddd', '', 15, '', '', 'Incomplete'),
-(10, 'fdsfdsf', 'fdsfdsf', 24, 'fsdfdf', 'fgfggf', 'jhgjghjj', 'male', 'jghjgh3', '33333', 'fgfdg', '', 15, '', '', 'Incomplete'),
-(11, 'sdasdasd', 'dsadsad', 24, 'asdasdasdsadas', 'dasdsd', 'dfdf', 'male', 'fgfgf', '3333', 'fdsfdf', '', 15, '', '', 'Incomplete'),
-(12, 'gdfg', 'gfgdfdfg', 18, 'gggg', 'ffff', 'fddd', 'male', 'gfgdfgfg', '2222', 'saddsad', '', 15, '', '', 'Incomplete'),
-(13, 'fsdfsdf', 'fdsfsdf', 18, 'fdsfsdfsd', 'sdfdsfsd', 'fdsfdsf', 'male', 'fdfsdf', '2222', 'asdasdasd', '', 15, '', '', 'Incomplete'),
-(14, 'dfffdd', 'dsdsfds', 24, 'ddssdfd', 'fdfdfd', 'dfdfdfdfd', 'male', 'dsfdsfds', '33333', 'fdf', '', 15, '', '', 'Incomplete'),
-(15, 'dfffdd', 'dsdsfds', 24, 'ddssdfd', 'fdfdfd', 'dfdfdfdfd', 'male', 'dsfdsfds', '33333', 'ffff', '', 15, '', '', 'Incomplete'),
-(16, 'fsdfsdf', 'dfdfsdf', 18, 'dsfdsfsd', 'dfsdfsd', 'fdsfdsf', 'male', 'dsfsdfsdf', '7777777', 'sdfds', '', 15, '', '', 'Incomplete'),
-(17, 'cxvvxcvc', 'cxvvxcvc', 23, 'nnn', 'vvvvvdfdd', 'dddddff', 'male', 'ffff', '2222', 'wewqe@gmail.com', '', 15, '', '', 'Incomplete'),
-(18, 'tom', 'cruz', 24, 'tom', 'Minglanilla', 'filipino', 'male', 'actor', '1111', 'tommcruz@gmail.com', '', 15, '', '', 'Incomplete'),
-(19, 'gdfg', 'fgfgfdg', 24, 'jjjkjkjjkhjk', 'kjkhjkhj', 'hjjhjhh', 'male', 'hhjjjj', '1111', 'eeee', '', 15, '', '', 'Incomplete'),
-(20, 'gdfg', 'fgfgfdg', 24, 'jjjkjkjjkhjk', 'kjkhjkhj', 'hjjhjhh', 'male', 'hhjjjj', '1111', 'aa', '', 15, '', '', 'Incomplete'),
-(21, 'eqweqw', 'wewqe', 24, 'qweqwe', 'qweqweqw', 'eqweqweqwqweqw', 'male', 'qeqwe', '222', 'wqe', '', 15, '', '', 'Incomplete'),
-(22, 'eqweqw', 'wewqe', 24, 'qweqwe', 'qweqweqw', 'eqweqweqwqweqw', 'male', 'qeqwe', '222', 'sss', '', 15, '', '', 'Incomplete'),
-(23, 'eqweqw', 'wewqe', 24, 'qweqwe', 'qweqweqw', 'eqweqweqwqweqw', 'male', 'qeqwe', '222', 'sdsds', '', 15, '', '', 'Incomplete'),
-(24, 'fgfgff', 'sadasddas', 24, 'gfgfg', 'fgfghg', 'ghghgh', 'male', 'hghgh', '2222', 'erer', '', 15, '', '', 'Incomplete'),
-(25, 'fgfgff', 'sadasddas', 24, 'gfgfg', 'fgfghg', 'ghghgh', 'male', 'hghgh', '2222', 'ssss', '', 15, '', '', 'Incomplete'),
-(26, 'fdsfsdf', 'fdsfsdf', 18, 'fsdfsd', 'dsfsdfsf', 'fsdfsdf', 'male', 'fsdfdsf', '3333', 'dfsfds@gmail.com', '', 15, '', '', 'Incomplete'),
-(27, 'sdfsd', 'fdsfsdf', 18, 'fsdfsd', 'dsfsdfsf', 'fsdfsdf', 'male', 'fsdfdsf', '3333', 'ggfg', '', 15, '', '', 'Incomplete'),
-(28, 'sdfsd', 'fdsfsdf', 18, 'fsdfsd', 'dsfsdfsf', 'fsdfsdf', 'male', 'fsdfdsf', '3333', 'sssxxxxx', '', 15, '', '', 'Incomplete'),
-(29, 'sdfsdf', 'fsfdsf', 18, 'fsfsdf', 'fdsfsdf', 'fsdfsdf', 'male', 'fsfsdfss', '33333', 'rwerwer', '', 15, '', '', 'Completed'),
-(30, 'sdfsdf', 'ddfs', 18, 'fsdfsdf', 'fsdfsd', 'dsfsdf', 'male', 'fsdfsdf', '1232312', 'eqweqw', '', 15, '', '', 'Incomplete'),
-(31, 'sdfsdf', 'ddfs', 24, 'fsdfsdf', 'fsdfsd', 'dsfsdf', 'male', 'fsdfsdf', '1232312', 'eqweqwee', '', 15, '', '', 'Completed'),
-(32, 'sdfsdf', 'dsfsdffsdf', 18, 'sdfsdf', 'sdfsd', 'sdfdsf', 'male', 'sdfsddfsf', '4444', 'gfhjhjh', '', 15, '', '', 'Incomplete'),
-(33, 'anthony', 'teves', 20, 'rosalita', 'city of naga', 'filipino', 'male', 'students', '099999', 'tevesss21', '', 15, '', '', 'Incomplete'),
-(34, 'anthony', 'teves', 25, 'rosalita', 'city of naga', 'filipino', 'male', 'students', '09999', 'dfdsfsdfdfffff', '', 15, '', '', 'Incomplete'),
-(35, 'anthony', 'teves', 21, 'rosalita', 'naga', 'filipino', 'male', 'student', '099992', 'tesvessd', '', 15, '', '', 'Incomplete'),
-(36, 'anthony', 'teves', 21, 'rosalita', 'minglanilla', 'filipino', 'male', 'student', '0999999', 'tesvs@gmail.com', '', 15, '', '2004-04-12', 'Incomplete'),
-(37, 'fsdfsdsdf', 'dsfsd', 22, 'dsfsd', 'sdfsd', 'filipino', 'male', 'students', '22222', 'teves12@gmail.com', '', 15, '', '2002-12-12', 'Incomplete');
+(2, 'senku', 'ishigami', 25, 'ishi', 'japan', 'filipino', 'male', 'student', '03333', 'senkuu', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(3, 'Anthony', 'teves', 10, 'rosalita', 'cebu', 'filipino', 'male', 'students', '09999', 'tevesdd', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(4, 'anthony', 'teves', 10, 'rosalita', 'city of naga,cebu', 'filipino', 'male', 'student', '0999', 'tevsssss', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(5, 'alcontin', 'vergara', 10, 'ian brent', 'san fernando', 'filipino', 'male', 'student', '0949494', 'aintian', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(6, 'kuroko', 'kuroko', 10, 'n/a', 'japan', 'filipino', 'male', 'student', '08393', 'tetsuyaaa@gmail.com', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(29, 'Luffy', 'monkey', 18, 'D', 'westblue', 'filipino', 'male', 'pirate', '33333', 'monkeyd@gmail.com', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Completed'),
+(34, 'anthony', 'teves', 25, 'rosalita', 'city of naga', 'filipino', 'male', 'students', '09999', 'dfdsfsdfdfffff', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(35, 'anthony', 'teves', 21, 'rosalita', 'naga', 'filipino', 'male', 'student', '099992', 'tesvessd', '2025-04-24T03:06:54.641', 15, '', '1988-12-12', 'Incomplete'),
+(36, 'ferdinand', 'marcos', 40, 'Romualdez', 'ilocos norte', 'filipino', 'male', 'politician', '3232', 'bongbong@gmail.com', '2025-04-24T03:06:54.641', 15, '', '1984-04-12', 'Completed'),
+(37, 'Rodrigo', 'Duterte', 22, 'Roa', 'Davao city, mindanao', 'filipino', 'male', 'lawyer', '22222', 'duterteroa12@gmail.com', '2025-04-24T03:06:54.641', 15, '', '2002-12-12', 'Incomplete'),
+(38, 'Maria Corazon', 'Aquino', 25, 'Sumulong', 'Quezon, Philippines', 'filipino', 'female', 'lawyer', '09999', 'aquino@gmail.com', '2025-04-24T03:06:54.641', 15, '', '1999-12-12', 'Incomplete'),
+(39, 'Aguinaldo', 'Aguinaldo', 36, 'y famy', 'kawit', 'filipino', 'male', 'soldier', '000333', 'emilio@gmail.com', '2025-04-24T05:06:50.618', 15, 'src/images/EMILIO-AGUINALDO.jpg', '1988-12-12', 'Completed');
 
 -- --------------------------------------------------------
 
@@ -125,6 +101,132 @@ CREATE TABLE `logged` (
   `date` datetime NOT NULL,
   `userid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `logged`
+--
+
+INSERT INTO `logged` (`lid`, `action`, `date`, `userid`) VALUES
+(1, 'User with ID 15 logged in', '2025-04-23 07:24:25', 15),
+(2, 'User with ID 15 logged in', '2025-04-23 07:32:16', 15),
+(3, 'User with ID 15 logged out', '2025-04-23 07:33:01', 15),
+(4, 'User with ID 15 logged in', '2025-04-23 07:50:40', 15),
+(5, 'User with ID 5 logged in', '2025-04-23 07:56:43', 5),
+(6, 'User with ID 5 logged out', '2025-04-23 07:58:17', 5),
+(7, 'User with ID 5 logged in', '2025-04-23 08:07:39', 5),
+(8, 'User with ID 5 logged out', '2025-04-23 08:08:56', 5),
+(9, 'User with ID 15 logged in', '2025-04-23 08:09:11', 15),
+(10, 'User with ID 15 logged out', '2025-04-23 08:10:51', 15),
+(11, 'User with ID 15 logged in', '2025-04-23 08:12:29', 15),
+(12, 'User with ID 15 logged out', '2025-04-23 08:13:15', 15),
+(13, 'User with ID 15 logged in', '2025-04-23 08:17:35', 15),
+(14, 'User with ID 15 logged in', '2025-04-23 08:18:57', 15),
+(15, 'User with ID 15 logged out', '2025-04-23 08:19:57', 15),
+(16, 'User with ID 15 logged in', '2025-04-23 08:21:02', 15),
+(17, 'User with ID 15 logged out', '2025-04-23 08:22:19', 15),
+(18, 'User with ID 15 logged out', '2025-04-23 08:22:21', 15),
+(19, 'User with ID 15 logged in', '2025-04-23 08:23:31', 15),
+(20, 'User with ID 15 logged out', '2025-04-23 08:23:51', 15),
+(21, 'User with ID 15 logged in', '2025-04-23 08:40:24', 15),
+(22, 'User with ID 15 logged out', '2025-04-23 08:42:33', 15),
+(23, 'User with ID 15 logged in', '2025-04-23 09:00:18', 15),
+(24, 'User with ID 15 logged out', '2025-04-23 09:01:17', 15),
+(25, 'User with ID 15 logged in', '2025-04-23 09:03:39', 15),
+(26, 'User with ID 15 logged out', '2025-04-23 09:03:51', 15),
+(27, 'User with ID 15 logged in', '2025-04-23 09:17:51', 15),
+(28, 'User with ID 15 logged out', '2025-04-23 09:18:05', 15),
+(29, 'User with ID 15 logged in', '2025-04-23 09:20:12', 15),
+(30, 'User with ID 15 logged out', '2025-04-23 09:20:59', 15),
+(31, 'User with ID 15 logged in', '2025-04-23 09:25:20', 15),
+(32, 'User with ID 15 logged out', '2025-04-23 09:26:26', 15),
+(33, 'User with ID 5 logged in', '2025-04-24 02:43:52', 5),
+(34, 'User with ID 5 logged out', '2025-04-24 02:44:41', 5),
+(35, 'User with ID 15 logged in', '2025-04-24 02:46:44', 15),
+(36, 'User with ID 15 logged out', '2025-04-24 02:47:51', 15),
+(37, 'User with ID 5 logged in', '2025-04-24 02:48:37', 5),
+(38, 'User with ID 5 logged out', '2025-04-24 02:49:03', 5),
+(39, 'User with ID 15 logged in', '2025-04-24 02:49:30', 15),
+(40, 'User with ID 15 logged out', '2025-04-24 02:58:49', 15),
+(41, 'User with ID 5 logged in', '2025-04-24 03:00:05', 5),
+(42, 'User with ID 5 logged out', '2025-04-24 03:02:39', 5),
+(43, 'User with ID 5 logged in', '2025-04-24 03:03:00', 5),
+(44, 'User with ID 5 logged out', '2025-04-24 03:05:16', 5),
+(45, 'User with ID 15 logged in', '2025-04-24 03:05:26', 15),
+(46, 'User with ID 15 logged out', '2025-04-24 03:07:26', 15),
+(47, 'User with ID 5 logged in', '2025-04-24 03:08:08', 5),
+(48, 'User with ID 5 logged out', '2025-04-24 03:13:00', 5),
+(49, 'User with ID 5 logged in', '2025-04-24 03:16:43', 5),
+(50, 'User with ID 5 logged out', '2025-04-24 03:17:27', 5),
+(51, 'User with ID 5 logged in', '2025-04-24 03:18:32', 5),
+(52, 'User with ID 5 logged out', '2025-04-24 03:19:06', 5),
+(53, 'User with ID 15 logged in', '2025-04-24 03:19:52', 15),
+(54, 'User with ID 15 logged out', '2025-04-24 03:20:10', 15),
+(55, 'User with ID 15 logged in', '2025-04-24 03:21:17', 15),
+(56, 'User with ID 15 logged out', '2025-04-24 03:21:42', 15),
+(57, 'User with ID 5 logged in', '2025-04-24 03:23:11', 5),
+(58, 'User with ID 5 logged out', '2025-04-24 03:24:18', 5),
+(59, 'User with ID 5 logged in', '2025-04-24 03:25:09', 5),
+(60, 'User with ID 5 logged out', '2025-04-24 03:26:02', 5),
+(61, 'User with ID 5 logged in', '2025-04-24 03:26:53', 5),
+(62, 'User with ID 5 logged out', '2025-04-24 03:28:44', 5),
+(63, 'User with ID 5 logged in', '2025-04-24 03:31:33', 5),
+(64, 'User with ID 5 logged out', '2025-04-24 03:35:02', 5),
+(65, 'User with ID 15 logged in', '2025-04-24 03:35:53', 15),
+(66, 'User with ID 15 logged out', '2025-04-24 03:40:50', 15),
+(67, 'User with ID 15 logged in', '2025-04-24 03:40:59', 15),
+(68, 'User with ID 15 logged out', '2025-04-24 03:42:40', 15),
+(69, 'User with ID 15 logged in', '2025-04-24 04:03:25', 15),
+(70, 'User with ID 15 logged out', '2025-04-24 04:04:13', 15),
+(71, 'User with ID 15 logged in', '2025-04-24 04:04:42', 15),
+(72, 'User with ID 15 logged out', '2025-04-24 04:04:52', 15),
+(73, 'User with ID 15 logged in', '2025-04-24 04:12:14', 15),
+(74, 'User with ID 15 logged out', '2025-04-24 04:15:20', 15),
+(75, 'User with ID 15 logged in', '2025-04-24 04:37:41', 15),
+(76, 'User with ID 15 logged out', '2025-04-24 04:38:35', 15),
+(77, 'User with ID 15 logged in', '2025-04-24 04:39:07', 15),
+(78, 'User with ID 15 logged out', '2025-04-24 04:39:38', 15),
+(79, 'User with ID 15 logged in', '2025-04-24 04:40:00', 15),
+(80, 'User with ID 15 logged out', '2025-04-24 04:40:08', 15),
+(81, 'User with ID 15 logged in', '2025-04-24 04:40:53', 15),
+(82, 'User with ID 15 logged out', '2025-04-24 04:41:03', 15),
+(83, 'User with ID 15 logged in', '2025-04-24 04:41:25', 15),
+(84, 'User with ID 15 logged out', '2025-04-24 04:41:45', 15),
+(85, 'User with ID 15 logged in', '2025-04-24 04:42:16', 15),
+(86, 'User with ID 15 logged out', '2025-04-24 04:42:34', 15),
+(87, 'User with ID 15 logged in', '2025-04-24 04:43:02', 15),
+(88, 'User with ID 15 logged out', '2025-04-24 04:44:56', 15),
+(89, 'User with ID 15 logged in', '2025-04-24 04:46:54', 15),
+(90, 'User with ID 15 logged out', '2025-04-24 04:47:07', 15),
+(91, 'User with ID 15 logged in', '2025-04-24 04:47:32', 15),
+(92, 'User with ID 15 logged out', '2025-04-24 04:50:27', 15),
+(93, 'User with ID 15 logged in', '2025-04-24 04:54:32', 15),
+(94, 'User with ID 15 logged out', '2025-04-24 04:54:56', 15),
+(95, 'User with ID 15 logged in', '2025-04-24 04:55:29', 15),
+(96, 'User with ID 15 logged out', '2025-04-24 04:55:52', 15),
+(97, 'User with ID 15 logged in', '2025-04-24 04:57:21', 15),
+(98, 'User with ID 15 logged out', '2025-04-24 04:57:55', 15),
+(99, 'User with ID 15 logged in', '2025-04-24 05:01:23', 15),
+(100, 'User with ID 15 logged out', '2025-04-24 05:42:27', 15),
+(101, 'User with ID 15 logged in', '2025-04-24 05:45:17', 15),
+(102, 'User with ID 15 logged out', '2025-04-24 05:47:03', 15),
+(103, 'User with ID 15 logged in', '2025-04-24 05:47:15', 15),
+(104, 'User with ID 15 logged out', '2025-04-24 05:54:12', 15),
+(105, 'User with ID 15 logged in', '2025-04-24 05:55:46', 15),
+(106, 'User with ID 15 logged out', '2025-04-24 05:56:18', 15),
+(107, 'User with ID 15 logged in', '2025-04-24 05:58:18', 15),
+(108, 'User with ID 15 logged out', '2025-04-24 05:58:30', 15),
+(109, 'User with ID 15 logged in', '2025-04-24 05:59:14', 15),
+(110, 'User with ID 15 logged out', '2025-04-24 05:59:40', 15),
+(111, 'User with ID 15 logged in', '2025-04-24 06:00:22', 15),
+(112, 'User with ID 15 logged out', '2025-04-24 06:03:03', 15),
+(113, 'User with ID 5 logged in', '2025-04-24 06:03:42', 5),
+(114, 'User with ID 5 logged out', '2025-04-24 06:05:26', 5),
+(115, 'User with ID 15 logged in', '2025-04-24 06:24:13', 15),
+(116, 'User with ID 15 logged out', '2025-04-24 06:24:17', 15),
+(117, 'User with ID 5 logged in', '2025-04-24 06:24:29', 5),
+(118, 'User with ID 5 logged out', '2025-04-24 06:25:49', 5),
+(119, 'User with ID 5 logged in', '2025-04-24 06:27:49', 5),
+(120, 'User with ID 5 logged out', '2025-04-24 06:28:15', 5);
 
 -- --------------------------------------------------------
 
@@ -181,7 +283,64 @@ INSERT INTO `logs` (`lid`, `action`, `date`, `user_id`) VALUES
 (128, 'Updated candidate with ID No.: 6', '2025-04-18 21:52:14', 15),
 (129, 'Added partylist with ID no.: 16', '2025-04-21 06:26:18', 15),
 (130, 'Added COC application with ID No.: 2', '2025-04-21 06:26:53', 15),
-(131, 'Added COC application with ID No.: 3', '2025-04-21 06:32:46', 15);
+(131, 'Added COC application with ID No.: 3', '2025-04-21 06:32:46', 15),
+(132, 'Deleted candidate with ID No.: 1', '2025-04-22 06:48:18', 15),
+(133, 'Deleted candidate with ID No.: 22', '2025-04-22 06:52:08', 15),
+(134, 'Deleted users with ID No.: 15', '2025-04-22 07:17:42', 15),
+(135, 'Deleted users with ID No.: 12', '2025-04-22 07:18:47', 15),
+(136, 'Deleted users with ID No.: 23', '2025-04-22 07:19:21', 15),
+(137, 'Deleted users with ID No.: 22', '2025-04-22 07:41:03', 15),
+(138, 'Added partylist with ID no.: 17', '2025-04-22 20:00:32', 15),
+(139, 'Added partylist with ID no.: 18', '2025-04-22 20:00:42', 15),
+(140, 'Deleted partylist with ID No.: 18', '2025-04-22 20:00:52', 15),
+(141, 'Added partylist with ID no.: 19', '2025-04-22 20:01:36', 15),
+(142, 'Added partylist with ID no.: 20', '2025-04-22 20:01:43', 15),
+(143, 'Added partylist with ID no.: 21', '2025-04-22 20:01:52', 15),
+(144, 'Deleted partylist with ID No.: 21', '2025-04-22 20:02:02', 15),
+(145, 'Added partylist with ID no.: 22', '2025-04-22 20:03:09', 15),
+(146, 'Deleted partylist with ID No.: 22', '2025-04-22 20:03:18', 15),
+(147, 'Deleted partylist with ID No.: 20', '2025-04-22 20:03:32', 15),
+(148, 'Updated user with ID No.: 5', '2025-04-23 07:51:18', 15),
+(149, 'Updated user with ID No.: 15', '2025-04-23 08:10:10', 15),
+(150, 'Updated user with ID No.: 15', '2025-04-23 08:18:29', 15),
+(151, 'Updated user with ID No.: 15', '2025-04-23 08:19:45', 15),
+(152, 'Updated user with ID No.: 15', '2025-04-23 08:21:38', 15),
+(153, 'Deleted application with ID No.: 3', '2025-04-23 09:20:57', 15),
+(154, 'Added partylist with ID no.: 23', '2025-04-23 09:25:33', 15),
+(155, 'Deleted partylist with ID No.: 23', '2025-04-23 09:26:23', 15),
+(156, 'Deleted candidate with ID No.: 32', '2025-04-24 02:48:57', 5),
+(157, 'Updated candidate with ID No.: 37', '2025-04-24 02:50:54', 15),
+(158, 'Updated candidate with ID No.: ', '2025-04-24 02:53:39', 15),
+(159, 'Updated candidate with ID No.: 36', '2025-04-24 02:55:11', 15),
+(160, 'Deleted candidate with ID No.: 7', '2025-04-24 02:56:21', 15),
+(161, 'Added candidate with ID No.: 38', '2025-04-24 03:06:54', 15),
+(162, 'Added partylist with ID no.: 24', '2025-04-24 03:12:35', 5),
+(163, 'Deleted partylist with ID No.: 17', '2025-04-24 03:21:39', 15),
+(164, 'Updated user with ID No.: 16', '2025-04-24 03:28:38', 5),
+(165, 'Updated partylist with ID No.: 16', '2025-04-24 03:32:15', 5),
+(166, 'Updated partylist with ID No.: 19', '2025-04-24 03:36:42', 15),
+(167, 'Updated partylist with ID No.: 19', '2025-04-24 03:37:37', 15),
+(168, 'Updated partylist with ID No.: 19', '2025-04-24 03:38:32', 15),
+(169, 'Updated partylist with ID No.: 19', '2025-04-24 03:39:59', 15),
+(170, 'Updated partylist with ID No.: 19', '2025-04-24 03:41:36', 15),
+(171, 'Created user account ID: 25', '2025-04-24 04:15:05', 15),
+(172, 'Created user account ID: 26', '2025-04-24 04:44:22', 15),
+(173, 'Deleted users with ID No.: 26', '2025-04-24 04:44:35', 15),
+(174, 'Created user account ID: 27', '2025-04-24 04:48:23', 15),
+(175, 'Updated user with ID No.: 27', '2025-04-24 04:49:15', 15),
+(176, 'Added candidate with ID No.: 39', '2025-04-24 05:06:50', 15),
+(177, 'Deleted candidate with ID No.: 31', '2025-04-24 05:13:32', 15),
+(178, 'Deleted candidate with ID No.: 31', '2025-04-24 05:13:35', 15),
+(179, 'Deleted candidate with ID No.: 30', '2025-04-24 05:13:45', 15),
+(180, 'Deleted candidate with ID No.: 28', '2025-04-24 05:14:04', 15),
+(181, 'Deleted candidate with ID No.: 33', '2025-04-24 05:25:43', 15),
+(182, 'Updated candidate with ID No.: 29', '2025-04-24 05:29:07', 15),
+(183, 'Added partylist with ID no.: 25', '2025-04-24 05:32:04', 15),
+(184, 'Updated partylist with ID No.: 16', '2025-04-24 05:34:44', 15),
+(185, 'Updated partylist with ID No.: 24', '2025-04-24 05:36:48', 15),
+(186, 'Updated candidate with ID No.: 39', '2025-04-24 05:39:53', 15),
+(187, 'Added COC application with ID No.: 4', '2025-04-24 05:45:38', 15),
+(188, 'Added COC application with ID No.: 5', '2025-04-24 05:52:28', 15);
 
 -- --------------------------------------------------------
 
@@ -194,19 +353,23 @@ CREATE TABLE `partylist` (
   `pname` varchar(50) NOT NULL,
   `shortname` varchar(50) NOT NULL,
   `contact` int(15) NOT NULL,
-  `platform` varchar(500) NOT NULL,
+  `platform` varchar(1000) NOT NULL,
   `logo` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL,
-  `uid` int(10) NOT NULL
+  `uid` int(10) NOT NULL,
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `partylist`
 --
 
-INSERT INTO `partylist` (`pid`, `pname`, `shortname`, `contact`, `platform`, `logo`, `date`, `uid`) VALUES
-(15, 'Independent', '', 0, '', '', '', 14),
-(16, 'dsdf', 'sdfsd', 22222, 'dsfsdfsdf', '', '2025-04-21T06:26:18.690', 15);
+INSERT INTO `partylist` (`pid`, `pname`, `shortname`, `contact`, `platform`, `logo`, `date`, `uid`, `status`) VALUES
+(15, 'Independent', '', 0, '', '', '', 14, 'Completed'),
+(16, 'kalikasan at kumunidad', 'kk', 22222, 'Environmental protection and climate action\nSustainable farming and fishing\nCommunity-led disaster response\nRenewable energy initiatives', '', '2025-04-21T06:26:18.690', 15, 'Completed'),
+(19, 'Manggagawa Unida', 'MU', 3232, 'Workers’ rights and fair wages\n\nEnding contractualization\n\nAccessible social security\n\nLabor union support and development', '', '2025-04-22T20:01:36.035', 15, 'Completed'),
+(24, 'Bayan para sa masa', 'BPM', 121, 'Accessible healthcare for all\n\nLivelihood programs for low-income families\n\nStrengthening public education\n\nTransparent governance\n\n', 'src/images/bpm.png', '2025-04-24T03:12:35.361', 5, 'Completed'),
+(25, 'Strawhat pirates', 'SHP', 9999, 'Reduce corruption\nfree foods\nfree rides\n', '', '2025-04-24T05:32:04.419', 15, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -216,7 +379,7 @@ INSERT INTO `partylist` (`pid`, `pname`, `shortname`, `contact`, `platform`, `lo
 
 CREATE TABLE `positions` (
   `pid` int(10) NOT NULL,
-  `pname` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
   `term` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -224,7 +387,7 @@ CREATE TABLE `positions` (
 -- Dumping data for table `positions`
 --
 
-INSERT INTO `positions` (`pid`, `pname`, `term`) VALUES
+INSERT INTO `positions` (`pid`, `position`, `term`) VALUES
 (1, 'President', 6),
 (2, 'Vice-president', 6),
 (3, 'Senator', 6),
@@ -262,7 +425,8 @@ CREATE TABLE `recovery` (
 INSERT INTO `recovery` (`rid`, `userid`, `answer1`, `answer2`, `answer3`) VALUES
 (1, 15, 'jokjook', 'black', 'chimken'),
 (2, 14, 'romo', 'blue', 'dashi'),
-(3, 12, 'doraemon', 'green', 'fish');
+(3, 12, 'doraemon', 'green', 'fish'),
+(4, 5, 'romoo', 'black', 'fish');
 
 -- --------------------------------------------------------
 
@@ -289,23 +453,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `utype`, `birthdate`, `password`, `stats`, `Uimage`) VALUES
-(4, 'teves', 'teves', 'ishigami', 'teves1222@gmailcom', 'male', 'Admin', '2004-12-04', '12345678', 'Pending', 'src/images/Screenshot (13).png'),
-(5, 'ishigamiqwq', 'senku', 'ishenku', 'senkiii@gmail.com', 'male', 'User', '0000-00-00', '12344wqwq', 'Active', ''),
-(9, 'Roronoa', 'Zorro', 'zorrochi', 'zorrororor', 'male', 'Admin', '0000-00-00', 'onepiece', 'active', ''),
-(10, 'yuji', 'itadori', 'yujiii', 'itadori@gmail.com', 'male', 'User', '0000-00-00', 'hollowpurple', 'Pending', ''),
-(11, 'test', 'try', 'try', 'try', 'male', 'User', '2004-12-04', '1111111111', 'pending', ''),
-(12, 'testtttt', 'testtt', 'tesstttt', 'tesstttts', 'male', 'User', '1987-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
-(13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi', 'male', 'User', '1989-03-23', 'Vkh+6vmFm1qfN7vw1rV3YNqLhLh3kafHVVCJPtgW1Ak=', 'Active', ''),
-(14, 'anthony', 'teves', 'tevsss', 'tesvvvss', 'male', 'Admin', '2012-02-03', 'Tex6uJFFl9hHsI/4S6CB5avUxwSTilpuddqTOf3uQrQ=', 'Active', ''),
-(15, 'anthony', 'teves', 'artstzy', 'qwertyuio', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
-(16, 'john', 'cena', 'can\'t see me', 'johncenaaa', 'male', 'Admin', '1990-04-04', 'Qjr41+jWryB0jiy2qeiMy0qwkJLOJ09Sae5BOl474G0=', 'pending', ''),
-(17, 'john', 'cena', 'cant see me', 'cena', 'male', 'Admin', '1990-04-04', 'Qjr41+jWryB0jiy2qeiMy0qwkJLOJ09Sae5BOl474G0=', 'pending', ''),
-(18, 'teves', 'anthony', 'tevs2004', 'teves12@gmail.com', 'male', 'Admin', '2004-03-23', '1ZlrJeWAyVuQz8immJizHujttmvqADrJmAG4yrNMK7Q=', 'Active', 'src/images/Screenshot (11).png'),
-(19, 'sdf', 'sfas', 'fsdfas', 'sdfasdfdsd', 'male', 'Admin', '2004-12-12', 'VgEeP2M5b2EuNU05InvdH7h7uqWKauKTytHX8Fwl5hc=', 'Active', 'src/images/Screenshot (18).png'),
-(20, 'dfdsfsd', 'dfsdfsdf', 'fdsfsd', 'fsdfsdfdsfd', 'male', 'Admin', 'dfsdfds', 'Q2StMsg5Kf6JvxafGyeYTlbNB2q3iX3nyW8GlaeNoZE=', 'pending', ''),
-(21, 'dsfsd', 'sdfdsf', 'sfdsdsdf', 'fsdfsdfdsfsdfsdf', 'male', 'Admin', '2004-12-12', 'MeJyLiDKAi3n1Y2UQPs9frjwRVkxwg9tbn0wOW6uHr0=', 'pending', ''),
-(22, 'sfsd', 'sdfsdf', 'fsfdsf', 'dsfsdfdssdf', 'male', 'Admin', '2004-12-12', 'Z7VdVd3fu+tdjhrk2scd6jez5n4WOeVrgEbC+mVD4cY=', 'pending', ''),
-(23, 'sdfsdffsdf', 'fsdfsdf', 'dsfdsfsd', 'weweqwqw', 'male', 'Admin', '2004-12-12', 'mpyqK1kB6F5rIhxg8c4a11mWH+eoFZ41ny6tbiOkNJU=', 'pending', '');
+(4, 'teves', 'teves', 'ishigami', 'teves1222@gmailcom', 'male', 'Admin', '2004-12-04', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Pending', 'src/images/Screenshot (13).png'),
+(5, 'ishigami', 'senku', 'ishenku', 'senkiii@gmail.com', 'male', 'User', '0000-00-00', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', 'src/images/ishigami.jpg'),
+(9, 'Roronoa', 'Zorro', 'zorrochi', 'zorrororor@gmail.com', 'male', 'Admin', '0000-00-00', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'active', ''),
+(10, 'yuji', 'itadori', 'yujiii', 'itadori@gmail.com', 'male', 'User', '0000-00-00', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Pending', ''),
+(11, 'ryomen', 'sukuna', 'sukuna', 'sukuna@gmail,com', 'male', 'User', '2004-12-04', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ''),
+(12, 'Gojo', 'saturo', 'hollowpurple', 'hollowpurple@gmail.com', 'male', 'User', '1987-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
+(13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi@gmail.com', 'male', 'User', '1989-03-23', 'Vkh+6vmFm1qfN7vw1rV3YNqLhLh3kafHVVCJPtgW1Ak=', 'Active', ''),
+(14, 'sanji', 'vinsmoke', 'sanjii', 'onepiece@gmail.com', 'male', 'Admin', '2012-02-03', 'Tex6uJFFl9hHsI/4S6CB5avUxwSTilpuddqTOf3uQrQ=', 'Active', ''),
+(15, 'anthony', 'teves', 'artstzy', 'teves12@gmail.com', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', 'src/images/yuji.jpg'),
+(25, 'minato', 'namikaze', 'yellowflash', 'yellowflash@yahoo.com', 'male', 'User', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ''),
+(27, 'sasuke', 'uchiha', 'sasukeee', 'chidori@gmail.com', 'male', 'User', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
+(28, 'Mark kevin', 'Romo', 'ROMOXD', 'romo@yahoo.com', 'male', 'Admin', '2004-12-23', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ' ');
 
 --
 -- Indexes for dumped tables
@@ -376,31 +535,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `aid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `aid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-  MODIFY `cid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `cid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `logged`
 --
 ALTER TABLE `logged`
-  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
 
 --
 -- AUTO_INCREMENT for table `partylist`
 --
 ALTER TABLE `partylist`
-  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `positions`
@@ -412,13 +571,13 @@ ALTER TABLE `positions`
 -- AUTO_INCREMENT for table `recovery`
 --
 ALTER TABLE `recovery`
-  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables

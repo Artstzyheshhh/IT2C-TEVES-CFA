@@ -116,5 +116,9 @@ public class Session {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getString(String uimage) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

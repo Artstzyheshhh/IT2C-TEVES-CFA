@@ -1416,12 +1416,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" ADD CANDIDATE"/>
+            <Property name="text" type="java.lang.String" value=" VIEW CANDIDATE"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="430" height="40"/>
+              <AbsoluteConstraints x="0" y="0" width="360" height="40"/>
             </Constraint>
           </Constraints>
         </Component>

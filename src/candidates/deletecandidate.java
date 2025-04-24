@@ -497,7 +497,7 @@ public class deletecandidate extends javax.swing.JInternalFrame {
         viewdetails.setBackground(new java.awt.Color(204, 0, 0));
         viewdetails.setForeground(new java.awt.Color(255, 255, 255));
         viewdetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewdetails.setText("view details");
+        viewdetails.setText("Select");
         viewdetails.setOpaque(true);
         viewdetails.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -670,7 +670,12 @@ public class deletecandidate extends javax.swing.JInternalFrame {
         }if(candidatecheck()){
         }else{
         dbc.deleteData("DELETE FROM candidates WHERE cid = '"+idd.getText()+"'");
+                    idd.setText("");
+                    lastname.setText(""); 
+                    firstname.setText("");
+                    image.setIcon(null);
         displayData();
+        
         String actionn = "Deleted candidate with ID No.: " + idd.getText();
             dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
         }

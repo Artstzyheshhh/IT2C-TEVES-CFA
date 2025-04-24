@@ -528,7 +528,7 @@ public boolean idcheck() {
                 viewdetailsMouseClicked(evt);
             }
         });
-        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 420, 90, 20));
+        getContentPane().add(viewdetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 90, 20));
 
         jPanel6.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -556,7 +556,7 @@ public boolean idcheck() {
         usertable.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(usertable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 780, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 780, 260));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
@@ -576,17 +576,17 @@ public boolean idcheck() {
         jLabel31.setBackground(new java.awt.Color(255, 153, 102));
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText(" DELETE CANDIDATES");
+        jLabel31.setText(" DELETE USER");
         jLabel31.setOpaque(true);
         getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 40));
 
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("ID:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 80, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 80, 20));
 
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("Status:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 80, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 80, 20));
 
         firstname.setEnabled(false);
         firstname.addActionListener(new java.awt.event.ActionListener() {
@@ -594,7 +594,7 @@ public boolean idcheck() {
                 firstnameActionPerformed(evt);
             }
         });
-        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 220, -1));
+        getContentPane().add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 220, -1));
 
         idd.setEnabled(false);
         idd.addActionListener(new java.awt.event.ActionListener() {
@@ -602,11 +602,11 @@ public boolean idcheck() {
                 iddActionPerformed(evt);
             }
         });
-        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 220, -1));
+        getContentPane().add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 220, -1));
 
         jLabel7.setForeground(new java.awt.Color(204, 0, 0));
         jLabel7.setText("Username:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 80, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 80, 20));
 
         jPanel5.setLayout(null);
 
@@ -614,7 +614,7 @@ public boolean idcheck() {
         jPanel5.add(image);
         image.setBounds(0, 0, 110, 100);
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 110, 100));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 100));
 
         delete.setBackground(new java.awt.Color(204, 0, 0));
         delete.setForeground(new java.awt.Color(255, 255, 255));
@@ -626,7 +626,7 @@ public boolean idcheck() {
                 deleteMouseClicked(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 90, 20));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 90, 20));
 
         lastname.setEnabled(false);
         lastname.addActionListener(new java.awt.event.ActionListener() {
@@ -634,7 +634,7 @@ public boolean idcheck() {
                 lastnameActionPerformed(evt);
             }
         });
-        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 220, -1));
+        getContentPane().add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 220, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

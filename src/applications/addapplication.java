@@ -113,7 +113,7 @@ public class addapplication extends javax.swing.JInternalFrame {
      try {    
              
         String queryPartylist = "SELECT * FROM partylist WHERE pname = '" + partylist.getSelectedItem().toString() + "'";
-        String queryPosition = "SELECT * FROM positions WHERE pname = '" + positionn.getSelectedItem().toString() + "'";
+        String queryPosition = "SELECT * FROM positions WHERE position = '" + positionn.getSelectedItem().toString() + "'";
         String queryCandidate = "SELECT * FROM candidates WHERE cid = '" + cid.getText() + "'";
 
         ResultSet rsPartylist = dbc.getData(queryPartylist);
@@ -486,9 +486,9 @@ public class addapplication extends javax.swing.JInternalFrame {
     }
     
     // Check if candidate is below 21 years old
-    if (Age < 21) {
+    if (Age < 24) {
         if (!position.equals("SK chairman") && !position.equals("SK councilor")) {
-            JOptionPane.showMessageDialog(null, "Candidates aged 20 and below can only run as SK chairman or SK councilor.");
+            JOptionPane.showMessageDialog(null, "Candidates aged 24 and below can only run as SK chairman or SK councilor.");
         } else {
             addapplication();  // Valid case for SK chairman or SK councilor
         }
@@ -496,9 +496,9 @@ public class addapplication extends javax.swing.JInternalFrame {
     }
 
     // Check if candidate is 21 or above
-    if (Age >= 21) {
+    if (Age >= 24) {
         if (position.equals("SK chairman") || position.equals("SK councilor")) {
-            JOptionPane.showMessageDialog(null, "Candidates aged 21 and above cannot run as SK chairman or SK councilor.");
+            JOptionPane.showMessageDialog(null, "Candidates aged 24 and above cannot run as SK chairman or SK councilor.");
         } else {
             addapplication();  // Valid case for other positions
         }

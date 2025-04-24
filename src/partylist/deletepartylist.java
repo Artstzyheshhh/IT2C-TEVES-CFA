@@ -90,7 +90,7 @@ public class deletepartylist extends javax.swing.JInternalFrame {
             String query = "SELECT * FROM applications WHERE pid = '"+ idd.getText()+"'";
             ResultSet resultSet = dbc.getData(query);
             if(resultSet.next()){
-                ccid= resultSet.getString("cid");
+                ccid= resultSet.getString("pid");
                 if(ccid.equals(idd.getText())){
                 JOptionPane.showMessageDialog(null,"This partylist already completed the application \n and cannot be deleted!");
                 idd.setText("");
@@ -489,7 +489,7 @@ public class deletepartylist extends javax.swing.JInternalFrame {
         viewdetails.setBackground(new java.awt.Color(204, 0, 0));
         viewdetails.setForeground(new java.awt.Color(255, 255, 255));
         viewdetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        viewdetails.setText("view details");
+        viewdetails.setText("Select");
         viewdetails.setOpaque(true);
         viewdetails.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -660,6 +660,7 @@ public class deletepartylist extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Please select a partylist!");
         return;
         }if(candidatecheck()){
+            
         }else{
         dbc.deleteData("DELETE FROM partylist WHERE pid = '"+idd.getText()+"'");
         displayData();

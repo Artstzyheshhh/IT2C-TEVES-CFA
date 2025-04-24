@@ -653,9 +653,9 @@ public class viewcandidates extends javax.swing.JInternalFrame {
         jLabel31.setBackground(new java.awt.Color(255, 153, 102));
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText(" ADD CANDIDATE");
+        jLabel31.setText(" VIEW CANDIDATE");
         jLabel31.setOpaque(true);
-        infopanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 40));
+        infopanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 40));
 
         getContentPane().add(infopanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, 430));
 
@@ -728,9 +728,7 @@ public class viewcandidates extends javax.swing.JInternalFrame {
                 if (rs.next()) {
                     int yy, dd;
                     String mm;
-                    mm = rs.getString("month");
-                    yy = rs.getInt("year");
-                    dd = rs.getInt("day");
+                    
                     id.setText(" "+rs.getInt("cid"));
                     fname.setText(" "+rs.getString("fname"));
                     lname.setText(" "+rs.getString("lname"));
@@ -741,10 +739,10 @@ public class viewcandidates extends javax.swing.JInternalFrame {
                     contact.setText(" "+rs.getString("contact"));
 
                     sexx.setText(" "+rs.getString("sex"));
-                    birthdate.setText(" "+yy+"-"+mm+"-"+dd+"");
+                    birthdate.setText(" "+rs.getString("bdate"));
                     age.setText(" "+rs.getInt("age"));
 
-                    occupation.setText(" "+rs.getString("age"));
+                    occupation.setText(" "+rs.getString("occupation"));
                     nationality.setText(" "+rs.getString("nationality"));
                    
                     date.setText(" "+rs.getString("date"));

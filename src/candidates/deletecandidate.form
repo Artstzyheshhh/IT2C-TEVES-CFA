@@ -796,7 +796,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="view details"/>
+        <Property name="text" type="java.lang.String" value="Select"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
       <Events>

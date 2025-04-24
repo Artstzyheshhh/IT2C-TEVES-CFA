@@ -257,35 +257,35 @@ public class edituser extends javax.swing.JInternalFrame {
 
         jLabel25.setForeground(new java.awt.Color(204, 0, 0));
         jLabel25.setText("User-type:");
-        editpanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 60, 20));
+        editpanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 70, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setPreferredSize(new java.awt.Dimension(57, 25));
-        editpanel.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 170, 20));
+        editpanel.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 150, 20));
 
         jLabel10.setForeground(new java.awt.Color(204, 0, 0));
         jLabel10.setText("Firstname:");
-        editpanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 60, 20));
-        editpanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, 20));
+        editpanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 230, 20));
+        editpanel.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 230, 20));
 
         jLabel11.setForeground(new java.awt.Color(204, 0, 0));
         jLabel11.setText("Lastname:");
-        editpanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 60, 20));
-        editpanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 170, -1));
+        editpanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 230, 20));
+        editpanel.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 230, -1));
 
         jLabel9.setForeground(new java.awt.Color(204, 0, 0));
         jLabel9.setText("Username:");
-        editpanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 60, 20));
-        editpanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 170, 20));
+        editpanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 230, 20));
+        editpanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 230, 20));
 
         jLabel15.setForeground(new java.awt.Color(204, 0, 0));
         jLabel15.setText("Email:");
-        editpanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 60, 20));
-        editpanel.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 320, 20));
+        editpanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 60, 20));
+        editpanel.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 320, 20));
 
         jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("Sex:");
-        editpanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 60, 20));
+        editpanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 60, 20));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
@@ -294,20 +294,20 @@ public class edituser extends javax.swing.JInternalFrame {
                 sexActionPerformed(evt);
             }
         });
-        editpanel.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 90, 20));
+        editpanel.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 90, 20));
 
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel13.setText("Birthdate:");
-        editpanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 70, 20));
-        editpanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 150, 20));
+        jLabel13.setText("Birthdate(yyyy-MM-dd):");
+        editpanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 130, 20));
+        editpanel.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 150, 20));
 
         jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("Status:");
-        editpanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 60, 20));
+        editpanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 60, 20));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setPreferredSize(new java.awt.Dimension(57, 25));
-        editpanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 90, 20));
+        editpanel.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 90, 20));
 
         jLabel26.setBackground(new java.awt.Color(255, 153, 102));
         jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -432,7 +432,7 @@ public class edituser extends javax.swing.JInternalFrame {
         dbconnect dbc = new dbconnect();
          Session sess = Session.getInstance();
          String emailInput = emaill.getText();
-        if(fname.getText() .isEmpty() || lname.getText().isEmpty()
+        if(id.getText() .isEmpty() ||fname.getText() .isEmpty() || lname.getText().isEmpty()
             ||uname.getText() .isEmpty()
             || birthdate.getText() .isEmpty()
             || emaill.getText() .isEmpty()
@@ -550,6 +550,8 @@ public class edituser extends javax.swing.JInternalFrame {
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
 
     private void sexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexActionPerformed

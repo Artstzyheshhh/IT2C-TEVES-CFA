@@ -153,133 +153,44 @@ public class adduser extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
         fname = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        lname = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        uname = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        emaill = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        sex = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        birthdate = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         jLabel17 = new javax.swing.JLabel();
         confpass = new javax.swing.JPasswordField();
-        jLabel16 = new javax.swing.JLabel();
-        type = new javax.swing.JComboBox<>();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        status = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         image = new javax.swing.JLabel();
         showpass = new javax.swing.JCheckBox();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lname = new javax.swing.JTextField();
+        uname = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        birthdate = new javax.swing.JFormattedTextField();
         remove = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        savebttn = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        type = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        status = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        emaill = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        savebttn = new javax.swing.JLabel();
+        sex = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(null);
         setOpaque(true);
         setPreferredSize(new java.awt.Dimension(800, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel10.setText("Firstname:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 60, 20));
-        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 170, 20));
-
-        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel11.setText("Lastname:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 60, 20));
-        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 170, -1));
-
-        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel9.setText("Username:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 60, 20));
-        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 170, 20));
-
-        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel15.setText("Email:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 60, 20));
-
-        emaill.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        getContentPane().add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 320, 20));
-
-        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel12.setText("Sex:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 50, 20));
-
-        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
-        sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        getContentPane().add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 120, 20));
-
-        jLabel13.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel13.setText("Birthdate:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 60, 20));
-        getContentPane().add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 170, 20));
-
-        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel14.setText("Password:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 120, 20));
-
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 260, 20));
-
-        jLabel17.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel17.setText("Confirm password:");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 120, 20));
-
-        confpass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confpassActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 260, 20));
-
-        jLabel16.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel16.setText("Status:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 60, 20));
-
-        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
-        type.setPreferredSize(new java.awt.Dimension(57, 25));
-        type.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 140, 20));
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("FILING APPLICATION");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 140, 30));
-
-        jLabel25.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel25.setText("User-type:");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 80, 20));
-
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        status.setPreferredSize(new java.awt.Dimension(57, 25));
-        status.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusActionPerformed(evt);
-            }
-        });
-        getContentPane().add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 130, 20));
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -311,6 +222,40 @@ public class adduser extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 800, 35));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setBackground(new java.awt.Color(255, 153, 102));
+        jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText(" ADD USER");
+        jLabel26.setOpaque(true);
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 40));
+        jPanel3.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 230, -1));
+
+        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel14.setText("Password:");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, 20));
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 260, -1));
+
+        jLabel17.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel17.setText("Confirm password:");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 120, 20));
+
+        confpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confpassActionPerformed(evt);
+            }
+        });
+        jPanel3.add(confpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 260, -1));
+
         jPanel4.setLayout(null);
 
         image.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -328,7 +273,7 @@ public class adduser extends javax.swing.JInternalFrame {
         jPanel4.add(image);
         image.setBounds(0, 0, 140, 130);
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 140, 130));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 140, 130));
 
         showpass.setBackground(new java.awt.Color(255, 255, 255));
         showpass.setForeground(new java.awt.Color(153, 0, 0));
@@ -338,7 +283,22 @@ public class adduser extends javax.swing.JInternalFrame {
                 showpassActionPerformed(evt);
             }
         });
-        getContentPane().add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 140, 20));
+        jPanel3.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 140, 20));
+
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel10.setText("Firstname:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, 20));
+
+        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel11.setText("Lastname:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, 20));
+        jPanel3.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 230, -1));
+        jPanel3.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 230, -1));
+
+        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel9.setText("Username:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 100, 20));
+        jPanel3.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 230, -1));
 
         remove.setBackground(new java.awt.Color(204, 0, 0));
         remove.setForeground(new java.awt.Color(204, 0, 0));
@@ -350,23 +310,61 @@ public class adduser extends javax.swing.JInternalFrame {
                 removeMouseClicked(evt);
             }
         });
-        getContentPane().add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, 20));
+        jPanel3.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 20));
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel27.setText("COMELEC");
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, 50));
+        jLabel13.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel13.setText("Birthdate(yyyy-MM-dd):");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 200, 20));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel25.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel25.setText("User-type:");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 70, 20));
 
-        jLabel26.setBackground(new java.awt.Color(255, 153, 102));
-        jLabel26.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText(" ADD USER");
-        jLabel26.setOpaque(true);
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 40));
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
+        type.setPreferredSize(new java.awt.Dimension(57, 25));
+        type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeActionPerformed(evt);
+            }
+        });
+        jPanel3.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 120, 20));
+
+        jLabel16.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel16.setText("Status:");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 50, 20));
+
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
+        status.setPreferredSize(new java.awt.Dimension(57, 25));
+        status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusActionPerformed(evt);
+            }
+        });
+        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 130, 20));
+
+        jLabel15.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel15.setText("Email:");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 70, 20));
+
+        emaill.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        emaill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emaillActionPerformed(evt);
+            }
+        });
+        jPanel3.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 180, 20));
+
+        jLabel12.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel12.setText("Sex:");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 40, 20));
+
+        jLabel8.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Clear all");
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
+        jLabel8.setOpaque(true);
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 20));
 
         savebttn.setBackground(new java.awt.Color(204, 0, 0));
         savebttn.setForeground(new java.awt.Color(255, 255, 255));
@@ -387,15 +385,22 @@ public class adduser extends javax.swing.JInternalFrame {
         });
         jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 90, 20));
 
-        jLabel8.setBackground(new java.awt.Color(204, 0, 0));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Clear all");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 1, true));
-        jLabel8.setOpaque(true);
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 20));
+        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
+        sex.setPreferredSize(new java.awt.Dimension(57, 25));
+        jPanel3.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 90, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 420));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 420, 420));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("FILING APPLICATION");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 140, 30));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel27.setText("COMELEC");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, -1, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -577,7 +582,13 @@ public class adduser extends javax.swing.JInternalFrame {
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
+
+    private void emaillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emaillActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emaillActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -594,7 +605,7 @@ public class adduser extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;

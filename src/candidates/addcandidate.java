@@ -111,7 +111,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 pst.setString(12,LocalDateTime.now().toString());
                 pst.setInt(13,  sess.getId());
                 pst.setString(14, destination);
-                pst.setString(14, "Incomplete");
+                pst.setString(15, "Incomplete");
                 
               int affectedRows = pst.executeUpdate();
     
@@ -122,7 +122,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 lastInsertedId = generatedKeys.getInt(1);
             }
         }
-        
+         JOptionPane.showMessageDialog(null, "candidate added successfully");
         String actionn = "Added candidate with ID No.: " + lastInsertedId;
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
 
@@ -508,7 +508,10 @@ public class addcandidate extends javax.swing.JInternalFrame {
          LocalDate birthDate = LocalDate.parse(input, formatter);
          LocalDate currentDate = LocalDate.now();
          int age = Period.between(birthDate, currentDate).getYears();
-        
+         if (!bdate.getText().matches("\\d{4}-\\d{2}-\\d{2}")) { 
+            JOptionPane.showMessageDialog(null,"wrong birthdate format(yyyy/mm/dd)");        
+            return;
+     }
         if (age < 16 || age >= 60) {
             JOptionPane.showMessageDialog(null, "Candidate must be between 16 and 59 years old.");   
         }     
@@ -540,6 +543,8 @@ public class addcandidate extends javax.swing.JInternalFrame {
 
     private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
         image.setIcon(null);
+        destination = "";
+        path = "";
     }//GEN-LAST:event_removeMouseClicked
 
     private void imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMouseClicked

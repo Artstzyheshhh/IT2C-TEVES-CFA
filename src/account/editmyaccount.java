@@ -8,8 +8,19 @@ package account;
 import config.Session;
 import config.dbconnect;
 import it2c.teves.cfa.loginform;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -74,6 +85,85 @@ public class editmyaccount extends javax.swing.JInternalFrame {
 
     return true;
 }
+     
+               public String destination = "";
+    File selectedFile;
+    public String oldpath;
+    public String path;
+    public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
+        
+        Path filePath = Paths.get("src/images", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+        if (fileExists) {
+            return 1;
+        } else {
+            return 0;
+        }
+    
+    }
+    
+    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
+        try {
+            // Read the image file
+            File imageFile = new File(imagePath);
+            BufferedImage image = ImageIO.read(imageFile);
+            
+            // Get the original width and height of the image
+            int originalWidth = image.getWidth();
+            int originalHeight = image.getHeight();
+            
+            // Calculate the new height based on the desired width and the aspect ratio
+            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
+            
+            return newHeight;
+        } catch (IOException ex) {
+            System.out.println("No image found!");
+        }
+        
+        return -1;
+    }
+    
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
+    
+    public void imageUpdater(String existingFilePath, String newFilePath){
+        File existingFile = new File(existingFilePath);
+        if (existingFile.exists()) {
+            String parentDirectory = existingFile.getParent();
+            File newFile = new File(newFilePath);
+            String newFileName = newFile.getName();
+            File updatedFile = new File(parentDirectory, newFileName);
+            existingFile.delete();
+            try {
+                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image updated successfully.");
+            } catch (IOException e) {
+                System.out.println("Error occurred while updating the image: "+e);
+            }
+        } else {
+            try{
+                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }catch(IOException e){
+                System.out.println("Error on update!");
+            }
+        }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,6 +198,9 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
+        remove = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -159,53 +252,53 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         id.setEnabled(false);
-        jPanel2.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 80, -1));
+        jPanel2.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 80, -1));
 
         jLabel24.setForeground(new java.awt.Color(204, 0, 0));
         jLabel24.setText("User ID:");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 100, 20));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 100, 20));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         type.setEnabled(false);
         type.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 130, 20));
+        jPanel2.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 130, 20));
 
         jLabel25.setForeground(new java.awt.Color(204, 0, 0));
         jLabel25.setText("User-type:");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, 20));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 100, 20));
 
         jLabel10.setForeground(new java.awt.Color(204, 0, 0));
         jLabel10.setText("Firstname:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 20));
-        jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 250, 20));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, 20));
+        jPanel2.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 270, 20));
 
         jLabel11.setForeground(new java.awt.Color(204, 0, 0));
         jLabel11.setText("Lastname:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 20));
-        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 250, 20));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 20));
+        jPanel2.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 270, 20));
 
         jLabel9.setForeground(new java.awt.Color(204, 0, 0));
         jLabel9.setText("Username:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, 20));
-        jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 250, 20));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 100, 20));
+        jPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 270, 20));
 
         jLabel15.setForeground(new java.awt.Color(204, 0, 0));
         jLabel15.setText("Email:");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 100, 20));
-        jPanel2.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 250, 20));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, 20));
+        jPanel2.add(emaill, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 270, 20));
 
         jLabel12.setForeground(new java.awt.Color(204, 0, 0));
         jLabel12.setText("Sex:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 50, 20));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 50, 20));
 
         sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female", "others" }));
         sex.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 80, 20));
+        jPanel2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 100, 20));
 
         jLabel13.setForeground(new java.awt.Color(204, 0, 0));
         jLabel13.setText("Birthdate:");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, 20));
-        jPanel2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 100, 20));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, 20));
+        jPanel2.add(birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 20));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
@@ -218,7 +311,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 110, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 110, 20));
 
         savebttn.setBackground(new java.awt.Color(255, 255, 255));
         savebttn.setForeground(new java.awt.Color(204, 0, 0));
@@ -231,7 +324,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
                 savebttnMouseClicked(evt);
             }
         });
-        jPanel2.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 110, 20));
+        jPanel2.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 110, 20));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(204, 0, 0));
@@ -246,12 +339,32 @@ public class editmyaccount extends javax.swing.JInternalFrame {
 
         jLabel16.setForeground(new java.awt.Color(204, 0, 0));
         jLabel16.setText("User status:");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 100, 20));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 100, 20));
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
         status.setEnabled(false);
         status.setPreferredSize(new java.awt.Dimension(57, 25));
-        jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 130, 20));
+        jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 130, 20));
+
+        jPanel5.setLayout(null);
+
+        image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(image);
+        image.setBounds(0, 0, 130, 110);
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 110));
+
+        remove.setBackground(new java.awt.Color(204, 0, 0));
+        remove.setForeground(new java.awt.Color(204, 0, 0));
+        remove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        remove.setText("Remove Image");
+        remove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeMouseClicked(evt);
+            }
+        });
+        jPanel2.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 910, 360));
 
@@ -319,10 +432,19 @@ public class editmyaccount extends javax.swing.JInternalFrame {
         else{
             dbc.insertData("UPDATE users SET fname ='"+fname.getText()+"',lname ='"+lname.getText()+"',"
                 + "ussername ='"+uname.getText()+"',useremail ='"+emaill.getText()+"',"
-                + "sex ='"+sex.getSelectedItem()+"'"               
-                + "birthdate ='"+birthdate.getText()+"' WHERE uid ='"+id.getText()+"'");
+                + "sex ='"+sex.getSelectedItem()+"',"               
+                + "birthdate ='"+birthdate.getText()+"',Uimage = '"+destination+"' WHERE uid ='"+id.getText()+"'");
             JOptionPane.showMessageDialog(null,"account updated successfully.");
-
+            if(destination.isEmpty()){
+            File existingFile = new File(oldpath);
+            if(existingFile.exists()){
+            existingFile.delete();
+            }
+            }else{
+            if(!(oldpath.equals(path))){
+            imageUpdater(oldpath,path);
+            }
+            }
         }
     }//GEN-LAST:event_savebttnMouseClicked
 
@@ -343,8 +465,19 @@ public class editmyaccount extends javax.swing.JInternalFrame {
             type.setSelectedItem(""+sess.getType());
             birthdate.setText(""+sess.getBirthdate());
              status.setSelectedItem(""+sess.getStatus());
+             image.setIcon(ResizeImage(""+sess.getUimage(),null,image));
+             oldpath = sess.getUimage();
+             path = sess.getUimage();
+             destination = sess.getUimage();
+             
         }
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
+       image.setIcon(null);
+        destination = "";
+        path = "";
+    }//GEN-LAST:event_removeMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -352,6 +485,7 @@ public class editmyaccount extends javax.swing.JInternalFrame {
     private javax.swing.JTextField emaill;
     private javax.swing.JTextField fname;
     private javax.swing.JTextField id;
+    private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -368,8 +502,10 @@ public class editmyaccount extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField lname;
+    private javax.swing.JLabel remove;
     private javax.swing.JLabel savebttn;
     private javax.swing.JComboBox<String> sex;
     private javax.swing.JComboBox<String> status;
