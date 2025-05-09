@@ -62,6 +62,8 @@ public class manageapplications extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        applicationpane.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout applicationpaneLayout = new javax.swing.GroupLayout(applicationpane);
         applicationpane.setLayout(applicationpaneLayout);
         applicationpaneLayout.setHorizontalGroup(

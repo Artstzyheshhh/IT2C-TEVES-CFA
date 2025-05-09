@@ -62,6 +62,8 @@ public class report extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        partylistpane.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout partylistpaneLayout = new javax.swing.GroupLayout(partylistpane);
         partylistpane.setLayout(partylistpaneLayout);
         partylistpaneLayout.setHorizontalGroup(

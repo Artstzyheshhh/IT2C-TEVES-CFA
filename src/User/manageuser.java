@@ -138,6 +138,7 @@ public class manageuser extends javax.swing.JInternalFrame {
 
         jPanel1.add(topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 100));
 
+        userss.setBackground(new java.awt.Color(255, 255, 255));
         userss.setPreferredSize(new java.awt.Dimension(800, 475));
 
         javax.swing.GroupLayout userssLayout = new javax.swing.GroupLayout(userss);

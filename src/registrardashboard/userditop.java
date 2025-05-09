@@ -140,6 +140,8 @@ public class userditop extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
         main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 40));
 
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(

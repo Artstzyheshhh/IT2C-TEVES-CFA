@@ -293,7 +293,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 savebttnMouseExited(evt);
             }
         });
-        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 90, 20));
+        jPanel3.add(savebttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 90, 20));
 
         clear.setBackground(new java.awt.Color(204, 0, 0));
         clear.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,9 +306,9 @@ public class addpartylist extends javax.swing.JInternalFrame {
                 clearMouseClicked(evt);
             }
         });
-        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 90, 20));
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 90, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 420));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 390, 430));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(204, 0, 0));

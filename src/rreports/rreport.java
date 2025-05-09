@@ -59,6 +59,8 @@ public class rreport extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        partylistpane.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout partylistpaneLayout = new javax.swing.GroupLayout(partylistpane);
         partylistpane.setLayout(partylistpaneLayout);
         partylistpaneLayout.setHorizontalGroup(
@@ -116,14 +118,14 @@ public class rreport extends javax.swing.JInternalFrame {
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         partylistpane.removeAll();
-        pendinggs ad = new pendinggs();
+        rtables ad = new rtables();
         partylistpane.add(ad).setVisible(true);
 
     }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane partylistpane;
+    public javax.swing.JDesktopPane partylistpane;
     private javax.swing.JLabel tables;
     private javax.swing.JPanel topbar;
     // End of variables declaration//GEN-END:variables

@@ -258,6 +258,7 @@ public class maindash extends javax.swing.JFrame {
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(800, 450));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -325,7 +326,7 @@ public class maindash extends javax.swing.JFrame {
          Session sess= Session.getInstance();
          
           String action = "User with ID "+sess.getId()+" logged out";
-        dbc.insertData("INSERT INTO logged(user_id, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
+        dbc.insertData("INSERT INTO logged(userid, action, date) VALUES ('" +sess.getId() + "', '" + action + "', '" + LocalDateTime.now() + "')");
         
         loginform lfm = new loginform();
         lfm.setVisible(true);
