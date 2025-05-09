@@ -292,33 +292,50 @@ public class maindash extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void candidatesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseExited
-        candidates.setBackground(Color.white);
-        candidates.setForeground(new java.awt.Color(221,21,21));
-        candidates.setOpaque(false);
+        
     }//GEN-LAST:event_candidatesMouseExited
 
     private void candidatesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseEntered
-        candidates.setOpaque(true);
-        candidates.setBackground(new java.awt.Color(221,21,21));
-        candidates.setForeground(Color.white);
+        
     }//GEN-LAST:event_candidatesMouseEntered
 
     private void candidatesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_candidatesMouseClicked
-       managecandidates mcd = new managecandidates();
+      //current button
+    candidates.setOpaque(true);
+    candidates.setBackground(new java.awt.Color(221,21,21));
+    candidates.setForeground(Color.white);
+    
+    //other button
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);     
+        
+        managecandidates mcd = new managecandidates();
        jDesktopPane1.removeAll();    
         jDesktopPane1.add(mcd).setVisible(true);
     }//GEN-LAST:event_candidatesMouseClicked
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
-        logout.setBackground(Color.white);
-        logout.setForeground(new java.awt.Color(221,21,21));
-        logout.setOpaque(false);
+       
     }//GEN-LAST:event_logoutMouseExited
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setOpaque(true);
-        logout.setBackground(new java.awt.Color(221,21,21));
-        logout.setForeground(Color.white);
+        
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
@@ -334,37 +351,80 @@ public class maindash extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMouseClicked
 
     private void reportssMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseExited
-        reportss.setBackground(Color.white);
-        reportss.setForeground(new java.awt.Color(221,21,21));
-        reportss.setOpaque(false);
+        
     }//GEN-LAST:event_reportssMouseExited
 
     private void reportssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseEntered
-        reportss.setOpaque(true);
-        reportss.setBackground(new java.awt.Color(221,21,21));
-        reportss.setForeground(Color.white);
+        
     }//GEN-LAST:event_reportssMouseEntered
 
     private void reportssMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportssMouseClicked
-       report rp = new report();
+       //current button
+    reportss.setOpaque(true);
+    reportss.setBackground(new java.awt.Color(221,21,21));
+    reportss.setForeground(Color.white);
+    
+    //other button
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);       
+        
+        report rp = new report();
        jDesktopPane1.removeAll();    
         jDesktopPane1.add(rp).setVisible(true);
     }//GEN-LAST:event_reportssMouseClicked
 
     private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
-        users.setBackground(Color.white);
-        users.setForeground(new java.awt.Color(221,21,21));
-        users.setOpaque(false);
+       
     }//GEN-LAST:event_usersMouseExited
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
-        users.setOpaque(true);
-        users.setBackground(new java.awt.Color(221,21,21));
-        users.setForeground(Color.white);
+        
     }//GEN-LAST:event_usersMouseEntered
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-         jDesktopPane1.removeAll();
+      //current button
+    users.setOpaque(true);
+    users.setBackground(new java.awt.Color(221,21,21));
+    users.setForeground(Color.white);
+    
+    //other button
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);   
+        
+        
+        jDesktopPane1.removeAll();
      manageuser mu = new manageuser();
        jDesktopPane1.add(mu).setVisible(true);
     }//GEN-LAST:event_usersMouseClicked
@@ -418,75 +478,136 @@ public class maindash extends javax.swing.JFrame {
     }//GEN-LAST:event_editacccMouseClicked
 
     private void editacccMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseEntered
-       editaccc.setOpaque(true);
-        editaccc.setBackground(new java.awt.Color(221,21,21));
-        editaccc.setForeground(Color.white);
+       
     }//GEN-LAST:event_editacccMouseEntered
 
     private void editacccMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editacccMouseExited
-       editaccc.setBackground(Color.white);
-        editaccc.setForeground(new java.awt.Color(221,21,21));
-        editaccc.setOpaque(false);
+        
     }//GEN-LAST:event_editacccMouseExited
 
     private void myaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseClicked
-           jDesktopPane1.removeAll();
-            accdetails ad = new accdetails();
-       jDesktopPane1.add(ad).setVisible(true);
+    //current button
+    myaccount.setOpaque(true);
+    myaccount.setBackground(new java.awt.Color(221,21,21));
+    myaccount.setForeground(Color.white);
+    
+    //other button
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);   
+    jDesktopPane1.removeAll();
+    accdetails ad = new accdetails();
+    jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_myaccountMouseClicked
 
     private void myaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseEntered
-       myaccount.setOpaque(true);
-        myaccount.setBackground(new java.awt.Color(221,21,21));
-        myaccount.setForeground(Color.white);
+     
+       
     }//GEN-LAST:event_myaccountMouseEntered
 
     private void myaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myaccountMouseExited
-         myaccount.setBackground(Color.white);
-        myaccount.setForeground(new java.awt.Color(221,21,21));
-        myaccount.setOpaque(false);
+       
     }//GEN-LAST:event_myaccountMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-        jDesktopPane1.removeAll();
-     accdetails ad = new accdetails();
-     jDesktopPane1.add(ad).setVisible(true);
+    myaccount.setOpaque(true);
+    myaccount.setBackground(new java.awt.Color(221,21,21));
+    myaccount.setForeground(Color.white);  
+    jDesktopPane1.removeAll();
+    accdetails ad = new accdetails();
+    jDesktopPane1.add(ad).setVisible(true);
     }//GEN-LAST:event_formWindowOpened
 
     private void partylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseClicked
-     jDesktopPane1.removeAll();
+       //current button
+    partylist.setOpaque(true);
+    partylist.setBackground(new java.awt.Color(221,21,21));
+    partylist.setForeground(Color.white);
+    
+    //other button
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);     
+        
+        jDesktopPane1.removeAll();
      managepaartylist mp = new managepaartylist();
      jDesktopPane1.add(mp).setVisible(true);
     }//GEN-LAST:event_partylistMouseClicked
 
     private void partylistMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseEntered
-        partylist.setOpaque(true);
-        partylist.setBackground(new java.awt.Color(221,21,21));
-        partylist.setForeground(Color.white);
+      
     }//GEN-LAST:event_partylistMouseEntered
 
     private void partylistMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partylistMouseExited
-        partylist.setBackground(Color.white);
-        partylist.setForeground(new java.awt.Color(221,21,21));
-        partylist.setOpaque(false);
+       
     }//GEN-LAST:event_partylistMouseExited
 
     private void applcationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseClicked
-        jDesktopPane1.removeAll();
-        manageapplications ma = new manageapplications();
-        jDesktopPane1.add(ma).setVisible(true);
+     //current button
+    applcation.setOpaque(true);
+    applcation.setBackground(new java.awt.Color(221,21,21));
+    applcation.setForeground(Color.white);
+    
+    //other button
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);   
+    jDesktopPane1.removeAll();
+    manageapplications ad = new manageapplications();
+    jDesktopPane1.add(ad).setVisible(true);  
     }//GEN-LAST:event_applcationMouseClicked
 
     private void applcationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseEntered
-        applcation.setOpaque(true);
-        applcation.setBackground(new java.awt.Color(221,21,21));
-        applcation.setForeground(Color.white);    }//GEN-LAST:event_applcationMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_applcationMouseEntered
 
     private void applcationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseExited
-        applcation.setBackground(Color.white);
-        applcation.setForeground(new java.awt.Color(221,21,21));
-        applcation.setOpaque(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_applcationMouseExited
 
     /**

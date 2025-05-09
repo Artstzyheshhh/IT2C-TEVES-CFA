@@ -202,7 +202,7 @@ public class rtables extends javax.swing.JInternalFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -30, 110, 35));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -30, 110, 35));
 
         jPanel4.setPreferredSize(new java.awt.Dimension(800, 30));
 
