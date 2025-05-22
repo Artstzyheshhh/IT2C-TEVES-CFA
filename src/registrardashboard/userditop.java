@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,32 +29,7 @@ public class userditop extends javax.swing.JFrame {
     public userditop() {
         initComponents();
     }
-  public boolean duplicatecheck(){
-            dbconnect dbc = new dbconnect();
-            Session sess = Session.getInstance();
-            int uid = sess.getId();
-            int userid ;
 
-            try{
-                String query = "SELECT * FROM recovery WHERE userid = '"+ uid +"'";
-                ResultSet resultSet = dbc.getData(query);
-                if(resultSet.next()){
-                    userid = resultSet.getInt("userid");
-                    if(uid == userid){
-                        
-                    } 
-
-                    return true;
-                }
-                else{
-                    return false;
-                }
-            } catch (SQLException ex) {
-                System.out.println(""+ex);
-                return false;
-            }
-
-        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -328,12 +304,14 @@ public class userditop extends javax.swing.JFrame {
     }//GEN-LAST:event_gobackMouseExited
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        if(duplicatecheck()){
-              
-         recovery.setVisible(false);
-         } else{
-         recovery.setVisible(true);
-         }       
+        Session sess = Session.getInstance();
+        if(sess.getId() == 0){
+        JOptionPane.showMessageDialog(null,"No account found, login first!");
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+        }else{
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

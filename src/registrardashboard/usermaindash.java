@@ -7,6 +7,7 @@ package registrardashboard;
 
 import account.accdetails;
 import applications.manageapplications;
+import applications.manageapplicationsuser;
 import candidates.managecandidates;
 import config.Session;
 import config.dbconnect;
@@ -493,7 +494,7 @@ public class usermaindash extends javax.swing.JFrame {
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);   
      jDesktopPane1.removeAll();
-     manageapplications ma = new manageapplications();
+     manageapplicationsuser ma = new manageapplicationsuser();
      jDesktopPane1.add(ma).setVisible(true);
     }//GEN-LAST:event_applicationMouseClicked
 

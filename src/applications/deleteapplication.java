@@ -6,7 +6,7 @@
 package applications;
 
 
-import partylist.*;
+
 import config.Session;
 import config.dbconnect;
 import static User.edituser.getHeightFromWidth;
@@ -533,7 +533,7 @@ public class deleteapplication extends javax.swing.JInternalFrame {
         jLabel31.setBackground(new java.awt.Color(255, 153, 102));
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel31.setText(" DELETE PARTYLIST");
+        jLabel31.setText(" DELETE APPLICATION");
         jLabel31.setOpaque(true);
         getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 780, 40));
 

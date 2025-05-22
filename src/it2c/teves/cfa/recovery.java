@@ -7,9 +7,14 @@ package it2c.teves.cfa;
 
 import config.Session;
 import config.dbconnect;
+import config.passwordHasher;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
@@ -26,32 +31,45 @@ public class recovery extends javax.swing.JFrame {
         initComponents();
     }
     
-    static String ans1, ans2, ans3;
-  public boolean recoverycheck(){
-            dbconnect dbc = new dbconnect();
-            Session sess = Session.getInstance();
-            
+    static String ans1, ans2, ans3, usrname, uid;
 
-            try{
-                String query = "SELECT * FROM recovery WHERE userid = '"+ user_id.getText() +"'";
-                ResultSet resultSet = dbc.getData(query);
-                if(resultSet.next()){
-                    sess.setId(resultSet.getInt("userid"));
-                    ans1 = resultSet.getString("answer1");
-                    ans2 = resultSet.getString("answer2");
-                    ans3 = resultSet.getString("answer3");
-                    
-                    return true;
-                }
-                else{
-                    return false;
-                }
-            } catch (SQLException ex) {
-                System.out.println(""+ex);
+public boolean recoverycheck() {
+    dbconnect dbc = new dbconnect();
+
+    try {
+        // First: get the user info by username
+        String queryUser = "SELECT * FROM users WHERE ussername = '" + uname.getText() + "'";
+        ResultSet resultUser = dbc.getData(queryUser);
+
+        if (resultUser.next()) {
+            usrname = resultUser.getString("ussername");
+            uid = resultUser.getString("uid");
+
+            // Now get the recovery data using u_id as foreign key
+            String queryRecovery = "SELECT * FROM recovery WHERE userid = '" + uid + "'";
+            ResultSet resultRecovery = dbc.getData(queryRecovery);
+
+            if (resultRecovery.next()) {
+                ans1 = resultRecovery.getString("answer1");
+                ans2 = resultRecovery.getString("answer2");
+                ans3 = resultRecovery.getString("answer3");
+
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "No recovery data found for this user.");
                 return false;
             }
 
+        } else {
+            JOptionPane.showMessageDialog(null, "Username not found.");
+            return false;
         }
+
+    } catch (SQLException ex) {
+        System.out.println("SQL Error: " + ex);
+        return false;
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,7 +96,7 @@ public class recovery extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        user_id = new javax.swing.JTextField();
+        uname = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         caution = new javax.swing.JLabel();
 
@@ -245,15 +263,15 @@ public class recovery extends javax.swing.JFrame {
         loginFrame.add(jLabel6);
         jLabel6.setBounds(630, 60, 150, 30);
 
-        user_id.setPreferredSize(new java.awt.Dimension(59, 25));
-        loginFrame.add(user_id);
-        user_id.setBounds(589, 140, 125, 20);
+        uname.setPreferredSize(new java.awt.Dimension(59, 25));
+        loginFrame.add(uname);
+        uname.setBounds(750, 130, 170, 30);
 
         jLabel8.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel8.setText(" Enter id:");
+        jLabel8.setText(" Enter username:");
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0)));
         loginFrame.add(jLabel8);
-        jLabel8.setBounds(500, 134, 220, 30);
+        jLabel8.setBounds(500, 124, 430, 40);
 
         caution.setForeground(new java.awt.Color(204, 0, 0));
         loginFrame.add(caution);
@@ -277,27 +295,36 @@ public class recovery extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginbttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbttnMouseClicked
+            if (uname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter username.");
+            return;
+             }
+
            if(recoverycheck()){
-               
-            if(!(a1.getText().equals(ans1))&!(a2.getText().equals(ans2))&!(a3.getText().equals(ans3))){
-            caution.setText("All answers are incorrect!");
-            } else if(!(a1.getText().equals(ans1))){
-           caution.setText("Incorrect answer in question 1");
-           a1.setText("");
-           } else if(!(a2.getText().equals(ans2))){
-             caution.setText("Incorrect answer in question 2");
-             a2.setText("");
-           } else if(!(a3.getText().equals(ans3))){
-             caution.setText("Incorrect answer in question 3");
-             a3.setText("");
+                try {
+                    String answer1 = passwordHasher.hashPassword(a1.getText());
+                    String answer2 = passwordHasher.hashPassword(a2.getText());
+                    String answer3 = passwordHasher.hashPassword(a3.getText()); 
+            if(!(answer1.equals(ans1))&!(answer2.equals(ans2))&!(answer3.equals(ans3))){
+                caution.setText("All answers are incorrect!");
+            } else if(!(answer1.equals(ans1))){
+                caution.setText("Incorrect answer in question 1");
+                a1.setText("");
+           } else if(!(answer2.equals(ans2))){
+                caution.setText("Incorrect answer in question 2");
+                a2.setText("");
+           } else if(!(answer3.equals(ans3))){
+                caution.setText("Incorrect answer in question 3");
+                a3.setText("");
            } else{
-               this.dispose();
-              
-               changepass cp = new changepass();
-               cp.setVisible(true);
-             
-           
-           }        
+                this.dispose();
+                changepass cp = new changepass();
+                cp.setVisible(true);
+
+           }      
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(recovery.class.getName()).log(Level.SEVERE, null, ex);
+                }
            }
     }//GEN-LAST:event_loginbttnMouseClicked
 
@@ -412,6 +439,6 @@ public class recovery extends javax.swing.JFrame {
     public javax.swing.JPanel loginFrame;
     private javax.swing.JLabel loginbttn;
     private javax.swing.JLabel minimize;
-    private javax.swing.JTextField user_id;
+    private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }

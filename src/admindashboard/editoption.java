@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -330,12 +331,14 @@ public class editoption extends javax.swing.JFrame {
     }//GEN-LAST:event_gobackMouseExited
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-         if(duplicatecheck()){
-              
-         recovery.setVisible(false);
-         } else{
-         recovery.setVisible(true);
-         }
+Session sess = Session.getInstance();
+        if(sess.getId() == 0){
+        JOptionPane.showMessageDialog(null,"No account found, login first!");
+        loginform lfm = new loginform();
+        lfm.setVisible(true);
+        this.dispose();
+        }else{
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

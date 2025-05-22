@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 
 import partylist.managepaartylist;
+import positions.managepositions;
 import reports.report;
 
 
@@ -58,6 +59,7 @@ public class maindash extends javax.swing.JFrame {
         candidates = new javax.swing.JLabel();
         editaccc = new javax.swing.JLabel();
         applcation = new javax.swing.JLabel();
+        position = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -188,7 +190,7 @@ public class maindash extends javax.swing.JFrame {
                 reportssMouseExited(evt);
             }
         });
-        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
+        sidebar.add(reportss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 160, 40));
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setForeground(new java.awt.Color(204, 0, 0));
@@ -255,6 +257,22 @@ public class maindash extends javax.swing.JFrame {
             }
         });
         sidebar.add(applcation, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 160, 40));
+
+        position.setBackground(new java.awt.Color(204, 0, 0));
+        position.setForeground(new java.awt.Color(204, 0, 0));
+        position.setText("  Position");
+        position.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                positionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                positionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                positionMouseExited(evt);
+            }
+        });
+        sidebar.add(position, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 160, 40));
 
         main.add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 170, 610));
 
@@ -323,7 +341,10 @@ public class maindash extends javax.swing.JFrame {
     reportss.setOpaque(false);
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
-    editaccc.setOpaque(false);     
+    editaccc.setOpaque(false);  
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false); 
         
         managecandidates mcd = new managecandidates();
        jDesktopPane1.removeAll();    
@@ -383,7 +404,9 @@ public class maindash extends javax.swing.JFrame {
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);       
-        
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false);    
         report rp = new report();
        jDesktopPane1.removeAll();    
         jDesktopPane1.add(rp).setVisible(true);
@@ -422,7 +445,9 @@ public class maindash extends javax.swing.JFrame {
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);   
-        
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false);    
         
         jDesktopPane1.removeAll();
      manageuser mu = new manageuser();
@@ -510,6 +535,9 @@ public class maindash extends javax.swing.JFrame {
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);   
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false); 
     jDesktopPane1.removeAll();
     accdetails ad = new accdetails();
     jDesktopPane1.add(ad).setVisible(true);
@@ -558,7 +586,9 @@ public class maindash extends javax.swing.JFrame {
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);     
-        
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false);    
         jDesktopPane1.removeAll();
      managepaartylist mp = new managepaartylist();
      jDesktopPane1.add(mp).setVisible(true);
@@ -597,6 +627,9 @@ public class maindash extends javax.swing.JFrame {
     editaccc.setBackground(Color.white);
     editaccc.setForeground(new java.awt.Color(221,21,21));
     editaccc.setOpaque(false);   
+    position.setBackground(Color.white);
+    position.setForeground(new java.awt.Color(221,21,21));
+    position.setOpaque(false); 
     jDesktopPane1.removeAll();
     manageapplications ad = new manageapplications();
     jDesktopPane1.add(ad).setVisible(true);  
@@ -609,6 +642,48 @@ public class maindash extends javax.swing.JFrame {
     private void applcationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_applcationMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_applcationMouseExited
+
+    private void positionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_positionMouseClicked
+        position.setOpaque(true);
+    position.setBackground(new java.awt.Color(221,21,21));
+    position.setForeground(Color.white);
+    
+    //other button
+    users.setBackground(Color.white);
+    users.setForeground(new java.awt.Color(221,21,21));
+    users.setOpaque(false);
+    candidates.setBackground(Color.white);
+    candidates.setForeground(new java.awt.Color(221,21,21));
+    candidates.setOpaque(false);
+    partylist.setBackground(Color.white);
+    partylist.setForeground(new java.awt.Color(221,21,21));
+    partylist.setOpaque(false);
+    myaccount.setBackground(Color.white);
+    myaccount.setForeground(new java.awt.Color(221,21,21));
+    myaccount.setOpaque(false);
+    reportss.setBackground(Color.white);
+    reportss.setForeground(new java.awt.Color(221,21,21));
+    reportss.setOpaque(false);
+    editaccc.setBackground(Color.white);
+    editaccc.setForeground(new java.awt.Color(221,21,21));
+    editaccc.setOpaque(false);   
+    applcation.setBackground(Color.white);
+    applcation.setForeground(new java.awt.Color(221,21,21));
+    applcation.setOpaque(false); 
+        
+        managepositions mngpos = new managepositions();
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(mngpos).setVisible(true);  
+        
+    }//GEN-LAST:event_positionMouseClicked
+
+    private void positionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_positionMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_positionMouseEntered
+
+    private void positionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_positionMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_positionMouseExited
 
     /**
      * @param args the command line arguments
@@ -659,6 +734,7 @@ public class maindash extends javax.swing.JFrame {
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel myaccount;
     private javax.swing.JLabel partylist;
+    private javax.swing.JLabel position;
     private javax.swing.JLabel reportss;
     private javax.swing.JPanel sidebar;
     private javax.swing.JLabel users;

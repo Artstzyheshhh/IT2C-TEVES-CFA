@@ -366,7 +366,7 @@ public class addpartylist extends javax.swing.JInternalFrame {
             }
         }
         
-        
+        Files.copy(selectedFile.toPath(), new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
         String actionn = "Added partylist with ID no.: " + lastInsertedId;
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
         
@@ -382,7 +382,9 @@ public class addpartylist extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Creating user failed, no rows affected.");
     }} catch (SQLException ex) {
                     Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (IOException ex) {
+                Logger.getLogger(addpartylist.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }
     }//GEN-LAST:event_savebttnMouseClicked
 

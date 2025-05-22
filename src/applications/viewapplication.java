@@ -91,6 +91,31 @@ public class viewapplication extends javax.swing.JInternalFrame {
     ImageIcon image = new ImageIcon(newImg);
     return image;
 }
+        
+     public static String status;
+    
+     public boolean getids(){ 
+       dbconnect dbc = new dbconnect();
+     try {    
+             
+        String queryPartylist = "SELECT * FROM applications WHERE aid = '" + id.getText() + "'";
+        ResultSet rsPartylist = dbc.getData(queryPartylist);
+        boolean valid = true;
+
+        if (rsPartylist.next()) {
+            status = rsPartylist.getString("status");
+        } else {
+            System.out.println(""+status);
+            valid = false;
+        }
+
+       
+        return valid;
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+            return false;
+        }    
+    }      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -392,9 +417,19 @@ public class viewapplication extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_selectMouseClicked
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
-        JPanel myPanel = new JPanel();
-        PanelPrinter pprint = new PanelPrinter(coc);
-        pprint.printPanel();
+        if(getids()){
+        if(!(status.equals("Qualified"))){
+        JOptionPane.showMessageDialog(null, "Apllication not completed or disqualified, Cannot print application.!");
+                    id.setText("");
+                    cname.setText("");
+                    position.setText("");
+                    date.setText("");
+                    pname.setText("");
+        }else{
+                PanelPrinter pprint = new PanelPrinter(coc);
+                pprint.printPanel();
+        }
+        }
     }//GEN-LAST:event_printMouseClicked
 
 

@@ -9,11 +9,15 @@ import admindashboard.editoption;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import config.dbconnect;
 import config.Session;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
-import registrardashboard.userditop;
+
 /**
  *
  * @author acer
@@ -30,7 +34,7 @@ public class forgotpass extends javax.swing.JInternalFrame {
        bi.setNorthPane (null);
     }
      
-    public static String utypee;
+    public static String uidd;
     public boolean duplicatecheck(){
             dbconnect dbc = new dbconnect();
             Session sess = Session.getInstance();
@@ -39,21 +43,13 @@ public class forgotpass extends javax.swing.JInternalFrame {
 
             try{
                 String query = "SELECT * FROM recovery WHERE userid = '"+ uid +"'";
-                String querys = "SELECT * FROM users WHERE userid = '"+ uid +"'";
-                
                 ResultSet resultSet = dbc.getData(query);
-                if(resultSet.next()){
-                    utypee= resultSet.getString("utype");
-                    userid = resultSet.getInt("userid");
-                    if(uid == userid){
-                        System.out.println("user done this setup");
-                    } 
-
-                    return true;
-                }
-                else{
-                    return false;
-                }
+            if (resultSet.next()) {
+                 uidd = resultSet.getString("userid");
+                return true;
+            }else {
+                 return false;
+            }
             } catch (SQLException ex) {
                 System.out.println(""+ex);
                 return false;
@@ -207,33 +203,26 @@ public class forgotpass extends javax.swing.JInternalFrame {
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
         dbconnect dbc = new dbconnect();
         Session sess = Session.getInstance();
-     
-          if (duplicatecheck()){
-            System.out.println("user already existed");
-            q1.setText("");
-            q2.setText("");
-            q3.setText("");
-            caution.setText("User already done setting up recovery setting!!");
-             savebttn.enable(false);
-        }else{
-              
-               if(q1.getText().isEmpty()||q2.getText().isEmpty()||q3.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "All questions should be answered!");
+        String answer1, answer2, answer3;
+        try {
+        answer1 = passwordHasher.hashPassword(q1.getText());
+        answer2 = passwordHasher.hashPassword(q2.getText());
+        answer3 = passwordHasher.hashPassword(q3.getText());
+        if(q1.getText().isEmpty()||q2.getText().isEmpty()||q3.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "All questions should be answered!");
+                return;
+        }if (duplicatecheck()){
+            dbc.insertData("UPDATE recovery SET answer1 = '" + answer1 + "',answer2 = '" + answer2 + "', answer3 = '" + answer3 + "' WHERE userid = '" +sess.getId()+ "'");
+            JOptionPane.showMessageDialog(null, "Recovery updated successfully.");
+        }else{    
+            dbc.insertData("INSERT INTO recovery(userid, answer1, answer2, answer3)VALUES ('"+sess.getId()+"','"+answer1+"', '"+answer2+"', '"+answer3+"')");
+            caution.setText("Added successfully!!");
+            }
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(forgotpass.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        else{
-              int uid = sess.getId();
-        int db = dbc.insertData("INSERT INTO recovery(userid, answer1, answer2, answer3)"
-                + " VALUES ('"+uid+"','"+q1.getText()+"', '"+q2.getText()+"', '"+q3.getText()+"')");
-           caution.setText("Added successfully!!");
-           q1.setText("");
-           q2.setText("");
-           q3.setText("");
-           savebttn.enable(false);
-           
-           
-        }}
+       
+         
         
     }//GEN-LAST:event_savebttnMouseClicked
 

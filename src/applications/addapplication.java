@@ -184,7 +184,7 @@ public class addapplication extends javax.swing.JInternalFrame {
          Session sess = Session.getInstance();   
          dbconnect dbc = new dbconnect(); 
          if (getids()){
-             System.out.println("add"+pid+""+Age);
+            
            
           int lastInsertedId = -1;
             String sql = "INSERT INTO applications(uid,cid,pid,ppid,status,date) VALUES (?,?,?,?,?,?)";
@@ -193,7 +193,7 @@ public class addapplication extends javax.swing.JInternalFrame {
                 pst.setString(2,cid.getText());
                 pst.setInt(3,pid );
                 pst.setInt(4, ppid);
-                pst.setString(5, "Qualified");
+                pst.setString(5, "Incomplete");
                 pst.setString(6, LocalDateTime.now().toString());
                 
               int affectedRows = pst.executeUpdate();
@@ -218,8 +218,7 @@ public class addapplication extends javax.swing.JInternalFrame {
         image.setIcon(null);
     } else {
         JOptionPane.showMessageDialog(null, "Adding application failed, no rows affected.");
-    }}
-                   } catch (SQLException ex) {
+    }}} catch (SQLException ex) {
                     Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
                 }
     

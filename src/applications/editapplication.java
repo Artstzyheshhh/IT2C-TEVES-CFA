@@ -271,7 +271,7 @@ public class editapplication extends javax.swing.JInternalFrame {
         });
         jPanel2.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 90, 20));
 
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualified", "Disqualified" }));
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualified", "Disqualified", "Incomplete", "Withdrawed" }));
         jPanel2.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 240, 20));
 
         jLabel11.setForeground(new java.awt.Color(204, 0, 0));

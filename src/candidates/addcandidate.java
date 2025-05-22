@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -122,6 +123,7 @@ public class addcandidate extends javax.swing.JInternalFrame {
                 lastInsertedId = generatedKeys.getInt(1);
             }
         }
+        Files.copy(selectedFile.toPath(), new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
          JOptionPane.showMessageDialog(null, "candidate added successfully");
         String actionn = "Added candidate with ID No.: " + lastInsertedId;
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
@@ -141,7 +143,9 @@ public class addcandidate extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Adding candidate failed, no rows affected.");
     }} catch (SQLException ex) {
                     Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (IOException ex) {
+            Logger.getLogger(addcandidate.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
             
         

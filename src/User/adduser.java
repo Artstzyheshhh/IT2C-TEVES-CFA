@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -511,7 +512,7 @@ public class adduser extends javax.swing.JInternalFrame {
                 lastInsertedId = generatedKeys.getInt(1);
             }
         }
-
+        Files.copy(selectedFile.toPath(), new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
         String actionn = "Created user account ID: " + lastInsertedId;
         dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
 
@@ -528,6 +529,8 @@ public class adduser extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Creating user failed, no rows affected.");
     }}catch(NoSuchAlgorithmException ex){
                     System.out.println(""+ex);} catch (SQLException ex) {
+                    Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
                     Logger.getLogger(adduser.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
