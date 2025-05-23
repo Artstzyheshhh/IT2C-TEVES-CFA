@@ -61,12 +61,12 @@ public class viewapplication extends javax.swing.JInternalFrame {
                 columnModel.getColumn(2).setHeaderValue("Firstname");
                 columnModel.getColumn(3).setHeaderValue("Position");
                 columnModel.getColumn(4).setHeaderValue("Status");
-               
-               applicationtable.getTableHeader().repaint();
-                columnModel.getColumn(0).setPreferredWidth(50);
-                columnModel.getColumn(1).setPreferredWidth(115);
-                columnModel.getColumn(2).setPreferredWidth(115);
-                columnModel.getColumn(3).setPreferredWidth(115);
+                applicationtable.getTableHeader().repaint();
+                columnModel.getColumn(0).setPreferredWidth(100);
+                columnModel.getColumn(1).setPreferredWidth(170);
+                columnModel.getColumn(2).setPreferredWidth(170);
+                columnModel.getColumn(3).setPreferredWidth(170);
+                columnModel.getColumn(4).setPreferredWidth(170);
              
             }
         }catch(SQLException ex){
@@ -92,7 +92,7 @@ public class viewapplication extends javax.swing.JInternalFrame {
     return image;
 }
         
-     public static String status;
+         public static String status;
     
      public boolean getids(){ 
        dbconnect dbc = new dbconnect();
@@ -115,7 +115,7 @@ public class viewapplication extends javax.swing.JInternalFrame {
             System.out.println(""+ex);
             return false;
         }    
-    }      
+    }       
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -385,7 +385,7 @@ public class viewapplication extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Please select an application!");
         }else {
             try {
-                
+             
             dbconnect dbc = new dbconnect();
             TableModel tbl = applicationtable.getModel();
             String selectedAid = tbl.getValueAt(rowIndex, 0).toString();
@@ -405,9 +405,8 @@ public class viewapplication extends javax.swing.JInternalFrame {
                     position.setText(""+rs.getString("position"));
                     date.setText(""+rs.getString("date"));
                     pname.setText(""+rs.getString("pname"));
+                    image.setIcon(ResizeImage(rs.getString("cimage"),null,image));
                    
-                   
-                     image.setIcon(ResizeImage(rs.getString("cimage"),null,image));
                 }
 
             } catch (SQLException ex) {
@@ -418,17 +417,18 @@ public class viewapplication extends javax.swing.JInternalFrame {
 
     private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
         if(getids()){
-        if(!(status.equals("Qualified"))){
-        JOptionPane.showMessageDialog(null, "Apllication not completed or disqualified, Cannot print application.!");
-                    id.setText("");
-                    cname.setText("");
-                    position.setText("");
-                    date.setText("");
-                    pname.setText("");
-        }else{
+            if(!(status.equals("Qualified"))){
+                JOptionPane.showMessageDialog(null, "Apllication not completed or disqualified, Cannot print application.!");
+                id.setText("");
+                cname.setText("");
+                position.setText("");
+                date.setText("");
+                pname.setText("");
+            }else{
+
                 PanelPrinter pprint = new PanelPrinter(coc);
                 pprint.printPanel();
-        }
+            }
         }
     }//GEN-LAST:event_printMouseClicked
 

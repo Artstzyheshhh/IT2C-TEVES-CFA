@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2025 at 03:34 PM
+-- Generation Time: May 22, 2025 at 06:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -226,7 +226,144 @@ INSERT INTO `logged` (`lid`, `action`, `date`, `userid`) VALUES
 (117, 'User with ID 5 logged in', '2025-04-24 06:24:29', 5),
 (118, 'User with ID 5 logged out', '2025-04-24 06:25:49', 5),
 (119, 'User with ID 5 logged in', '2025-04-24 06:27:49', 5),
-(120, 'User with ID 5 logged out', '2025-04-24 06:28:15', 5);
+(120, 'User with ID 5 logged out', '2025-04-24 06:28:15', 5),
+(121, 'User with ID 15 logged in', '2025-05-14 22:29:24', 15),
+(122, 'User with ID 15 logged out', '2025-05-14 22:29:33', 15),
+(123, 'User with ID 15 logged in', '2025-05-17 22:09:47', 15),
+(124, 'User with ID 15 logged out', '2025-05-17 22:10:04', 15),
+(125, 'User with ID 15 logged in', '2025-05-19 21:33:35', 15),
+(126, 'User with ID 15 logged out', '2025-05-19 21:33:44', 15),
+(127, 'User with ID 15 logged in', '2025-05-20 20:40:14', 15),
+(128, 'User with ID 15 logged out', '2025-05-20 20:42:09', 15),
+(129, 'User with ID 15 logged in', '2025-05-20 20:59:46', 15),
+(130, 'User with ID 15 logged out', '2025-05-20 21:05:04', 15),
+(131, 'User with ID 15 logged in', '2025-05-21 09:29:39', 15),
+(132, 'User with ID 15 logged out', '2025-05-21 09:31:47', 15),
+(133, 'User with ID 15 logged in', '2025-05-21 09:32:05', 15),
+(134, 'User with ID 15 logged out', '2025-05-21 09:33:20', 15),
+(135, 'User with ID 15 logged in', '2025-05-21 09:33:32', 15),
+(136, 'User with ID 15 logged out', '2025-05-21 09:34:15', 15),
+(137, 'User with ID 15 logged in', '2025-05-21 09:37:52', 15),
+(138, 'User with ID 15 logged out', '2025-05-21 09:38:41', 15),
+(139, 'User with ID 15 logged in', '2025-05-21 09:39:01', 15),
+(140, 'User with ID 15 logged out', '2025-05-21 09:40:04', 15),
+(141, 'User with ID 5 logged in', '2025-05-21 09:43:15', 5),
+(142, 'User with ID 5 logged out', '2025-05-21 09:46:59', 5),
+(143, 'User with ID 15 logged in', '2025-05-21 12:44:01', 15),
+(144, 'User with ID 15 logged out', '2025-05-21 12:44:21', 15),
+(145, 'User with ID 15 logged in', '2025-05-21 12:45:10', 15),
+(146, 'User with ID 15 logged out', '2025-05-21 12:46:43', 15),
+(147, 'User with ID 15 logged in', '2025-05-21 12:54:24', 15),
+(148, 'User with ID 15 logged out', '2025-05-21 12:54:51', 15),
+(149, 'User with ID 15 logged in', '2025-05-21 12:57:26', 15),
+(150, 'User with ID 15 logged out', '2025-05-21 12:57:35', 15),
+(151, 'User with ID 15 logged in', '2025-05-21 12:58:29', 15),
+(152, 'User with ID 15 logged out', '2025-05-21 12:58:49', 15),
+(153, 'User with ID 15 logged in', '2025-05-21 13:22:52', 15),
+(154, 'User with ID 15 logged out', '2025-05-21 13:23:38', 15),
+(155, 'User with ID 15 logged in', '2025-05-21 13:24:11', 15),
+(156, 'User with ID 15 logged out', '2025-05-21 13:24:32', 15),
+(157, 'User with ID 15 logged in', '2025-05-21 13:27:22', 15),
+(158, 'User with ID 15 logged out', '2025-05-21 13:28:09', 15),
+(159, 'User with ID 15 logged in', '2025-05-21 14:35:54', 15),
+(160, 'User with ID 15 logged out', '2025-05-21 14:36:15', 15),
+(161, 'User with ID 15 logged in', '2025-05-21 14:37:56', 15),
+(162, 'User with ID 15 logged out', '2025-05-21 14:38:09', 15),
+(163, 'User with ID 15 logged in', '2025-05-21 14:38:42', 15),
+(164, 'User with ID 15 logged in', '2025-05-21 14:46:18', 15),
+(165, 'User with ID 15 logged out', '2025-05-21 14:47:46', 15),
+(166, 'User with ID 15 logged out', '2025-05-21 14:47:49', 15),
+(167, 'User with ID 15 logged in', '2025-05-21 14:48:10', 15),
+(168, 'User with ID 15 logged out', '2025-05-21 14:48:24', 15),
+(169, 'User with ID 15 logged in', '2025-05-21 14:49:18', 15),
+(170, 'User with ID 15 logged out', '2025-05-21 14:49:53', 15),
+(171, 'User with ID 15 logged in', '2025-05-21 14:50:13', 15),
+(172, 'User with ID 15 logged out', '2025-05-21 14:50:17', 15),
+(173, 'User with ID 15 logged in', '2025-05-21 14:50:29', 15),
+(174, 'User with ID 15 logged out', '2025-05-21 14:50:36', 15),
+(175, 'User with ID 15 logged in', '2025-05-21 14:50:57', 15),
+(176, 'User with ID 15 logged out', '2025-05-21 14:51:01', 15),
+(177, 'User with ID 15 logged in', '2025-05-21 14:53:06', 15),
+(178, 'User with ID 15 logged out', '2025-05-21 14:54:13', 15),
+(179, 'User with ID 15 logged in', '2025-05-21 14:56:44', 15),
+(180, 'User with ID 15 logged out', '2025-05-21 14:56:50', 15),
+(181, 'User with ID 15 logged in', '2025-05-21 14:57:06', 15),
+(182, 'User with ID 15 logged out', '2025-05-21 14:57:10', 15),
+(183, 'User with ID 15 logged in', '2025-05-21 15:01:35', 15),
+(184, 'User with ID 15 logged out', '2025-05-21 15:01:42', 15),
+(185, 'User with ID 15 logged in', '2025-05-21 15:02:14', 15),
+(186, 'User with ID 15 logged out', '2025-05-21 15:02:30', 15),
+(187, 'User with ID 15 logged in', '2025-05-21 15:20:08', 15),
+(188, 'User with ID 15 logged out', '2025-05-21 15:21:33', 15),
+(189, 'User with ID 15 logged in', '2025-05-21 15:22:07', 15),
+(190, 'User with ID 15 logged out', '2025-05-21 15:23:31', 15),
+(191, 'User with ID 15 logged in', '2025-05-21 15:23:45', 15),
+(192, 'User with ID 15 logged out', '2025-05-21 15:24:13', 15),
+(193, 'User with ID 15 logged in', '2025-05-21 15:24:46', 15),
+(194, 'User with ID 15 logged out', '2025-05-21 15:25:10', 15),
+(195, 'User with ID 15 logged in', '2025-05-21 15:25:36', 15),
+(196, 'User with ID 15 logged out', '2025-05-21 15:25:48', 15),
+(197, 'User with ID 15 logged in', '2025-05-21 15:26:50', 15),
+(198, 'User with ID 15 logged out', '2025-05-21 15:27:03', 15),
+(199, 'User with ID 15 logged in', '2025-05-21 15:27:33', 15),
+(200, 'User with ID 15 logged out', '2025-05-21 15:27:45', 15),
+(201, 'User with ID 15 logged in', '2025-05-21 15:30:20', 15),
+(202, 'User with ID 15 logged out', '2025-05-21 15:30:28', 15),
+(203, 'User with ID 15 logged in', '2025-05-21 15:31:51', 15),
+(204, 'User with ID 15 logged out', '2025-05-21 15:31:56', 15),
+(205, 'User with ID 15 logged in', '2025-05-21 15:33:03', 15),
+(206, 'User with ID 15 logged out', '2025-05-21 15:33:07', 15),
+(207, 'User with ID 15 logged in', '2025-05-21 15:33:50', 15),
+(208, 'User with ID 15 logged out', '2025-05-21 15:34:20', 15),
+(209, 'User with ID 15 logged in', '2025-05-21 15:37:14', 15),
+(210, 'User with ID 15 logged out', '2025-05-21 15:37:54', 15),
+(211, 'User with ID 15 logged in', '2025-05-21 15:40:13', 15),
+(212, 'User with ID 15 logged out', '2025-05-21 15:40:38', 15),
+(213, 'User with ID 15 logged in', '2025-05-21 15:40:58', 15),
+(214, 'User with ID 15 logged out', '2025-05-21 15:41:34', 15),
+(215, 'User with ID 15 logged in', '2025-05-21 15:44:55', 15),
+(216, 'User with ID 15 logged out', '2025-05-21 15:45:20', 15),
+(217, 'User with ID 15 logged in', '2025-05-21 15:45:39', 15),
+(218, 'User with ID 15 logged out', '2025-05-21 15:45:59', 15),
+(219, 'User with ID 15 logged in', '2025-05-21 15:47:35', 15),
+(220, 'User with ID 15 logged out', '2025-05-21 15:47:55', 15),
+(221, 'User with ID 15 logged in', '2025-05-21 15:51:14', 15),
+(222, 'User with ID 15 logged out', '2025-05-21 15:51:22', 15),
+(223, 'User with ID 15 logged in', '2025-05-21 15:51:59', 15),
+(224, 'User with ID 15 logged out', '2025-05-21 15:52:12', 15),
+(225, 'User with ID 15 logged in', '2025-05-21 15:52:49', 15),
+(226, 'User with ID 15 logged out', '2025-05-21 15:53:07', 15),
+(227, 'User with ID 15 logged in', '2025-05-21 15:54:15', 15),
+(228, 'User with ID 15 logged out', '2025-05-21 15:54:34', 15),
+(229, 'User with ID 15 logged in', '2025-05-21 15:55:56', 15),
+(230, 'User with ID 15 logged out', '2025-05-21 15:56:04', 15),
+(231, 'User with ID 15 logged in', '2025-05-21 15:58:33', 15),
+(232, 'User with ID 15 logged out', '2025-05-21 15:58:49', 15),
+(233, 'User with ID 15 logged in', '2025-05-21 16:00:46', 15),
+(234, 'User with ID 15 logged out', '2025-05-21 16:01:05', 15),
+(235, 'User with ID 15 logged in', '2025-05-21 17:32:00', 15),
+(236, 'User with ID 15 logged out', '2025-05-21 17:32:47', 15),
+(237, 'User with ID 15 logged in', '2025-05-21 17:33:37', 15),
+(238, 'User with ID 15 logged out', '2025-05-21 17:34:23', 15),
+(239, 'User with ID 15 logged in', '2025-05-21 17:34:35', 15),
+(240, 'User with ID 15 logged out', '2025-05-21 17:36:36', 15),
+(241, 'User with ID 15 logged in', '2025-05-21 17:36:46', 15),
+(242, 'User with ID 15 logged out', '2025-05-21 17:37:02', 15),
+(243, 'User with ID 15 logged in', '2025-05-21 21:09:58', 15),
+(244, 'User with ID 15 logged out', '2025-05-21 21:10:22', 15),
+(245, 'User with ID 15 logged in', '2025-05-21 21:10:52', 15),
+(246, 'User with ID 15 logged out', '2025-05-21 21:11:17', 15),
+(247, 'User with ID 15 logged in', '2025-05-21 21:12:20', 15),
+(248, 'User with ID 15 logged out', '2025-05-21 21:12:41', 15),
+(249, 'User with ID 15 logged in', '2025-05-21 21:14:01', 15),
+(250, 'User with ID 15 logged out', '2025-05-21 21:14:41', 15),
+(251, 'User with ID 15 logged in', '2025-05-21 21:17:00', 15),
+(252, 'User with ID 15 logged out', '2025-05-21 21:17:20', 15),
+(253, 'User with ID 15 logged in', '2025-05-21 21:17:42', 15),
+(254, 'User with ID 15 logged out', '2025-05-21 21:18:03', 15),
+(255, 'User with ID 5 logged in', '2025-05-21 21:19:34', 5),
+(256, 'User with ID 5 logged out', '2025-05-21 21:19:53', 5),
+(257, 'User with ID 15 logged in', '2025-05-21 21:29:43', 15);
 
 -- --------------------------------------------------------
 
@@ -340,7 +477,12 @@ INSERT INTO `logs` (`lid`, `action`, `date`, `user_id`) VALUES
 (185, 'Updated partylist with ID No.: 24', '2025-04-24 05:36:48', 15),
 (186, 'Updated candidate with ID No.: 39', '2025-04-24 05:39:53', 15),
 (187, 'Added COC application with ID No.: 4', '2025-04-24 05:45:38', 15),
-(188, 'Added COC application with ID No.: 5', '2025-04-24 05:52:28', 15);
+(188, 'Added COC application with ID No.: 5', '2025-04-24 05:52:28', 15),
+(189, 'Created user account ID: 30', '2025-05-20 20:41:29', 15),
+(190, 'Updated user with ID No.: 27', '2025-05-20 21:01:29', 15),
+(191, 'Added position with ID No.: 17', '2025-05-21 17:34:45', 15),
+(192, 'Added position with ID No.: 18', '2025-05-21 17:36:56', 15),
+(193, 'Deleted position with ID No.: 18', '2025-05-21 21:29:55', 15);
 
 -- --------------------------------------------------------
 
@@ -402,7 +544,8 @@ INSERT INTO `positions` (`pid`, `position`, `term`) VALUES
 (12, 'Barangay councilor', 3),
 (13, 'SK chairman', 3),
 (14, 'SK councilor', 3),
-(16, 'Representative', 3);
+(16, 'Representative', 3),
+(17, 'Secretary', 6);
 
 -- --------------------------------------------------------
 
@@ -423,10 +566,10 @@ CREATE TABLE `recovery` (
 --
 
 INSERT INTO `recovery` (`rid`, `userid`, `answer1`, `answer2`, `answer3`) VALUES
-(1, 15, 'jokjook', 'black', 'chimken'),
+(1, 15, 'tekGx539MZN2LayBvSFVTzzotoMy7v8KfIdAXs1JTvo=', 'wAbH46sU1ob2NSQTbx7HxeVT2Dm8AchR5Nyd4r2/xYk=', 'gR64G50R1lo2xTw+vbc47jA0A8t514HM9LQHZOCp0So='),
 (2, 14, 'romo', 'blue', 'dashi'),
 (3, 12, 'doraemon', 'green', 'fish'),
-(4, 5, 'romoo', 'black', 'fish');
+(4, 5, 'ImPtPy0JuKGE8KEeq+JCl5jVJqp0yrG+2ReZoy+Sz/c=', 'ukeIsiaqjcLm3HQki7n2GM+oyVngwmwUe+SPaDmgsIg=', 'wfAmWC/m6MtiDQyFpy/kId3e11ZmKo7ADtTCl60QZ2s=');
 
 -- --------------------------------------------------------
 
@@ -461,10 +604,12 @@ INSERT INTO `users` (`uid`, `fname`, `lname`, `ussername`, `useremail`, `sex`, `
 (12, 'Gojo', 'saturo', 'hollowpurple', 'hollowpurple@gmail.com', 'male', 'User', '1987-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
 (13, 'uzumaki', 'naruto', 'uzumaki', 'hokagi@gmail.com', 'male', 'User', '1989-03-23', 'Vkh+6vmFm1qfN7vw1rV3YNqLhLh3kafHVVCJPtgW1Ak=', 'Active', ''),
 (14, 'sanji', 'vinsmoke', 'sanjii', 'onepiece@gmail.com', 'male', 'Admin', '2012-02-03', 'Tex6uJFFl9hHsI/4S6CB5avUxwSTilpuddqTOf3uQrQ=', 'Active', ''),
-(15, 'anthony', 'teves', 'artstzy', 'teves12@gmail.com', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', 'src/images/yuji.jpg'),
+(15, 'anthony', 'teves', 'artstzy', 'teves12@gmail.com', 'male', 'Admin', '2004-12-12', 'BU47MIcINw6gKdwuvRZGxJjVnXIDyeGkTPBITfmOWBo=', 'Active', 'src/images/yuji.jpg'),
 (25, 'minato', 'namikaze', 'yellowflash', 'yellowflash@yahoo.com', 'male', 'User', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ''),
-(27, 'sasuke', 'uchiha', 'sasukeee', 'chidori@gmail.com', 'male', 'User', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', ''),
-(28, 'Mark kevin', 'Romo', 'ROMOXD', 'romo@yahoo.com', 'male', 'Admin', '2004-12-23', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ' ');
+(27, 'sasuke', 'uchiha', 'sasukeee', 'chidori@gmail.com', 'male', 'User', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Active', 'src/images/Screenshot (37).png'),
+(28, 'Mark kevin', 'Romo', 'ROMOXD', 'romo@yahoo.com', 'male', 'Admin', '2004-12-23', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ' '),
+(29, 'erwer', 'werwer', 'rwerwer', 'werwerw@gmail.com', 'male', 'Admin', '2004-12-12', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'pending', ' '),
+(30, 'zxczx', 'zxczxc', 'zxczxc', 'qwewq@gmail.com', 'male', 'Admin', '2004-12-12', 'sU4/oxJAepQKZMDelEs0ARmRh0gIXHZUvbeVa6ESg3M=', 'pending', 'src/images/Screenshot (58).png');
 
 --
 -- Indexes for dumped tables
@@ -547,13 +692,13 @@ ALTER TABLE `candidates`
 -- AUTO_INCREMENT for table `logged`
 --
 ALTER TABLE `logged`
-  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `lid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
 
 --
 -- AUTO_INCREMENT for table `partylist`
@@ -565,19 +710,19 @@ ALTER TABLE `partylist`
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `recovery`
 --
 ALTER TABLE `recovery`
-  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `rid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `uid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
