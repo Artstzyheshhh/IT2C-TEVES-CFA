@@ -6,12 +6,15 @@
 package applications;
 
 import static candidates.editcandidate.getHeightFromWidth;
+import config.Session;
 import config.dbconnect;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -367,7 +370,28 @@ public class editapplication extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_imageMouseEntered
 
     private void savebttnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_savebttnMouseClicked
+        dbconnect dbc = new dbconnect();
+        Session sess = Session.getInstance();
+        if(aid.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"No application selected yet");
+        } else{
+            
+            dbc.insertData("UPDATE applications SET status = '"+status.getSelectedItem()+"' WHERE aid = '"+aid.getText()+"'");
+            displayData();
 
+            String actionn = "Updated applications status with ID No.: " + aid.getText();
+        dbc.insertData("INSERT INTO logs(user_id, action, date) VALUES ('" + sess.getId() + "', '" + actionn + "', '" + LocalDateTime.now() + "')");
+            JOptionPane.showMessageDialog(null,"Application updated successfully.");
+            displayData();
+            aid.setText("");
+            cid.setText("");
+            lname.setText("");
+            fname.setText("");
+            age.setText("");
+            cid.setText("");
+            position.setText("");
+            image.setIcon(null);
+            }
        
 
     }//GEN-LAST:event_savebttnMouseClicked
@@ -384,9 +408,11 @@ public class editapplication extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_savebttnMouseExited
 
     private void clearrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearrMouseClicked
-        lname.setText("");
+        aid.setText("");
+        cid.setText("");
         lname.setText("");
         fname.setText("");
+        age.setText("");
         cid.setText("");
         position.setText("");
         image.setIcon(null);

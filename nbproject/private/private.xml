@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/addapplication.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/deleteapplication.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/tables.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/editapplication.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/deletecandidate.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/reports/report.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/admindashboard/maindash.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/positions/editposition.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/User/deleteuser.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/positions/addpositions.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/printapp.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/rreports/rtables.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/candidates/editcandidate.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/positions/viewposition.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/positions/deleteposition.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/applications/viewapplication.java</file>
-            <file>file:/C:/Users/acer/Documents/NetBeansProjects/IT2C-TEVES-CFA/src/positions/managepositions.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
